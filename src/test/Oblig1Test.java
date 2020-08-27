@@ -18,13 +18,15 @@ class Oblig1Test {
     int[] b3 = {115, 49, 5, -2, 22};
     int[] b4 = {-2, 5, 22, 49, 115};
     int[] c = {1};
+    int[] d = {3,3,4,5,5,6,7,7,7,8};
+    int[] e = {5,3,7,4,3,5,7,8,6,7};
 
 
     @Test
     void maks() {
         assertThrows(NoSuchElementException.class, () -> Oblig1.maks(a));
-        for (int i = 0; i < aa.length; i++){
-            assertEquals(4, Oblig1.maks(aa[i]));
+        for (int[] ints : aa) {
+            assertEquals(4, Oblig1.maks(ints));
         }
         assertEquals(115, Oblig1.maks(b));
         assertEquals(115, Oblig1.maks(b1));
@@ -51,5 +53,29 @@ class Oblig1Test {
         assertEquals(4, Oblig1.ombyttinger(b3));
         assertEquals(0, Oblig1.ombyttinger(b4));
         assertEquals(0, Oblig1.ombyttinger(c));
+    }
+
+    @Test
+    void antallUlikeSortert() {
+        assertEquals(0, Oblig1.antallUlikeSortert(a));
+        assertEquals(5, Oblig1.antallUlikeSortert(b4));
+        assertEquals(1, Oblig1.antallUlikeSortert(c));
+        assertEquals(6, Oblig1.antallUlikeSortert(d));
+    }
+
+    @Test
+    void antallUlikeUsortert() {
+        assertEquals(0, Oblig1.antallUlikeUsortert(a));
+        for (int[] ints : aa){
+            assertEquals(4, Oblig1.antallUlikeUsortert(ints));
+        }
+        assertEquals(5, Oblig1.antallUlikeUsortert(b));
+        assertEquals(5, Oblig1.antallUlikeUsortert(b1));
+        assertEquals(5, Oblig1.antallUlikeUsortert(b2));
+        assertEquals(5, Oblig1.antallUlikeUsortert(b3));
+        assertEquals(5, Oblig1.antallUlikeUsortert(b4));
+        assertEquals(1, Oblig1.antallUlikeUsortert(c));
+        assertEquals(6, Oblig1.antallUlikeUsortert(d));
+        assertEquals(6, Oblig1.antallUlikeUsortert(e));
     }
 }

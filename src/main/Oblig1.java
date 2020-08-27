@@ -21,7 +21,7 @@ public class Oblig1 {
         return a[a.length-1];
     }
 
-    // Telle antall ombyttinger
+    //Oppgave 1 - Telle antall ombyttinger
     public static int ombyttinger(int[] a) {
         sjekkArray(a);
 
@@ -39,6 +39,8 @@ public class Oblig1 {
         System.out.println(antall);
         return antall;
     }
+
+    //VI TRENGER Å SVARE SPØRSMÅL ENDA
 
     public static void sjekkArray(int[] a) {
         if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
@@ -58,6 +60,23 @@ public class Oblig1 {
         // Legger på en ekstra fordi for-løkken ikke går innom det siste tallet i tabellen.
         if(a.length > 0) {
             antall++;
+        }
+        return antall;
+    }
+
+    //Oppgave 3 - antall ulike (usortert)
+    public static int antallUlikeUsortert(int[] a){
+        //check against all the previous ones
+        int antall = 0;
+        for (int i=0; i<a.length; i++){
+            boolean matches = false;
+            for (int j=0; j<i; j++){
+                if (a[i] == a[j]) {
+                    matches = true;
+                    break;
+                }
+            }
+            if (!matches) antall++;
         }
         return antall;
     }
