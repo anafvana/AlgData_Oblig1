@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.NoSuchElementException;
+
 public class Oblig1 {
     // Øyvind Ødegård Stenberg - s188886
     // Ana Flávia Vital - s344046
@@ -5,6 +8,7 @@ public class Oblig1 {
 
     //Oppgave 1 - finne største tall
     public static int maks(int[] a) {
+        sjekkArray(a);
         int forste;
         int neste;
         for(int i = 1; i < a.length; i++) {
@@ -20,19 +24,25 @@ public class Oblig1 {
 
     // Telle antall ombyttinger
     public static int ombyttinger(int[] a) {
-        int forste;
-        int neste;
+        sjekkArray(a);
+
         int antall = 0;
-        for(int i = 1; i < a.length; i++) {
-            forste = a[i-1];
-            neste = a[i];
-            if(forste > neste) {
+
+        for (int i=1; i<a.length; i++){
+            int v1 = a[i-1];
+            int v2 = a[i];
+            if (a[i-1]>a[i]) {
+                a[i-1] = v2;
+                a[i] = v1;
                 antall++;
-                a[i] = forste;
-                a[i-1] = neste;
             }
         }
+        System.out.println(antall);
         return antall;
+    }
+
+    public static void sjekkArray(int[] a) {
+        if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
     }
 
     //Oppgave 2 - antall ulike (sortert)
