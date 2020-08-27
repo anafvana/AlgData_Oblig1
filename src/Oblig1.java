@@ -46,8 +46,10 @@ public class Oblig1 {
                 antall++;
             }
         }
-        // Legger på en ekstra siden for-løkken ikke går innom det siste tallet i tabellen.
-        antall++;
+        // Legger på en ekstra fordi for-løkken ikke går innom det siste tallet i tabellen.
+        if(a.length > 0) {
+            antall++;
+        }
         return antall;
     }
 
