@@ -34,4 +34,21 @@ public class Oblig1 {
         }
         return antall;
     }
+
+    //Oppgave 2 - antall ulike (sortert)
+    public static int antallUlikeSortert(int[] a) {
+        int antall = 0;
+        for(int i = 0; i < a.length-1; i++) {
+            if(a[i] > a[i+1]) {
+                throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
+            }
+            if(a[i] < a[i+1]) {
+                antall++;
+            }
+        }
+        // Legger på en ekstra siden for-løkken ikke går innom det siste tallet i tabellen.
+        antall++;
+        return antall;
+    }
+
 }
