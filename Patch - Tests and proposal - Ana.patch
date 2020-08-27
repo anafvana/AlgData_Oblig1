@@ -1,0 +1,173 @@
+Index: src/Oblig1.java
+===================================================================
+--- src/Oblig1.java	(revision 535f8e00bcdc02ef85f8662501049c4abd10d78c)
++++ src/main/Oblig1.java	(date 1598546449509)
+@@ -1,3 +1,6 @@
++import java.util.Arrays;
++import java.util.NoSuchElementException;
++
+ public class Oblig1 {
+     // Øyvind Ødegård Stenberg - s188886
+     // Ana Flávia Vital - s344046
+@@ -5,6 +8,7 @@
+ 
+     //Oppgave 1 - finne største tall
+     public static int maks(int[] a) {
++        sjekkArray(a);
+         int forste;
+         int neste;
+         for(int i = 1; i < a.length; i++) {
+@@ -20,21 +24,43 @@
+ 
+     // Telle antall ombyttinger
+     public static int ombyttinger(int[] a) {
+-        int forste;
+-        int neste;
++        sjekkArray(a);
++        //int forste;
++        //int neste;
++        //int antall = 0;
++        //for(int i = 1; i < a.length; i++) {
++        //    forste = a[i-1];
++        //    neste = a[i];
++        //    if(forste < neste) {
++        //        antall++;
++        //        a[i] = forste;
++        //        a[i-1] = neste;
++        //    }
++        //}
++        //System.out.println(antall);
++        //return antall;
++
+         int antall = 0;
+-        for(int i = 1; i < a.length; i++) {
+-            forste = a[i-1];
+-            neste = a[i];
+-            if(forste > neste) {
++
++        System.out.println(Arrays.toString(a));
++        for (int i=1; i<a.length; i++){
++            int v1 = a[i-1];
++            int v2 = a[i];
++            if (a[i-1]>a[i]) {
++                a[i-1] = v2;
++                a[i] = v1;
+                 antall++;
+-                a[i] = forste;
+-                a[i-1] = neste;
++                System.out.println(Arrays.toString(a));
+             }
+         }
++        System.out.println(antall);
+         return antall;
+     }
+ 
++    public static void sjekkArray(int[] a) {
++        if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
++    }
++
+     //Oppgave 2 - antall ulike (sortert)
+     public static int antallUlikeSortert(int[] a) {
+         int antall = 0;
+Index: Oblig1.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Oblig1.iml	(date 1598543975438)
++++ Oblig1.iml	(date 1598543975438)
+@@ -0,0 +1,29 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src/test" isTestSource="true" />
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/main" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="module-library">
++      <library name="JUnit5.4">
++        <CLASSES>
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.4.2/junit-jupiter-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.4.2/junit-jupiter-api-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.1.1/opentest4j-1.1.1.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.4.2/junit-platform-commons-1.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.4.2/junit-jupiter-params-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.4.2/junit-jupiter-engine-5.4.2.jar!/" />
++          <root url="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.4.2/junit-platform-engine-1.4.2.jar!/" />
++        </CLASSES>
++        <JAVADOC />
++        <SOURCES />
++      </library>
++    </orderEntry>
++  </component>
++</module>
+\ No newline at end of file
+Index: src/test/Oblig1Test.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/Oblig1Test.java	(date 1598546776816)
++++ src/test/Oblig1Test.java	(date 1598546776816)
+@@ -0,0 +1,55 @@
++import org.junit.jupiter.api.Test;
++
++import java.util.NoSuchElementException;
++
++import static org.junit.jupiter.api.Assertions.*;
++
++class Oblig1Test {
++    int[] a = {};
++    int[][] aa = {
++            {1,2,3,4}, {1,2,4,3}, {1,3,2,4}, {1,3,4,2}, {1,4,2,3}, {1,4,3,2},
++            {2,1,3,4}, {2,1,4,3}, {2,3,1,4}, {2,3,4,1}, {2,4,1,3}, {2,3,4,1},
++            {3,1,2,4}, {3,1,4,2}, {3,2,1,4}, {3,2,4,1}, {3,4,1,2}, {3,4,2,1},
++            {4,1,2,3}, {4,1,3,2}, {4,2,1,3}, {4,2,3,1}, {4,3,1,2}, {4,3,2,1}
++    };
++    int[] b = {22, 49, 5, 115, -2};
++    int[] b1 = {115, 22, 49, 5, -2};
++    int[] b2 = {22, 49, 5, -2, 115};
++    int[] b3 = {115, 49, 5, -2, 22};
++    int[] b4 = {-2, 5, 22, 49, 115};
++    int[] c = {1};
++
++
++    @Test
++    void maks() {
++        assertThrows(NoSuchElementException.class, () -> Oblig1.maks(a));
++        for (int i = 0; i < aa.length; i++){
++            assertEquals(4, Oblig1.maks(aa[i]));
++        }
++        assertEquals(115, Oblig1.maks(b));
++        assertEquals(115, Oblig1.maks(b1));
++        assertEquals(115, Oblig1.maks(b2));
++        assertEquals(1, Oblig1.maks(c));
++    }
++
++    @Test
++    void ombyttinger() {
++        assertThrows(NoSuchElementException.class, () -> Oblig1.ombyttinger(a));
++
++        int[] aaResults = {
++                0, 1, 1, 1, 2, 2,
++                1, 2, 1, 1, 2, 1,
++                2, 2, 2, 2, 2, 2,
++                3, 3, 3, 3, 3, 3
++        };
++        for (int i = 0; i < aa.length; i++){
++            assertEquals(aaResults[i], Oblig1.ombyttinger(aa[i]));
++        }
++        assertEquals(2, Oblig1.ombyttinger(b));
++        assertEquals(4, Oblig1.ombyttinger(b1));
++        assertEquals(2, Oblig1.ombyttinger(b2));
++        assertEquals(4, Oblig1.ombyttinger(b3));
++        assertEquals(0, Oblig1.ombyttinger(b4));
++        assertEquals(0, Oblig1.ombyttinger(c));
++    }
++}
+\ No newline at end of file
