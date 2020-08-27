@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class Oblig1 {
     // Øyvind Ødegård Stenberg - s188886
     // Ana Flávia Vital - s344046
@@ -7,15 +9,19 @@ public class Oblig1 {
     public static int maks(int[] a) {
         int forste;
         int neste;
-        for(int i = 1; i < a.length; i++) {
-            forste = a[i-1];
-            neste = a[i];
-            if(forste > neste) {
-                a[i] = forste;
-                a[i-1] = neste;
+        if(a.length == 0) {
+            throw new NoSuchElementException("Arrayet er tomt!");
+        } else {
+            for(int i = 1; i < a.length; i++) {
+                forste = a[i-1];
+                neste = a[i];
+                if(forste > neste) {
+                    a[i] = forste;
+                    a[i-1] = neste;
+                }
             }
+            return a[a.length-1];
         }
-        return a[a.length-1];
     }
 
     // Telle antall ombyttinger
