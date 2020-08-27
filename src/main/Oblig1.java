@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -66,7 +67,6 @@ public class Oblig1 {
 
     //Oppgave 3 - antall ulike (usortert)
     public static int antallUlikeUsortert(int[] a){
-        //check against all the previous ones
         int antall = 0;
         for (int i=0; i<a.length; i++){
             boolean matches = false;
@@ -79,6 +79,20 @@ public class Oblig1 {
             if (!matches) antall++;
         }
         return antall;
+    }
+
+    //Oppgave 5 - rotasjon
+    public static void rotasjon(char[] a){
+        int maxLen = a.length - 1;
+
+        if (maxLen > 0) {
+            char temp = a[maxLen];
+
+            for (int i = a.length - 1; i > 0; i--) {
+                a[i] = a[i - 1];
+            }
+            a[0] = temp;
+        }
     }
 
 }

@@ -10,7 +10,7 @@ Oppgaven er levert av følgende studenter:
 ####**Arbeidsfordeling**
 
 I oppgaven har vi hatt følgende arbeidsfordeling: 
-* Ana har hatt hovedansvar for oppgave 3
+* Ana har hatt hovedansvar for oppgave 3, 5
 * Øyvind har hatt hovedansvar for oppgave 2
 * Mark har hatt hovedansvar for oppgave 
 * Vi har i fellesskap løst oppgave 1

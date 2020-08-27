@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -20,6 +21,9 @@ class Oblig1Test {
     int[] c = {1};
     int[] d = {3,3,4,5,5,6,7,7,7,8};
     int[] e = {5,3,7,4,3,5,7,8,6,7};
+    char[] ch = {'A','B','C','D','E','F','G','H','I','J'};
+    char[] ch0 = {};
+    char[] ch1 = {'A'};
 
 
     @Test
@@ -77,5 +81,20 @@ class Oblig1Test {
         assertEquals(1, Oblig1.antallUlikeUsortert(c));
         assertEquals(6, Oblig1.antallUlikeUsortert(d));
         assertEquals(6, Oblig1.antallUlikeUsortert(e));
+    }
+
+    @Test
+    void rotasjon() {
+        System.out.println(Arrays.toString(ch));
+        Oblig1.rotasjon(ch);
+        System.out.println(Arrays.toString(ch));
+
+        System.out.println(Arrays.toString(ch0));
+        Oblig1.rotasjon(ch0);
+        System.out.println(Arrays.toString(ch0));
+
+        System.out.println(Arrays.toString(ch1));
+        Oblig1.rotasjon(ch1);
+        System.out.println(Arrays.toString(ch1));
     }
 }
