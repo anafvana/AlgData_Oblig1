@@ -137,7 +137,8 @@ public class Oblig1 {
         if(k < 0) {
             // Omgjør tallet fra positivt til negativt og tar modulo på arrayet sitt lengde.
             // Dette for å finne forskjellen på lengden til arrayet og tallet. Så vi vet hvor langt arrayet skal roteres til venstre.
-            // Så gjør vi da så lengden på første for-løkken blir så lang som vi vil rotere arrayet.
+            // Vi gjør da så lengden på den første for-løkken blir så lang som vi vil rotere arrayet. Hvis lengden på arrayet er f.eks 10
+            // vil en k verdi med -4 bli til 6, så i stedet for å rotere 4 ganger til venstre roterer vi heller 6 ganger til høyre.
             k = -k % a.length;
             k = a.length - k;
         }
