@@ -135,6 +135,9 @@ public class Oblig1 {
     //Oppgave 6 - Rotere flere plasser
     public static void rotasjonFlerePlasser(char[] a, int k) {
         if(k < 0) {
+            // Omgjør tallet fra positiv til negative og tar modulo på arrayet sitt lengde.
+            // Dette for å finne forskjellen på lengden til arrayet og tallet. Så vi vet hvor langt arrayet skal roteres til venstre.
+            // Så gjør vi da så lengden på første for-løkken blir så lang som vi vil rotere arrayet.
             k = -k % a.length;
             k = a.length - k;
         }
