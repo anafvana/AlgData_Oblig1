@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -7,6 +6,14 @@ public class Oblig1 {
     // Mark van der Baan -
 
     //Oppgave 1 - finne største tall
+    // Spørsmål etter oppgave 1:
+    // Spm: Når blir det flest ombyttinger?
+    // Svar: Det blir flest ombyttinger når det største tallet er først.
+    // Spm: Når blir det færrest?
+    // Svar: Når det største tallet er sist.
+    // Spm: Hvor mange blir det i gjennomsnitt?
+    // Svar: Det blir i gjennomsnitt 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/n antall ganger vi går inn i if setningen. Denne rekken er Hn som er nesten det samme som log(n) + 0.577.
+    //       Hvis n i vårt eksempel er 1 000 000 000 så går vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
     public static int maks(int[] a) {
         sjekkArray(a);
         int forste;
@@ -23,6 +30,12 @@ public class Oblig1 {
     }
 
     //Oppgave 1 - Telle antall ombyttinger
+    // Spørsmål til ombyttingsoppgaven:
+    // Lag tilfeldige permutasjoner av tallene fra 1 til n og bruk så metoden.
+    // På den måten kan du få en indikasjon på hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
+    // Kan du på grunnlag av dette si om metoden maks er bedre (eller dårligere) enn de maks-metodene vi har sett på tidligere?
+    // Svar:
+    //
     public static int ombyttinger(int[] a) {
         sjekkArray(a);
 
@@ -37,7 +50,6 @@ public class Oblig1 {
                 antall++;
             }
         }
-        System.out.println(antall);
         return antall;
     }
 
