@@ -101,7 +101,7 @@ class Oblig1Test {
     @Test
     void rotasjonFlerePlasser() {
         System.out.println((Arrays.toString(ch)));
-        Oblig1.rotasjonFlerePlasser(ch, -4);
+        Oblig1.rotasjonFlerePlasser(ch, -2);
         System.out.println(Arrays.toString(ch));
 
         System.out.println((Arrays.toString(ch)));

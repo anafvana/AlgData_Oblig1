@@ -134,6 +134,10 @@ public class Oblig1 {
 
     //Oppgave 6 - Rotere flere plasser
     public static void rotasjonFlerePlasser(char[] a, int k) {
+        if(k < 0) {
+            k = -k % a.length;
+            k = a.length - k;
+        }
         for(int i = 0; i < k; i++) {
             char siste = a[a.length-1];
             for(int j = a.length-1; j > 0; j--) {
