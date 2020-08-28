@@ -29,6 +29,21 @@ public class Oblig1 {
             }
         }
         return a[a.length-1];
+
+        /*
+        int storste = a[0];
+        for(int i = 1; i < a.length; i++) {
+            if(storste < a[i]) {
+                storste = a[i];
+            }
+        }
+        return storste;
+
+         */
+
+
+
+
     }
 
     //Oppgave 1 - Telle antall ombyttinger
@@ -66,10 +81,10 @@ public class Oblig1 {
         int antall = 0;
 
         if(a.length > 0) {
-            //Dersom arrayet ikke er tom starter antall med 1 pga første talelt
+            //Dersom arrayet ikke er tom starter antall med 1 pga første tallet
             antall ++;
         } else {
-            //Array er tomt og retuneres 0
+            //Arrayet er tomt og retuneres 0
             return antall;
         }
 
@@ -88,9 +103,9 @@ public class Oblig1 {
     //Oppgave 3 - antall ulike (usortert)
     public static int antallUlikeUsortert(int[] a){
         int antall = 0;
-        for (int i=0; i<a.length; i++){
+        for (int i=0; i < a.length; i++){
             boolean matches = false;
-            for (int j=0; j<i; j++){
+            for (int j=0; j < i; j++){
                 if (a[i] == a[j]) {
                     matches = true;
                     break;
