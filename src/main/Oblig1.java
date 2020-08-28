@@ -3,7 +3,7 @@ import java.util.NoSuchElementException;
 public class Oblig1 {
     // Øyvind Ødegård Stenberg - s188886
     // Ana Flávia Vital - s344046
-    // Mark van der Baan -
+    // Mark van der Baan - s344105
 
     //Oppgave 1 - finne største tall
     // Spørsmål etter oppgave 1:
@@ -16,13 +16,15 @@ public class Oblig1 {
     //       Hvis n i vårt eksempel er 1 000 000 000 så går vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
     public static int maks(int[] a) {
         sjekkArray(a);
-        int forste;
+        int storste;
         int neste;
         for(int i = 1; i < a.length; i++) {
-            forste = a[i-1];
+            storste = a[i-1];
             neste = a[i];
-            if(forste > neste) {
-                a[i] = forste;
+            if(storste > neste) {
+                // Dersom storste er større enn neste tallet bytter de plass
+                // Slik at det største tallet kommer på siste plass
+                a[i] = storste;
                 a[i-1] = neste;
             }
         }
