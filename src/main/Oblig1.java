@@ -116,6 +116,8 @@ public class Oblig1 {
         return antall;
     }
 
+    //Oppgave 4 - Delsortering
+
     //Oppgave 5 - rotasjon
     public static void rotasjon(char[] a){
         int maxLen = a.length - 1;
@@ -129,5 +131,27 @@ public class Oblig1 {
             a[0] = temp;
         }
     }
+
+    //Oppgave 6 - Rotere flere plasser
+    public static void rotasjonFlerePlasser(char[] a, int k) {
+        for(int i = 0; i < k; i++) {
+            char siste = a[a.length-1];
+            for(int j = a.length-1; j > 0; j--) {
+                a[j] = a[j-1];
+            }
+            a[0] = siste;
+        }
+    }
+
+    //Oppgave 7 - Fletting
+
+
+    //Oppgave 8 - Indeks-sortering
+
+
+    //Oppgave 9 - Tredje minste tall
+
+
+    //Oppgave 10 - Inneholdt
 
 }
