@@ -102,18 +102,15 @@ class Oblig1Test {
     void rotasjonFlerePlasser() {
         System.out.println((Arrays.toString(ch)));
         Oblig1.rotasjonFlerePlasser(ch, -2);
-        System.out.println(Arrays.toString(ch));
 
         System.out.println((Arrays.toString(ch)));
         Oblig1.rotasjonFlerePlasser(ch, 4);
-        System.out.println(Arrays.toString(ch));
 
         System.out.println((Arrays.toString(ch)));
         Oblig1.rotasjonFlerePlasser(ch, 3);
-        System.out.println(Arrays.toString(ch));
 
         System.out.println((Arrays.toString(ch)));
         Oblig1.rotasjonFlerePlasser(ch, 1);
-        System.out.println(Arrays.toString(ch));
+        System.out.println((Arrays.toString(ch)));
     }
 }
