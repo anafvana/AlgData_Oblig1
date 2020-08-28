@@ -62,20 +62,26 @@ public class Oblig1 {
     }
 
     //Oppgave 2 - antall ulike (sortert)
-    public static int antallUlikeSortert(int[] a) {
+    public static int antallUlikeSortert(int[] a) throws IllegalStateException{
         int antall = 0;
-        for(int i = 0; i < a.length-1; i++) {
-            if(a[i] > a[i+1]) {
+
+        if(a.length > 0) {
+            //Dersom arrayet ikke er tom starter antall med 1 pga første talelt
+            antall ++;
+        } else {
+            //Array er tomt og retuneres 0
+            return antall;
+        }
+
+        for(int i = 1; i < a.length; i++) {
+            if(a[i-1] > a[i]) {
                 throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
             }
-            if(a[i] < a[i+1]) {
+            if(a[i-1] < a[i]) {
                 antall++;
             }
         }
-        // Legger på en ekstra fordi for-løkken ikke går innom det siste tallet i tabellen.
-        if(a.length > 0) {
-            antall++;
-        }
+
         return antall;
     }
 
