@@ -29,30 +29,21 @@ public class Oblig1 {
             }
         }
         return a[a.length-1];
-
-        /*
-        int storste = a[0];
-        for(int i = 1; i < a.length; i++) {
-            if(storste < a[i]) {
-                storste = a[i];
-            }
-        }
-        return storste;
-
-         */
-
-
-
-
     }
 
     //Oppgave 1 - Telle antall ombyttinger
+
     // Spørsmål til ombyttingsoppgaven:
     // Lag tilfeldige permutasjoner av tallene fra 1 til n og bruk så metoden.
     // På den måten kan du få en indikasjon på hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
     // Kan du på grunnlag av dette si om metoden maks er bedre (eller dårligere) enn de maks-metodene vi har sett på tidligere?
-    // Svar: Ombyttingsmetoden vil være dårligere. Vi looper gjennom for løkken n ganger, men for if testen vil vi gå inn her
-    // veldig mange flere ganger enn det harmoniske tallet Hn, så vi kommer til å gå inn i if setningen mye oftere.
+
+    // Svar: Denne maks-metoden vil være dårligere. Vi looper gjennom for-løkken 2n ganger, men for if testen vil vi gå inn her
+    // 4(n-1) ganger. Noe som gjør hele metoden mye tregere enn de forrige maks metodene. Med tilfeldige permutasjoner
+    // av tall fra f.eks 1-100 ble resultatet nesten alltid 90+ ombyttinger. Dette viser også at metoden er mye tregere.
+    // Vi la til maks-metoden i Program klassen fra pensum, og det tok rundt 270 millisek å utføre den.
+    // De tre andre maks-metodene vi har sett på i pensum tok fra 85-40 millisek. Så denne metoden er definitivt betydelig tregere.
+
     public static int ombyttinger(int[] a) {
         sjekkArray(a);
 
@@ -69,8 +60,6 @@ public class Oblig1 {
         }
         return antall;
     }
-
-    //VI TRENGER Å SVARE SPØRSMÅL ENDA
 
     public static void sjekkArray(int[] a) {
         if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
