@@ -117,6 +117,61 @@ public class Oblig1 {
     }
 
     //Oppgave 4 - Delsortering
+    public static void delsortering(int[] a){
+        int temp;
+
+        for(int i = 0; i < a.length; i++) {
+            //Sjekk om tallet er et partall
+            if (a[i] % 2 == 0) {
+                for(int j = a.length-1; j > 0; j--){
+                    //Finn et oddetall for å bytte plass med partallet
+                    if (a[j] % 2 != 0) {
+                        temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                        break;
+                    }
+                }
+            }
+        }
+
+        for(int i=0; i<a.length;i++) {
+            if (a[i] % 2 != 0) {
+                for(int j = 0; j < a.length; j++){
+                    if (a[j] % 2 != 0 && a[j] != a[i] && a[j] > a[i]){
+                        temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                        i--;
+                        if(i < 0){
+                            i = 0;
+                        }
+                        break;
+                    }
+                }
+            }
+            if (a[i] % 2 == 0) {
+                for(int j = 0; j < a.length; j++){
+                    if (a[j] % 2 == 0 && a[j] != a[i] && a[j] > a[i]){
+                        temp = a[i];
+                        a[i] = a[j];
+                        a[j] = temp;
+                        i--;
+                        if(i < 0){
+                            i = 0;
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+
+        for(int i = 0; i < a.length-1; i++) {
+            System.out.print(a[i] + " ");
+        }
+
+
+    }
 
     //Oppgave 5 - rotasjon
     public static void rotasjon(char[] a){

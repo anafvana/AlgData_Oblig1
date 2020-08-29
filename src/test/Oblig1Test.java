@@ -84,6 +84,11 @@ class Oblig1Test {
     }
 
     @Test
+    void delsortring(){
+        Oblig1.delsortering(a);
+    }
+
+    @Test
     void rotasjon() {
         System.out.println(Arrays.toString(ch));
         Oblig1.rotasjon(ch);
