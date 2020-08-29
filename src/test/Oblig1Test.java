@@ -150,4 +150,21 @@ class Oblig1Test {
             System.out.print(a[indeks[i]] + " ");
         }
     }
+
+    @Test
+    void tredjeMin() {
+        assertThrows(NoSuchElementException.class, () -> Oblig1.tredjeMin(a));
+        assertThrows(NoSuchElementException.class, () -> Oblig1.tredjeMin(c));
+        for (int[] ints : aa) {
+            assertEquals(Arrays.toString(new int[]{1, 2, 3}), Arrays.toString(Oblig1.tredjeMin(ints)));
+        }
+        assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b)));
+        assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b1)));
+        assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b2)));
+        assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b3)));
+        assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b4)));
+        assertEquals(Arrays.toString(new int[]{3, 3, 4}), Arrays.toString(Oblig1.tredjeMin(d)));
+        assertEquals(Arrays.toString(new int[]{3, 3, 4}), Arrays.toString(Oblig1.tredjeMin(e)));
+
+    }
 }

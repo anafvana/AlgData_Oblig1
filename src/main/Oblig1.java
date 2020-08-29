@@ -264,6 +264,48 @@ public class Oblig1 {
     }
 
     //Oppgave 9 - Tredje minste tall
+    public static int[] tredjeMin(int[] a){
+        if (a.length < 3) throw new NoSuchElementException("Tabellet har mindre enn 3 verdier");
+
+        int forstMin = a[0];
+        int andreMin = a[1];
+        int tredjeMin = a[2];
+
+       if (forstMin > andreMin){
+           int temp = andreMin; andreMin = forstMin; forstMin = temp;
+       }
+       if (andreMin > tredjeMin){
+           if (forstMin > tredjeMin){
+               int temp1 = tredjeMin;
+               tredjeMin = andreMin;
+               andreMin = forstMin;
+               forstMin = temp1;
+           } else {
+               int temp2 = tredjeMin;
+               tredjeMin = andreMin;
+               andreMin = temp2;
+           }
+       }
+
+        for (int i = 3; i< a.length; i++){
+            int tempLoop = a[i];
+            if (tempLoop < tredjeMin){
+                if (tempLoop < andreMin){
+                    tredjeMin = andreMin;
+                    if(tempLoop < forstMin){
+                        andreMin = forstMin;
+                        forstMin = tempLoop;
+                    } else {
+                        andreMin = tempLoop;
+                    }
+                } else {
+                    tredjeMin = tempLoop;
+                }
+            }
+        }
+
+        return new int[] {forstMin, andreMin, tredjeMin};
+    }
 
 
     //Oppgave 10 - Inneholdt
