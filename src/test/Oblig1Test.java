@@ -125,6 +125,13 @@ class Oblig1Test {
         System.out.println((Arrays.toString(ch)));
     }
 
+    @Test
+    void flett() {
+        assertEquals("ADBECFGH", Oblig1.flett("ABC", "DEFGH"));
+        assertEquals("IOJPKQLMN", Oblig1.flett("IJKLMN", "OPQ"));
+        assertEquals("AB", Oblig1.flett("", "AB"));
+    }
+
 
     @Test
     void indekssortering() {

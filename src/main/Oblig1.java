@@ -200,8 +200,63 @@ public class Oblig1 {
         }
     }
 
-    //Oppgave 7 - Fletting
+    //Oppgave 7a - Fletting - Øyvinds forsøk
+    public static String flett(String s, String t) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < s.length() || i < t.length(); i++) {
+            if(i < s.length()) {
+                sb.append(s.charAt(i));
+            }
+            if(i < t.length()) {
+                sb.append(t.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
 
+    //Oppgave 7b - Fletting - Øyvinds forsøk (det fungerer men det er veldig dårlig :D)
+    public static String flettArray(String... s) {
+        StringBuilder kombinert = new StringBuilder();
+        StringBuilder kombinert2 = new StringBuilder();
+        StringBuilder kombinert3 = new StringBuilder();
+        StringBuilder kombinert4 = new StringBuilder();
+        StringBuilder kombinert5 = new StringBuilder();
+        StringBuilder kombinert6 = new StringBuilder();
+        StringBuilder kombinert7 = new StringBuilder();
+
+
+        for(int i = 0; i < s.length; i++) {
+            for(int j = 0; j < s[i].length(); j++) {
+                kombinert.append(s[i].charAt(j));
+                break;
+            }
+            for(int j = 1; j < s[i].length(); j++) {
+                kombinert2.append(s[i].charAt(j));
+                break;
+            }
+            for(int j = 2; j < s[i].length(); j++) {
+                kombinert3.append(s[i].charAt(j));
+                break;
+            }
+            for(int j = 3; j < s[i].length(); j++) {
+                kombinert4.append(s[i].charAt(j));
+                break;
+            }
+            for(int j = 4; j < s[i].length(); j++) {
+                kombinert5.append(s[i].charAt(j));
+                break;
+            }
+            for(int j = 5; j < s[i].length(); j++) {
+                kombinert6.append(s[i].charAt(j));
+                break;
+            }
+            for(int j = 6; j < s[i].length(); j++) {
+                kombinert7.append(s[i].charAt(j));
+                break;
+            }
+        }
+        return kombinert.toString()+kombinert2.toString()+kombinert3.toString()+kombinert4.toString()+kombinert5.toString()+kombinert6.toString()+kombinert7.toString();
+    }
 
     //Oppgave 8 - Indeks-sortering
     public static int[] indekssortering(int[] a){
