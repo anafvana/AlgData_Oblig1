@@ -51,8 +51,8 @@ public class Oblig1 {
     // Lag tilfeldige permutasjoner av tallene fra 1 til n og bruk så metoden.
     // På den måten kan du få en indikasjon på hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
     // Kan du på grunnlag av dette si om metoden maks er bedre (eller dårligere) enn de maks-metodene vi har sett på tidligere?
-    // Svar:
-    //
+    // Svar: Ombyttingsmetoden vil være dårligere. Vi looper gjennom for løkken n ganger, men for if testen vil vi gå inn her
+    // veldig mange flere ganger enn det harmoniske tallet Hn, så vi kommer til å gå inn i if setningen mye oftere.
     public static int ombyttinger(int[] a) {
         sjekkArray(a);
 
