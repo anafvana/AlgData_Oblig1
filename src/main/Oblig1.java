@@ -224,7 +224,6 @@ public class Oblig1 {
         StringBuilder kombinert6 = new StringBuilder();
         StringBuilder kombinert7 = new StringBuilder();
 
-
         for(int i = 0; i < s.length; i++) {
             for(int j = 0; j < s[i].length(); j++) {
                 kombinert.append(s[i].charAt(j));
