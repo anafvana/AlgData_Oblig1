@@ -204,7 +204,34 @@ public class Oblig1 {
 
 
     //Oppgave 8 - Indeks-sortering
+    public static int[] indekssortering(int[] a){
+        int [] temp = new int [a.length];
 
+        //Hjelpe tabell
+        for(int i = 0; i < a.length; i++) {
+            temp[i] = a[i];
+        }
+
+        int[] indeks = new int [a.length];
+        int lavesteverdi = a[0];
+        int indeksLavesteVerdi = 0;
+
+        for(int i = 0; i < indeks.length; i++) {
+            for (int j = 0; j < temp.length; j++) {
+                if (lavesteverdi > temp[j]) {
+                    lavesteverdi = temp[j];
+                    indeksLavesteVerdi = j;
+                }
+            }
+            indeks[i] = indeksLavesteVerdi;
+
+            //Verdiene som er tatt vil bli satt til maks
+            temp[indeksLavesteVerdi] = 0x7fffffff;
+            lavesteverdi = 0x7fffffff;
+        }
+
+        return indeks;
+    }
 
     //Oppgave 9 - Tredje minste tall
 

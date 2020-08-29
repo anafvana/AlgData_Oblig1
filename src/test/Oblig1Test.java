@@ -124,4 +124,16 @@ class Oblig1Test {
         Oblig1.rotasjonFlerePlasser(ch, 1);
         System.out.println((Arrays.toString(ch)));
     }
+
+
+    @Test
+    void indekssortering() {
+        int[] a = {6,10,16,11,7,12,3,9,8,5};
+        System.out.println(Arrays.toString(a));
+        System.out.println(Arrays.toString(Oblig1.indekssortering(a)));
+        int [] indeks = Oblig1.indekssortering(a);
+        for(int i = 0; i <a.length; i++){
+            System.out.print(a[indeks[i]] + " ");
+        }
+    }
 }
