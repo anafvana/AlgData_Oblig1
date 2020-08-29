@@ -189,7 +189,7 @@ public class Oblig1 {
         }
     }
 
-    //Oppgave 7a - Fletting - Øyvinds forsøk
+    //Oppgave 7a - Fletting
     public static String flett(String s, String t) {
         StringBuilder sb = new StringBuilder();
         for(int i = 0; i < s.length() || i < t.length(); i++) {
