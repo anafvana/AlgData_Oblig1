@@ -85,7 +85,13 @@ class Oblig1Test {
 
     @Test
     void delsortring(){
-        Oblig1.delsortering(a);
+        System.out.println(Arrays.toString(b));
+        Oblig1.delsortering(b);
+        System.out.println(Arrays.toString(b));
+
+        System.out.println(Arrays.toString(d));
+        Oblig1.delsortering(d);
+        System.out.println(Arrays.toString(d));
     }
 
     @Test

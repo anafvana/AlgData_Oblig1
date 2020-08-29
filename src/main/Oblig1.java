@@ -123,7 +123,7 @@ public class Oblig1 {
         for(int i = 0; i < a.length; i++) {
             //Sjekk om tallet er et partall
             if (a[i] % 2 == 0) {
-                for(int j = a.length-1; j > 0; j--){
+                for(int j = i+1; j < a.length; j++){
                     //Finn et oddetall for å bytte plass med partallet
                     if (a[j] % 2 != 0) {
                         temp = a[i];
@@ -165,12 +165,6 @@ public class Oblig1 {
                 }
             }
         }
-
-        for(int i = 0; i < a.length-1; i++) {
-            System.out.print(a[i] + " ");
-        }
-
-
     }
 
     //Oppgave 5 - rotasjon
