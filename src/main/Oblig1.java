@@ -208,9 +208,7 @@ public class Oblig1 {
         int [] temp = new int [a.length];
 
         //Hjelpe tabell
-        for(int i = 0; i < a.length; i++) {
-            temp[i] = a[i];
-        }
+        System.arraycopy(a, 0, temp, 0, a.length);
 
         int[] indeks = new int [a.length];
         int lavesteverdi = a[0];
