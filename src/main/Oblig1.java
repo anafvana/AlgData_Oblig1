@@ -214,48 +214,26 @@ public class Oblig1 {
         return sb.toString();
     }
 
-    //Oppgave 7b - Fletting - Øyvinds forsøk (det fungerer men det er veldig dårlig :D)
+    //Oppgave 7b - Fletting
     public static String flettArray(String... s) {
-        StringBuilder kombinert = new StringBuilder();
-        StringBuilder kombinert2 = new StringBuilder();
-        StringBuilder kombinert3 = new StringBuilder();
-        StringBuilder kombinert4 = new StringBuilder();
-        StringBuilder kombinert5 = new StringBuilder();
-        StringBuilder kombinert6 = new StringBuilder();
-        StringBuilder kombinert7 = new StringBuilder();
-
-        for(int i = 0; i < s.length; i++) {
-            for(int j = 0; j < s[i].length(); j++) {
-                kombinert.append(s[i].charAt(j));
-                break;
-            }
-            for(int j = 1; j < s[i].length(); j++) {
-                kombinert2.append(s[i].charAt(j));
-                break;
-            }
-            for(int j = 2; j < s[i].length(); j++) {
-                kombinert3.append(s[i].charAt(j));
-                break;
-            }
-            for(int j = 3; j < s[i].length(); j++) {
-                kombinert4.append(s[i].charAt(j));
-                break;
-            }
-            for(int j = 4; j < s[i].length(); j++) {
-                kombinert5.append(s[i].charAt(j));
-                break;
-            }
-            for(int j = 5; j < s[i].length(); j++) {
-                kombinert6.append(s[i].charAt(j));
-                break;
-            }
-            for(int j = 6; j < s[i].length(); j++) {
-                kombinert7.append(s[i].charAt(j));
-                break;
+        int longest = 0;
+        for (String str : s){
+            if (str.length() > longest){
+                longest = str.length();
             }
         }
-        return kombinert.toString()+kombinert2.toString()+kombinert3.toString()+kombinert4.toString()+kombinert5.toString()+kombinert6.toString()+kombinert7.toString();
-    }
+
+        StringBuilder out = new StringBuilder();
+
+        for (int i=0; i < longest; i++){
+            for (String str: s){
+                try {
+                    out.append(str.charAt(i));
+                } catch (IndexOutOfBoundsException e) {}
+            }
+        }
+        return out.toString();
+      }
 
     //Oppgave 8 - Indeks-sortering
     public static int[] indekssortering(int[] a){

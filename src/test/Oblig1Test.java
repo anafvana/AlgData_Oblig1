@@ -135,6 +135,8 @@ class Oblig1Test {
     @Test
     void flettArray() {
         assertEquals("ALGORITMER OG DATASTRUKTURER", Oblig1.flettArray("AM ", "L", "GEDS", "ORATKRR", "", "R TRTE", "IO", "TGAUU"));
+        assertEquals("", Oblig1.flettArray("", "", "", ""));
+        assertEquals("ACD BEF", Oblig1.flettArray("", "AB", "C", "DEF", " ", ""));
     }
 
 
