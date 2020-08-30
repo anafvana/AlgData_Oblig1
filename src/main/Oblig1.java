@@ -324,7 +324,6 @@ public class Oblig1 {
                     aMap.put(a.charAt(i), 1);
                 }
             } else {
-                System.out.print(inneholdt);
                 return inneholdt;
             }
         }
@@ -336,11 +335,9 @@ public class Oblig1 {
             if(countA <= countB){
                 inneholdt = true;
             } else {
-                System.out.print("false");
                 return false;
             }
         }
-        System.out.print(inneholdt);
         return inneholdt;
 
         /*

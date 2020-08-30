@@ -171,6 +171,12 @@ class Oblig1Test {
 
     @Test
     void inneholdt(){
-        Oblig1.inneholdt("ABBA", "ABBABBA");
+        assertEquals(true, Oblig1.inneholdt("ABBA", "ABBABBA"));
+        assertEquals(true, Oblig1.inneholdt("ABBAB", "ABBABBA"));
+        assertEquals(true, Oblig1.inneholdt("ABBAA", "ABBABBA"));
+        assertEquals(false, Oblig1.inneholdt("ABBAAA", "ABBABBA"));
+        assertEquals(false, Oblig1.inneholdt("ABBdA", "ABBABBA"));
+        assertEquals(true, Oblig1.inneholdt("ABBA", "ABDEFSEFDSEBABBA"));
+        assertEquals(false, Oblig1.inneholdt("ABBAZ", "ABDEFSEFDSEBABBA"));
     }
 }
