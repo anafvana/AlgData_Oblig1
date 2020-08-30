@@ -3,19 +3,24 @@ import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+//TODO: Fjerne imports om vi fjerner den annen versjon av oppgave 10
+
 public class Oblig1 {
     // Øyvind Ødegård Stenberg - s188886
     // Ana Flávia Vital - s344046
     // Mark van der Baan - s344105
+
+
+    //TODO: Han sier at vi bør unngå norsketegn i kommentarer. Skal vi bytte språk til engelsk?
 
     //Oppgave 1 - finne største tall
     // Spørsmål etter oppgave 1:
     // Spm: Når blir det flest ombyttinger?
     // Svar: Det blir flest ombyttinger når det største tallet er først.
     // Spm: Når blir det færrest?
-    // Svar: Når det største tallet er sist.
+    // Svar: Når arrayet er sortert stiggende.
     // Spm: Hvor mange blir det i gjennomsnitt?
-    // Svar: Det blir i gjennomsnitt 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/n antall ganger vi går inn i if setningen. Denne rekken er Hn som er nesten det samme som log(n) + 0.577.
+    // Svar: Det blir i gjennomsnitt 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/n (Hn - 1) antall ganger vi går inn i if setningen. Denne rekken er Hn som er nesten det samme som log(n) + 0.577.
     //       Hvis n i vårt eksempel er 1 000 000 000 så går vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
     public static int maks(int[] a) {
         sjekkArray(a);
@@ -108,8 +113,10 @@ public class Oblig1 {
         return antall;
     }
 
+    //TODO: Velge versjon og fjerne den annen
+
     //Oppgave 4 - Delsortering
-    public static void delsortering(int[] a){
+    /*public static void delsortering(int[] a){
         int temp;
 
         for(int i = 0; i < a.length; i++) {
@@ -157,6 +164,55 @@ public class Oblig1 {
                 }
             }
         }
+    }
+    */
+    public static void delsortering(int[] a){
+        int j = a.length - 1;
+
+        if (j > 0) {
+            int lastOdd = 0;
+            for (int i = 0; i < a.length; i++) {
+                int iFokus = a[i];
+
+                if (iFokus % 2 == 0) {
+                    if (j == i) {
+                        break;
+                    }
+                    while (a[j] % 2 == 0 && j > i) {
+                        j--;
+                    }
+                    a[i] = a[j];
+                    a[j] = iFokus;
+                    i--;
+                } else {
+                    lastOdd = i;
+                }
+            }
+            innsettningsortering(a, 0, lastOdd + 1);
+            innsettningsortering(a, lastOdd + 1, a.length);
+        }
+    }
+
+    //Inspirert av pensum, Programkode 1.3.8 e) og Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (04:43)
+    public static void innsettningsortering(int[] a, int fra, int til){
+        for (int i = fra+1; i<til; i++){
+            int j = i-1;
+            try {
+                while (a[i] < a[j] && j >= fra) {
+                    bytt(a, i, j);
+                    i--;
+                    j--;
+                }
+            } catch (IndexOutOfBoundsException e){
+            }
+        }
+    }
+
+    //Fra pensum, Programkode 1.1.8 d)
+    public static void bytt(int[] a, int posA, int posB){
+        int temp = a[posA];
+        a[posA] = a[posB];
+        a[posB] = temp;
     }
 
     //Oppgave 5 - rotasjon
@@ -255,6 +311,8 @@ public class Oblig1 {
         return indeks;
     }
 
+    //TODO: Synes dere at det er noe måte å gjøre det kortere her?
+
     //Oppgave 9 - Tredje minste tall
     public static int[] tredjeMin(int[] a){
         if (a.length < 3) throw new NoSuchElementException("Tabellet har mindre enn 3 verdier");
@@ -299,6 +357,7 @@ public class Oblig1 {
         return new int[] {forstMin, andreMin, tredjeMin};
     }
 
+    //TODO: Velge versjon og fjerne den annen
 
     //Oppgave 10 - Inneholdt
     public static boolean inneholdt(String a, String b) {

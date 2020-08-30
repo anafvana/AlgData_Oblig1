@@ -88,10 +88,34 @@ class Oblig1Test {
         System.out.println(Arrays.toString(b));
         Oblig1.delsortering(b);
         System.out.println(Arrays.toString(b));
+        assertEquals(Arrays.toString(new int[] {5, 49, 115, -2, 22}), Arrays.toString(b));
 
         System.out.println(Arrays.toString(d));
         Oblig1.delsortering(d);
         System.out.println(Arrays.toString(d));
+        assertEquals(Arrays.toString(new int[] {3, 3, 5, 5, 7, 7, 7, 4, 6, 8}), Arrays.toString(d));
+
+        for (int[] ints : aa){
+            Oblig1.delsortering(ints);
+            assertEquals(Arrays.toString(new int[] {1, 3, 2, 4}), Arrays.toString(ints));
+        }
+        Oblig1.delsortering(a);
+        assertEquals(Arrays.toString(new int[] {}), Arrays.toString(a));
+
+        Oblig1.delsortering(c);
+        assertEquals(Arrays.toString(new int[] {1}), Arrays.toString(c));
+
+        int[] eks = {2, 3};
+        Oblig1.delsortering(eks);
+        assertEquals(Arrays.toString(new int[] {3,2}), Arrays.toString(eks));
+
+        int[] eks2 = {5, 1, 5, 3};
+        Oblig1.delsortering(eks2);
+        assertEquals(Arrays.toString(new int[] {1, 3, 5, 5}), Arrays.toString(eks2));
+
+        int[] eks3 = {2, 6, 4, 2};
+        Oblig1.delsortering(eks3);
+        assertEquals(Arrays.toString(new int[] {2, 2, 4, 6}), Arrays.toString(eks3));
     }
 
     @Test
@@ -139,12 +163,12 @@ class Oblig1Test {
         assertEquals("ACD BEF", Oblig1.flettArray("", "AB", "C", "DEF", " ", ""));
     }
 
-
     @Test
     void indekssortering() {
         int[] a = {6,10,16,11,7,12,3,9,8,5};
         System.out.println(Arrays.toString(a));
         System.out.println(Arrays.toString(Oblig1.indekssortering(a)));
+        assertEquals(Arrays.toString(new int[] {6, 9, 0, 4, 8, 7, 1, 3, 5, 2}), Arrays.toString(Oblig1.indekssortering(a)));
         int [] indeks = Oblig1.indekssortering(a);
         for(int i = 0; i <a.length; i++){
             System.out.print(a[indeks[i]] + " ");
@@ -158,7 +182,6 @@ class Oblig1Test {
         for (int[] ints : aa) {
             assertEquals(Arrays.toString(new int[]{1, 2, 3}), Arrays.toString(Oblig1.tredjeMin(ints)));
         }
-
         assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b)));
         assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b1)));
         assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b2)));
@@ -171,12 +194,12 @@ class Oblig1Test {
 
     @Test
     void inneholdt(){
-        assertEquals(true, Oblig1.inneholdt("ABBA", "ABBABBA"));
-        assertEquals(true, Oblig1.inneholdt("ABBAB", "ABBABBA"));
-        assertEquals(true, Oblig1.inneholdt("ABBAA", "ABBABBA"));
-        assertEquals(false, Oblig1.inneholdt("ABBAAA", "ABBABBA"));
-        assertEquals(false, Oblig1.inneholdt("ABBdA", "ABBABBA"));
-        assertEquals(true, Oblig1.inneholdt("ABBA", "ABDEFSEFDSEBABBA"));
-        assertEquals(false, Oblig1.inneholdt("ABBAZ", "ABDEFSEFDSEBABBA"));
+        assertTrue(Oblig1.inneholdt("ABBA", "ABBABBA"));
+        assertTrue(Oblig1.inneholdt("ABBAB", "ABBABBA"));
+        assertTrue(Oblig1.inneholdt("ABBAA", "ABBABBA"));
+        assertFalse(Oblig1.inneholdt("ABBAAA", "ABBABBA"));
+        assertFalse(Oblig1.inneholdt("ABBdA", "ABBABBA"));
+        assertTrue(Oblig1.inneholdt("ABBA", "ABDEFSEFDSEBABBA"));
+        assertFalse(Oblig1.inneholdt("ABBAZ", "ABDEFSEFDSEBABBA"));
     }
 }
