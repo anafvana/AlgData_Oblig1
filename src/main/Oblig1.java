@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -7,9 +8,7 @@ public class Oblig1 {
     // Ana Flávia Vital - s344046
     // Mark van der Baan - s344105
 
-
     //Oppgave 1 - finne største tall
-
     // Spørsmål etter oppgave 1:
     // Spm: Når blir det flest ombyttinger?
     // Svar: Det blir flest ombyttinger når det største tallet er først.
@@ -66,7 +65,7 @@ public class Oblig1 {
     }
 
     public static void sjekkArray(int[] a) {
-        if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
+        if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
     }
 
     //Oppgave 2 - antall ulike (sortert)
@@ -74,10 +73,10 @@ public class Oblig1 {
         int antall = 0;
 
         if(a.length > 0) {
-            //Dersom arrayet ikke er tomt starter antall med 1 pga første tallet
+            //Dersom arrayet ikke er tom starter antall med 1 pga første tallet
             antall ++;
         } else {
-            //Arrayet er tomt og returnerer 0
+            //Arrayet er tomt og retuneres 0
             return antall;
         }
 
@@ -89,6 +88,7 @@ public class Oblig1 {
                 antall++;
             }
         }
+
         return antall;
     }
 
@@ -302,10 +302,52 @@ public class Oblig1 {
 
     //Oppgave 10 - Inneholdt
     public static boolean inneholdt(String a, String b) {
-        Set<Character> aSet = new HashSet<>();
+        boolean inneholdt = false;
+        HashMap<Character, Integer> aMap = new HashMap<>();
+        HashMap<Character, Integer> bMap = new HashMap<>();
+
+        for(int i = 0; i < b.length(); i++){
+                if(bMap.containsKey(b.charAt(i))){
+                    int count = bMap.get(b.charAt(i));
+                    bMap.put(b.charAt(i), count +1);
+                } else {
+                    bMap.put(b.charAt(i), 1);
+                }
+        }
+
+        for(int i = 0; i < a.length(); i++){
+            if(bMap.containsKey(a.charAt(i))) {
+                if (aMap.containsKey(a.charAt(i))) {
+                    int count = aMap.get(a.charAt(i));
+                    aMap.put(a.charAt(i), count + 1);
+                } else {
+                    aMap.put(a.charAt(i), 1);
+                }
+            } else {
+                System.out.print(inneholdt);
+                return inneholdt;
+            }
+        }
+
+        for(int i = 0; i < a.length(); i++){
+            int countA = aMap.get(a.charAt(i));
+            int countB = bMap.get(a.charAt(i));
+
+            if(countA <= countB){
+                inneholdt = true;
+            } else {
+                System.out.print("false");
+                return false;
+            }
+        }
+        System.out.print(inneholdt);
+        return inneholdt;
+
+        /*
+            Set<Character> aSet = new HashSet<>();
         Set<Character> bSet = new HashSet<>();
-        String aSet2 = "";
-        String bSet2 = "";
+        StringBuilder aSet2 = new StringBuilder();
+        StringBuilder bSet2 = new StringBuilder();
 
         for(int i = 0; i <a.length(); i++) {
             aSet.add(a.charAt(i));
@@ -316,20 +358,24 @@ public class Oblig1 {
 
         for(int i = 0; i < b.length(); i++) {
             if(aSet.contains(b.charAt(i))) {
-                aSet2 += b.charAt(i);
+                aSet2.append(b.charAt(i));
             }
         }
         for(int i = 0; i < a.length(); i++) {
             if(bSet.contains(a.charAt(i))) {
-                bSet2 += a.charAt(i);
+                bSet2.append(a.charAt(i));
             }
         }
 
         System.out.println(bSet2 + " " + aSet2);
         if(!bSet.containsAll(aSet) || aSet2.length() < bSet2.length()) {
+            System.out.print("false");
             return false;
         } else {
+            System.out.print("true");
             return true;
         }
+
+         */
     }
 }

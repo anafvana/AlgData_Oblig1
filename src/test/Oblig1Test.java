@@ -158,6 +158,7 @@ class Oblig1Test {
         for (int[] ints : aa) {
             assertEquals(Arrays.toString(new int[]{1, 2, 3}), Arrays.toString(Oblig1.tredjeMin(ints)));
         }
+
         assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b)));
         assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b1)));
         assertEquals(Arrays.toString(new int[]{-2, 5, 22}), Arrays.toString(Oblig1.tredjeMin(b2)));
@@ -166,5 +167,10 @@ class Oblig1Test {
         assertEquals(Arrays.toString(new int[]{3, 3, 4}), Arrays.toString(Oblig1.tredjeMin(d)));
         assertEquals(Arrays.toString(new int[]{3, 3, 4}), Arrays.toString(Oblig1.tredjeMin(e)));
 
+    }
+
+    @Test
+    void inneholdt(){
+        Oblig1.inneholdt("ABBA", "ABBABBA");
     }
 }
