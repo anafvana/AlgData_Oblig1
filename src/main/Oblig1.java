@@ -1,11 +1,15 @@
+import java.util.HashSet;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 public class Oblig1 {
     // Øyvind Ødegård Stenberg - s188886
     // Ana Flávia Vital - s344046
     // Mark van der Baan - s344105
 
+
     //Oppgave 1 - finne største tall
+
     // Spørsmål etter oppgave 1:
     // Spm: Når blir det flest ombyttinger?
     // Svar: Det blir flest ombyttinger når det største tallet er først.
@@ -62,7 +66,7 @@ public class Oblig1 {
     }
 
     public static void sjekkArray(int[] a) {
-        if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
+        if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
     }
 
     //Oppgave 2 - antall ulike (sortert)
@@ -70,10 +74,10 @@ public class Oblig1 {
         int antall = 0;
 
         if(a.length > 0) {
-            //Dersom arrayet ikke er tom starter antall med 1 pga første tallet
+            //Dersom arrayet ikke er tomt starter antall med 1 pga første tallet
             antall ++;
         } else {
-            //Arrayet er tomt og retuneres 0
+            //Arrayet er tomt og returnerer 0
             return antall;
         }
 
@@ -85,7 +89,6 @@ public class Oblig1 {
                 antall++;
             }
         }
-
         return antall;
     }
 
@@ -298,5 +301,35 @@ public class Oblig1 {
 
 
     //Oppgave 10 - Inneholdt
+    public static boolean inneholdt(String a, String b) {
+        Set<Character> aSet = new HashSet<>();
+        Set<Character> bSet = new HashSet<>();
+        String aSet2 = "";
+        String bSet2 = "";
 
+        for(int i = 0; i <a.length(); i++) {
+            aSet.add(a.charAt(i));
+        }
+        for(int i = 0; i < b.length(); i++) {
+            bSet.add(b.charAt(i));
+        }
+
+        for(int i = 0; i < b.length(); i++) {
+            if(aSet.contains(b.charAt(i))) {
+                aSet2 += b.charAt(i);
+            }
+        }
+        for(int i = 0; i < a.length(); i++) {
+            if(bSet.contains(a.charAt(i))) {
+                bSet2 += a.charAt(i);
+            }
+        }
+
+        System.out.println(bSet2 + " " + aSet2);
+        if(!bSet.containsAll(aSet) || aSet2.length() < bSet2.length()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
