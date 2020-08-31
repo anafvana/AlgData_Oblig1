@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 //TODO: Fjerne imports om vi fjerner den annen versjon av oppgave 10
 
@@ -26,17 +23,17 @@ public class Oblig1 {
         sjekkArray(a);
         int storste;
         int neste;
-        for(int i = 1; i < a.length; i++) {
-            storste = a[i-1];
+        for (int i = 1; i < a.length; i++) {
+            storste = a[i - 1];
             neste = a[i];
-            if(storste > neste) {
+            if (storste > neste) {
                 // Dersom storste er større enn neste tallet bytter de plass
                 // Slik at det største tallet kommer på siste plass
                 a[i] = storste;
-                a[i-1] = neste;
+                a[i - 1] = neste;
             }
         }
-        return a[a.length-1];
+        return a[a.length - 1];
     }
 
     //Oppgave 1 - Telle antall ombyttinger
@@ -57,11 +54,11 @@ public class Oblig1 {
 
         int antall = 0;
 
-        for (int i=1; i<a.length; i++){
-            int v1 = a[i-1];
+        for (int i = 1; i < a.length; i++) {
+            int v1 = a[i - 1];
             int v2 = a[i];
-            if (a[i-1]>a[i]) {
-                a[i-1] = v2;
+            if (a[i - 1] > a[i]) {
+                a[i - 1] = v2;
                 a[i] = v1;
                 antall++;
             }
@@ -74,22 +71,22 @@ public class Oblig1 {
     }
 
     //Oppgave 2 - antall ulike (sortert)
-    public static int antallUlikeSortert(int[] a) throws IllegalStateException{
+    public static int antallUlikeSortert(int[] a) throws IllegalStateException {
         int antall = 0;
 
-        if(a.length > 0) {
+        if (a.length > 0) {
             //Dersom arrayet ikke er tom starter antall med 1 pga første tallet
-            antall ++;
+            antall++;
         } else {
             //Arrayet er tomt og retuneres 0
             return antall;
         }
 
-        for(int i = 1; i < a.length; i++) {
-            if(a[i-1] > a[i]) {
+        for (int i = 1; i < a.length; i++) {
+            if (a[i - 1] > a[i]) {
                 throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
             }
-            if(a[i-1] < a[i]) {
+            if (a[i - 1] < a[i]) {
                 antall++;
             }
         }
@@ -98,11 +95,11 @@ public class Oblig1 {
     }
 
     //Oppgave 3 - antall ulike (usortert)
-    public static int antallUlikeUsortert(int[] a){
+    public static int antallUlikeUsortert(int[] a) {
         int antall = 0;
-        for (int i=0; i < a.length; i++){
+        for (int i = 0; i < a.length; i++) {
             boolean matches = false;
-            for (int j=0; j < i; j++){
+            for (int j = 0; j < i; j++) {
                 if (a[i] == a[j]) {
                     matches = true;
                     break;
@@ -166,7 +163,7 @@ public class Oblig1 {
         }
     }
     */
-    public static void delsortering(int[] a){
+    public static void delsortering(int[] a) {
         int j = a.length - 1;
 
         if (j > 0) {
@@ -194,29 +191,29 @@ public class Oblig1 {
     }
 
     //Inspirert av pensum, Programkode 1.3.8 e) og Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (04:43)
-    public static void innsettningsortering(int[] a, int fra, int til){
-        for (int i = fra+1; i<til; i++){
-            int j = i-1;
+    public static void innsettningsortering(int[] a, int fra, int til) {
+        for (int i = fra + 1; i < til; i++) {
+            int j = i - 1;
             try {
                 while (a[i] < a[j] && j >= fra) {
                     bytt(a, i, j);
                     i--;
                     j--;
                 }
-            } catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
             }
         }
     }
 
     //Fra pensum, Programkode 1.1.8 d)
-    public static void bytt(int[] a, int posA, int posB){
+    public static void bytt(int[] a, int posA, int posB) {
         int temp = a[posA];
         a[posA] = a[posB];
         a[posB] = temp;
     }
 
     //Oppgave 5 - rotasjon
-    public static void rotasjon(char[] a){
+    public static void rotasjon(char[] a) {
         int maxLen = a.length - 1;
 
         if (maxLen > 0) {
@@ -231,7 +228,7 @@ public class Oblig1 {
 
     //Oppgave 6 - Rotere flere plasser
     public static void rotasjonFlerePlasser(char[] a, int k) {
-        if(k < 0) {
+        if (k < 0) {
             // Omgjør tallet fra positivt til negativt og tar modulo på arrayet sitt lengde.
             // Dette for å finne forskjellen på lengden til arrayet og tallet. Så vi vet hvor langt arrayet skal roteres til venstre.
             // Vi gjør da så lengden på den første for-løkken blir så lang som vi vil rotere arrayet. Hvis lengden på arrayet er f.eks 10
@@ -239,10 +236,10 @@ public class Oblig1 {
             k = -k % a.length;
             k = a.length - k;
         }
-        for(int i = 0; i < k; i++) {
-            char siste = a[a.length-1];
-            for(int j = a.length-1; j > 0; j--) {
-                a[j] = a[j-1];
+        for (int i = 0; i < k; i++) {
+            char siste = a[a.length - 1];
+            for (int j = a.length - 1; j > 0; j--) {
+                a[j] = a[j - 1];
             }
             a[0] = siste;
         }
@@ -251,11 +248,11 @@ public class Oblig1 {
     //Oppgave 7a - Fletting
     public static String flett(String s, String t) {
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < s.length() || i < t.length(); i++) {
-            if(i < s.length()) {
+        for (int i = 0; i < s.length() || i < t.length(); i++) {
+            if (i < s.length()) {
                 sb.append(s.charAt(i));
             }
-            if(i < t.length()) {
+            if (i < t.length()) {
                 sb.append(t.charAt(i));
             }
         }
@@ -265,36 +262,37 @@ public class Oblig1 {
     //Oppgave 7b - Fletting
     public static String flettArray(String... s) {
         int longest = 0;
-        for (String str : s){
-            if (str.length() > longest){
+        for (String str : s) {
+            if (str.length() > longest) {
                 longest = str.length();
             }
         }
 
         StringBuilder out = new StringBuilder();
 
-        for (int i=0; i < longest; i++){
-            for (String str: s){
+        for (int i = 0; i < longest; i++) {
+            for (String str : s) {
                 try {
                     out.append(str.charAt(i));
-                } catch (IndexOutOfBoundsException e) {}
+                } catch (IndexOutOfBoundsException e) {
+                }
             }
         }
         return out.toString();
-      }
+    }
 
     //Oppgave 8 - Indeks-sortering
-    public static int[] indekssortering(int[] a){
-        int [] temp = new int [a.length];
+    public static int[] indekssortering(int[] a) {
+        int[] temp = new int[a.length];
 
         //Hjelpe tabell
         System.arraycopy(a, 0, temp, 0, a.length);
 
-        int[] indeks = new int [a.length];
+        int[] indeks = new int[a.length];
         int lavesteverdi = a[0];
         int indeksLavesteVerdi = 0;
 
-        for(int i = 0; i < indeks.length; i++) {
+        for (int i = 0; i < indeks.length; i++) {
             for (int j = 0; j < temp.length; j++) {
                 if (lavesteverdi > temp[j]) {
                     lavesteverdi = temp[j];
@@ -314,35 +312,37 @@ public class Oblig1 {
     //TODO: Synes dere at det er noe måte å gjøre det kortere her?
 
     //Oppgave 9 - Tredje minste tall
-    public static int[] tredjeMin(int[] a){
+    public static int[] tredjeMin(int[] a) {
         if (a.length < 3) throw new NoSuchElementException("Tabellet har mindre enn 3 verdier");
 
         int forstMin = a[0];
         int andreMin = a[1];
         int tredjeMin = a[2];
 
-       if (forstMin > andreMin){
-           int temp = andreMin; andreMin = forstMin; forstMin = temp;
-       }
-       if (andreMin > tredjeMin){
-           if (forstMin > tredjeMin){
-               int temp1 = tredjeMin;
-               tredjeMin = andreMin;
-               andreMin = forstMin;
-               forstMin = temp1;
-           } else {
-               int temp2 = tredjeMin;
-               tredjeMin = andreMin;
-               andreMin = temp2;
-           }
-       }
+        if (forstMin > andreMin) {
+            int temp = andreMin;
+            andreMin = forstMin;
+            forstMin = temp;
+        }
+        if (andreMin > tredjeMin) {
+            if (forstMin > tredjeMin) {
+                int temp1 = tredjeMin;
+                tredjeMin = andreMin;
+                andreMin = forstMin;
+                forstMin = temp1;
+            } else {
+                int temp2 = tredjeMin;
+                tredjeMin = andreMin;
+                andreMin = temp2;
+            }
+        }
 
-        for (int i = 3; i< a.length; i++){
+        for (int i = 3; i < a.length; i++) {
             int tempLoop = a[i];
-            if (tempLoop < tredjeMin){
-                if (tempLoop < andreMin){
+            if (tempLoop < tredjeMin) {
+                if (tempLoop < andreMin) {
                     tredjeMin = andreMin;
-                    if(tempLoop < forstMin){
+                    if (tempLoop < forstMin) {
                         andreMin = forstMin;
                         forstMin = tempLoop;
                     } else {
@@ -354,7 +354,7 @@ public class Oblig1 {
             }
         }
 
-        return new int[] {forstMin, andreMin, tredjeMin};
+        return new int[]{forstMin, andreMin, tredjeMin};
     }
 
     //TODO: Velge versjon og fjerne den annen
@@ -365,17 +365,17 @@ public class Oblig1 {
         HashMap<Character, Integer> aMap = new HashMap<>();
         HashMap<Character, Integer> bMap = new HashMap<>();
 
-        for(int i = 0; i < b.length(); i++){
-                if(bMap.containsKey(b.charAt(i))){
-                    int count = bMap.get(b.charAt(i));
-                    bMap.put(b.charAt(i), count +1);
-                } else {
-                    bMap.put(b.charAt(i), 1);
-                }
+        for (int i = 0; i < b.length(); i++) {
+            if (bMap.containsKey(b.charAt(i))) {
+                int count = bMap.get(b.charAt(i));
+                bMap.put(b.charAt(i), count + 1);
+            } else {
+                bMap.put(b.charAt(i), 1);
+            }
         }
 
-        for(int i = 0; i < a.length(); i++){
-            if(bMap.containsKey(a.charAt(i))) {
+        for (int i = 0; i < a.length(); i++) {
+            if (bMap.containsKey(a.charAt(i))) {
                 if (aMap.containsKey(a.charAt(i))) {
                     int count = aMap.get(a.charAt(i));
                     aMap.put(a.charAt(i), count + 1);
@@ -387,6 +387,24 @@ public class Oblig1 {
             }
         }
 
+        Iterator aMapIterator = aMap.entrySet().iterator();
+
+        while (aMapIterator.hasNext()) {
+            Map.Entry mapElement = (Map.Entry) aMapIterator.next();
+            Character sjekkCharacter = (Character) mapElement.getKey();
+            int AmapVerdie = aMap.get(sjekkCharacter);
+            int BmapVerdie = bMap.get(sjekkCharacter);
+            if (AmapVerdie <= BmapVerdie) {
+                inneholdt = true;
+            } else {
+                return false;
+            }
+        }
+
+        return inneholdt;
+
+
+        /*
         for(int i = 0; i < a.length(); i++){
             int countA = aMap.get(a.charAt(i));
             int countB = bMap.get(a.charAt(i));
@@ -398,6 +416,8 @@ public class Oblig1 {
             }
         }
         return inneholdt;
+
+         */
 
         /*
             Set<Character> aSet = new HashSet<>();
