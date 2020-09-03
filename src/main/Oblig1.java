@@ -1,24 +1,20 @@
 import java.util.*;
 
-//TODO: Fjerne imports om vi fjerner den annen versjon av oppgave 10
-
 public class Oblig1 {
     // Øyvind Ødegård Stenberg - s188886
     // Ana Flávia Vital - s344046
     // Mark van der Baan - s344105
 
 
-    //TODO: Han sier at vi bør unngå norsketegn i kommentarer. Skal vi bytte språk til engelsk?
-
     //Oppgave 1 - finne stoerste tall
-    // Spoersmål etter oppgave 1:
+    // Spoersmaal etter oppgave 1:
     // Spm: Naar blir det flest ombyttinger?
-    // Svar: Det blir flest ombyttinger når det stoerste tallet er foerst.
-    // Spm: Når blir det faerrest?
-    // Svar: Når arrayet er sortert stigende.
+    // Svar: Det blir flest ombyttinger naar det stoerste tallet er foerst.
+    // Spm: Naar blir det faerrest?
+    // Svar: Naar arrayet er sortert stigende.
     // Spm: Hvor mange blir det i gjennomsnitt?
     // Svar: Det blir i gjennomsnitt 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/n (Hn - 1) antall ganger vi gaar inn i if setningen. Denne rekken er Hn som er nesten det samme som log(n) + 0.577.
-    //       Hvis n i vaart eksempel er 1 000 000 000 så går vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
+    //       Hvis n i vaart eksempel er 1 000 000 000 saa gaar vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
     public static int maks(int[] a) {
         sjekkArray(a);
         int storste;
@@ -27,8 +23,8 @@ public class Oblig1 {
             storste = a[i - 1];
             neste = a[i];
             if (storste > neste) {
-                // Dersom stoerste er større enn det neste tallet bytter de plass
-                // Slik at det stoerste tallet kommer på siste plass
+                // Dersom stoerste er stoerre enn det neste tallet bytter de plass
+                // Slik at det stoerste tallet kommer paa siste plass
                 a[i] = storste;
                 a[i - 1] = neste;
             }
@@ -38,16 +34,16 @@ public class Oblig1 {
 
     //Oppgave 1 - Telle antall ombyttinger
 
-    // Spoersmål til ombyttingsoppgaven:
+    // Spoersmaal til ombyttingsoppgaven:
     // Lag tilfeldige permutasjoner av tallene fra 1 til n og bruk saa metoden.
-    // Paa den maaten kan du få en indikasjon på hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
-    // Kan du paa grunnlag av dette si om metoden maks er bedre (eller daarligere) enn de maks-metodene vi har sett på tidligere?
+    // Paa den maaten kan du faa en indikasjon paa hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
+    // Kan du paa grunnlag av dette si om metoden maks er bedre (eller daarligere) enn de maks-metodene vi har sett paa tidligere?
 
-    // Svar: Denne maks-metoden vil være daarligere. Vi looper gjennom for-loekken 2n ganger, men for if testen vil vi gå inn her
+    // Svar: Denne maks-metoden vil vaere daarligere. Vi looper gjennom for-loekken 2n ganger, men for if testen vil vi gaa inn her
     // 4(n-1) ganger. Noe som gjoer hele metoden mye tregere enn de forrige maks metodene. Med tilfeldige permutasjoner
     // av tall fra f.eks 1-100 ble resultatet nesten alltid 90+ ombyttinger. Dette viser ogsaa at metoden er mye tregere.
-    // Vi la til maks-metoden i Program klassen fra pensum, og det tok rundt 270 millisek aa utføre den.
-    // De tre andre maks-metodene vi har sett på i pensum tok fra 85-40 millisek. Saa denne metoden er definitivt betydelig tregere.
+    // Vi la til maks-metoden i Program klassen fra pensum, og det tok rundt 270 millisek aa utfoere den.
+    // De tre andre maks-metodene vi har sett paa i pensum tok fra 85-40 millisek. Saa denne metoden er definitivt betydelig tregere.
 
     public static int ombyttinger(int[] a) {
         sjekkArray(a);
@@ -84,7 +80,7 @@ public class Oblig1 {
 
         for (int i = 1; i < a.length; i++) {
             if (a[i - 1] > a[i]) {
-                throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefølge!");
+                throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefoelge!");
             }
             if (a[i - 1] < a[i]) {
                 antall++;
@@ -176,10 +172,10 @@ public class Oblig1 {
     //Oppgave 6 - Rotere flere plasser
     public static void rotasjonFlerePlasser(char[] a, int k) {
         if (k < 0) {
-            // Omgjoer tallet fra positivt til negativt og tar modulo på arrayet sitt lengde.
-            // Dette for aa finne forskjellen på lengden til arrayet og tallet. Så vi vet hvor langt arrayet skal roteres til venstre.
-            // Vi gjoer da saa lengden på den foerste for-loekken blir så lang som vi vil rotere arrayet. Hvis lengden på arrayet er f.eks 10
-            // vil en k verdi med -4 bli til 6, saa i stedet for å rotere 4 ganger til venstre roterer vi heller 6 ganger til hoeyre.
+            // Omgjoer tallet fra positivt til negativt og tar modulo paa arrayet sitt lengde.
+            // Dette for aa finne forskjellen paa lengden til arrayet og tallet. Saa vi vet hvor langt arrayet skal roteres til venstre.
+            // Vi gjoer da saa lengden paa den foerste for-loekken blir saa lang som vi vil rotere arrayet. Hvis lengden paa arrayet er f.eks 10
+            // vil en k verdi med -4 bli til 6, saa i stedet for aa rotere 4 ganger til venstre roterer vi heller 6 ganger til hoeyre.
             k = -k % a.length;
             k = a.length - k;
         }
@@ -255,8 +251,6 @@ public class Oblig1 {
 
         return indeks;
     }
-
-    //TODO: Synes dere at det er noe måte å gjøre det kortere her?
 
     //Oppgave 9 - Tredje minste tall
     public static int[] tredjeMin(int[] a) {

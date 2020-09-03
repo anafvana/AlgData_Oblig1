@@ -208,7 +208,7 @@ public class Tidsbruk {
     public static void main(String ... args) {
         int n = 1000, antall = 2000; // tabellstørrelse og gjentagelser
         long tid;                    // for tidsmåling
-        int a[] = randPerm(n);           // en permutasjon av 1, . .  n
+        int[] a = randPerm(n);           // en permutasjon av 1, . .  n
 
         tid = System.currentTimeMillis();    // leser av klokken
         for (int i = 0; i < antall; i++) kostnader(a);
