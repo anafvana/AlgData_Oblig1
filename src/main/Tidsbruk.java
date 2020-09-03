@@ -22,99 +22,6 @@ public class Tidsbruk {
         return a;                        // permutasjonen returneres
     }
 
-    //Oppgave 4 - Delsortering
-    public static void delsortering(int[] a){
-        int temp;
-
-        for(int i = 0; i < a.length; i++) {
-            //Sjekk om tallet er et partall
-            if (a[i] % 2 == 0) {
-                for(int j = i+1; j < a.length; j++){
-                    //Finn et oddetall for å bytte plass med partallet
-                    if (a[j] % 2 != 0) {
-                        temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
-                        break;
-                    }
-                }
-            }
-        }
-
-        for(int i=0; i<a.length;i++) {
-            if (a[i] % 2 != 0) {
-                for(int j = 0; j < a.length; j++){
-                    if (a[j] % 2 != 0 && a[j] != a[i] && a[j] > a[i]){
-                        temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
-                        i--;
-                        if(i < 0){
-                            i = 0;
-                        }
-                        break;
-                    }
-                }
-            }
-            if (a[i] % 2 == 0) {
-                for(int j = 0; j < a.length; j++){
-                    if (a[j] % 2 == 0 && a[j] != a[i] && a[j] > a[i]){
-                        temp = a[i];
-                        a[i] = a[j];
-                        a[j] = temp;
-                        i--;
-                        if(i < 0){
-                            i = 0;
-                        }
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    public static void delsortering1(int[] a){
-        int j = a.length - 1;
-
-        if (j > 0) {
-            int lastOdd = 0;
-            for (int i = 0; i < a.length; i++) {
-                int iFokus = a[i];
-
-                if (iFokus % 2 == 0) {
-                    if (j == i) {
-                        break;
-                    }
-                    while (a[j] % 2 == 0 && j > i) {
-                        j--;
-                    }
-                    a[i] = a[j];
-                    a[j] = iFokus;
-                    i--;
-                } else {
-                    lastOdd = i;
-                }
-            }
-            innsettningsortering(a, 0, lastOdd + 1);
-            innsettningsortering(a, lastOdd + 1, a.length);
-        }
-    }
-
-    //Inspirert av pensum, Programkode 1.3.8 e) og Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (04:43)
-    public static void innsettningsortering(int[] a, int fra, int til){
-        for (int i = fra+1; i<til; i++){
-            int j = i-1;
-            try {
-                while (a[i] < a[j] && j >= fra) {
-                    bytt(a, i, j);
-                    i--;
-                    j--;
-                }
-            } catch (IndexOutOfBoundsException e){
-            }
-        }
-    }
-
     public static int kostnader(int[] a) {
         int m = 0;
         for (int i = 1; i < a.length; i++) {}  // en tom blokk
@@ -188,25 +95,8 @@ public class Tidsbruk {
             }
     }
 
-    public static int ombyttinger(int[] a) {
-        if (a.length == 0) throw new NoSuchElementException("Arrayet er tom!");
-
-        int antall = 0;
-
-        for (int i=1; i<a.length; i++){
-            int v1 = a[i-1];
-            int v2 = a[i];
-            if (a[i-1]>a[i]) {
-                a[i-1] = v2;
-                a[i] = v1;
-                antall++;
-            }
-        }
-        return antall;
-    }
-
     public static void main(String ... args) {
-        int n = 1000, antall = 2000; // tabellstørrelse og gjentagelser
+        int n = 100000, antall = 2000; // tabellstørrelse og gjentagelser
         long tid;                    // for tidsmåling
         int[] a = randPerm(n);           // en permutasjon av 1, . .  n
 
@@ -234,15 +124,5 @@ public class Tidsbruk {
         for(int i = 0; i < antall; i++) maks(a);
         tid = System.currentTimeMillis() - tid;
         System.out.println("Maks-metoden fra Oblig1: " + tid + " millisek");
-
-        tid = System.currentTimeMillis();    // leser av klokken
-        for (int i = 0; i < antall; i++) delsortering(a);  // Programkode 1.1.5
-        tid = System.currentTimeMillis() - tid;     // medgått tid
-        System.out.println("Delsortering-metoden: " + tid + " millisek");
-
-        tid = System.currentTimeMillis();    // leser av klokken
-        for (int i = 0; i < antall; i++) delsortering1(a);  // Programkode 1.1.5
-        tid = System.currentTimeMillis() - tid;     // medgått tid
-        System.out.println("Delsortering1-metoden: " + tid + " millisek");
     }
 }

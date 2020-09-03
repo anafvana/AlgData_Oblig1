@@ -42,8 +42,8 @@ public class Oblig1 {
     // Svar: Denne maks-metoden vil vaere daarligere. Vi looper gjennom for-loekken 2n ganger, men for if testen vil vi gaa inn her
     // 4(n-1) ganger. Noe som gjoer hele metoden mye tregere enn de forrige maks metodene. Med tilfeldige permutasjoner
     // av tall fra f.eks 1-100 ble resultatet nesten alltid 90+ ombyttinger. Dette viser ogsaa at metoden er mye tregere.
-    // Vi la til maks-metoden i Program klassen fra pensum, og det tok rundt 270 millisek aa utfoere den.
-    // De tre andre maks-metodene vi har sett paa i pensum tok fra 85-40 millisek. Saa denne metoden er definitivt betydelig tregere.
+    // Vi la til maks-metoden i Program klassen fra pensum (tabellstoerrelse: 100000, gjentakelser: 2000), og det tok rundt 350 millisek aa utfoere den.
+    // De tre andre maks-metodene vi har sett paa i pensum tok fra ca. 85 til ca. 250 millisek (Intel i3 prosessor, Java 14). Saa denne metoden er definitivt betydelig tregere.
 
     public static int ombyttinger(int[] a) {
         sjekkArray(a);
@@ -155,7 +155,7 @@ public class Oblig1 {
         a[posB] = temp;
     }
 
-    //Oppgave 5 - rotasjon
+    //Oppgave 5 - Rotasjon
     public static void rotasjon(char[] a) {
         int maxLen = a.length - 1;
 
