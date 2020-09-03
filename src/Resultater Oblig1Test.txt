@@ -1,11 +1,11 @@
 Tests passed: 12 of 12 tests - 48ms
 
-	Oblig1Test				48ms
+	Oblig1Test				    48ms
 		flettArray()			12ms
 		antallUlikeUsortert()
-		antallUlikeSortert()		1ms
-		inneholdt()			8ms
-		rotasjon()			2ms
+		antallUlikeSortert()	1ms
+		inneholdt()			    8ms
+		rotasjon()			    2ms
 		maks()
 		tredjeMin()
 		flett()
@@ -27,115 +27,115 @@ Result: java.util.NoSuchElementException: Arrayet er tomt!
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 3, 2, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 3, 2, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 1, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 3, 1, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 1, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 3, 1, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 3, 2, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 1, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 3, 1, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [3, 1, 2, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [3, 2, 1, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 2, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [1, 3, 2, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 1, 3, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [2, 3, 1, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [3, 1, 2, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: [3, 2, 1, 4]
 Expected: 4
-Result:4
+Result: 4
 
 Array: []
 Expected: 115
-Result:115
+Result: 115
 
 Array: [115, 22, 49, 5, -2]
 Expected: 115
-Result:115
+Result: 115
 
 Array: [22, 49, 5, -2, 115]
 Expected: 115
-Result:115
+Result: 115
 
 Array: [1]
 Expected: 1
-Result:1
+Result: 1
 
 
 OPPGAVE 1 - OMBYTTINGER
@@ -152,67 +152,55 @@ Array: [1, 2, 3, 4]
 Expected: 0
 Result: 0
 
-Array: [1, 2, 3, 4]
+Array: [1, 2, 4, 3]
 Expected: 1
-Result: 0
-
-Array: [1, 2, 3, 4]
-Expected: 1
-Result: 0
+Result: 1
 
 Array: [1, 3, 2, 4]
 Expected: 1
 Result: 1
 
-Array: [1, 2, 3, 4]
-Expected: 2
-Result: 0
-
-Array: [1, 3, 2, 4]
-Expected: 2
+Array: [1, 3, 4, 2]
+Expected: 1
 Result: 1
 
-Array: [1, 2, 3, 4]
-Expected: 1
-Result: 0
-
-Array: [1, 2, 3, 4]
+Array: [1, 4, 2, 3]
 Expected: 2
-Result: 0
+Result: 2
+
+Array: [1, 4, 3, 2]
+Expected: 2
+Result: 2
 
 Array: [2, 1, 3, 4]
 Expected: 1
 Result: 1
 
+Array: [2, 1, 4, 3]
+Expected: 2
+Result: 2
+
 Array: [2, 3, 1, 4]
 Expected: 1
 Result: 1
 
-Array: [2, 1, 3, 4]
-Expected: 2
-Result: 1
-
-Array: [2, 3, 1, 4]
+Array: [2, 3, 4, 1]
 Expected: 1
 Result: 1
 
-Array: [1, 2, 3, 4]
+Array: [2, 4, 1, 3]
 Expected: 2
-Result: 0
+Result: 2
 
-Array: [1, 3, 2, 4]
-Expected: 2
-Result: 1
-
-Array: [2, 1, 3, 4]
-Expected: 2
-Result: 1
-
-Array: [2, 3, 1, 4]
-Expected: 2
+Array: [2, 3, 4, 1]
+Expected: 1
 Result: 1
 
 Array: [3, 1, 2, 4]
+Expected: 2
+Result: 2
+
+Array: [3, 1, 4, 2]
 Expected: 2
 Result: 2
 
@@ -220,29 +208,41 @@ Array: [3, 2, 1, 4]
 Expected: 2
 Result: 2
 
-Array: [1, 2, 3, 4]
-Expected: 3
-Result: 0
-
-Array: [1, 3, 2, 4]
-Expected: 3
-Result: 1
-
-Array: [2, 1, 3, 4]
-Expected: 3
-Result: 1
-
-Array: [2, 3, 1, 4]
-Expected: 3
-Result: 1
-
-Array: [3, 1, 2, 4]
-Expected: 3
+Array: [3, 2, 4, 1]
+Expected: 2
 Result: 2
 
-Array: [3, 2, 1, 4]
-Expected: 3
+Array: [3, 4, 1, 2]
+Expected: 2
 Result: 2
+
+Array: [3, 4, 2, 1]
+Expected: 2
+Result: 2
+
+Array: [4, 1, 2, 3]
+Expected: 3
+Result: 3
+
+Array: [4, 1, 3, 2]
+Expected: 3
+Result: 3
+
+Array: [4, 2, 1, 3]
+Expected: 3
+Result: 3
+
+Array: [4, 2, 3, 1]
+Expected: 3
+Result: 3
+
+Array: [4, 3, 1, 2]
+Expected: 3
+Result: 3
+
+Array: [4, 3, 2, 1]
+Expected: 3
+Result: 3
 
 Array: [22, 49, 5, 115, -2]
 Expected: 2
