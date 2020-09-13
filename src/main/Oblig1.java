@@ -4,7 +4,19 @@ import java.util.*;
 public class Oblig1 {
     private Oblig1() {}
 
+    // Øyvind Ødegård Stenberg - s188886
+    // Ana Flávia Vital - s344046
+    // Mark van der Baan - s344105
+
     ///// Oppgave 1 //////////////////////////////////////
+    // Spoersmaal etter oppgave 1:
+    // Spm: Naar blir det flest ombyttinger?
+    // Svar: Det blir flest ombyttinger naar det stoerste tallet er foerst.
+    // Spm: Naar blir det faerrest?
+    // Svar: Naar arrayet er sortert stigende.
+    // Spm: Hvor mange blir det i gjennomsnitt?
+    // Svar: Det blir i gjennomsnitt 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/n (Hn - 1) antall ganger vi gaar inn i if setningen. Denne rekken er Hn som er nesten det samme som log(n) + 0.577.
+    //       Hvis n i vaart eksempel er 1 000 000 000 saa gaar vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
     public static int maks(int[] a) {
         if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
 
@@ -22,6 +34,19 @@ public class Oblig1 {
         }
         return a[a.length - 1];
     }
+
+    //Oppgave 1 - Telle antall ombyttinger
+
+    // Spoersmaal til ombyttingsoppgaven:
+    // Lag tilfeldige permutasjoner av tallene fra 1 til n og bruk saa metoden.
+    // Paa den maaten kan du faa en indikasjon paa hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
+    // Kan du paa grunnlag av dette si om metoden maks er bedre (eller daarligere) enn de maks-metodene vi har sett paa tidligere?
+
+    // Svar: Denne maks-metoden vil vaere daarligere. Vi looper gjennom for-loekken 2n ganger, men for if testen vil vi gaa inn her
+    // 4(n-1) ganger. Noe som gjoer hele metoden mye tregere enn de forrige maks metodene. Med tilfeldige permutasjoner
+    // av tall fra f.eks 1-100 ble resultatet nesten alltid 90+ ombyttinger. Dette viser ogsaa at metoden er mye tregere.
+    // Vi la til maks-metoden i Program klassen fra pensum, og det tok rundt 270 millisek aa utfoere den.
+    // De tre andre maks-metodene vi har sett paa i pensum tok fra 85-40 millisek. Saa denne metoden er definitivt betydelig tregere.
 
     public static int ombyttinger(int[] a) {
         if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
@@ -358,4 +383,4 @@ public class Oblig1 {
         }
         return inneholdt;
     }
-}  // Oblig1
+}
