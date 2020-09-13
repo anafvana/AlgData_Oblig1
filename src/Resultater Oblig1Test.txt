@@ -1,6 +1,6 @@
 Tests passed: 12 of 12 tests - 48ms
 
-	Oblig1Test				    48ms
+	Oblig1OLDTest				    48ms
 		flettArray()			12ms
 		antallUlikeUsortert()
 		antallUlikeSortert()	1ms
@@ -20,9 +20,9 @@ Array: []
 Expected: java.util.NoSuchElementException: Arrayet er tomt!
 Result: java.util.NoSuchElementException: Arrayet er tomt!
 
-		at Oblig1.sjekkArray(Oblig1.java:66)
-		at Oblig1.maks(Oblig1.java:19)
-		at Oblig1Test.maks(Oblig1Test.java:33)
+		at Oblig1OLD.sjekkArray(Oblig1OLD.java:66)
+		at Oblig1OLD.maks(Oblig1OLD.java:19)
+		at Oblig1OLDTest.maks(Oblig1OLDTest.java:33)
 		[...]
 
 Array: [1, 2, 3, 4]
@@ -143,9 +143,9 @@ Array: []
 Expected: java.util.NoSuchElementException: Arrayet er tomt!
 Result: java.util.NoSuchElementException: Arrayet er tomt!
 
-		at Oblig1.sjekkArray(Oblig1.java:66)
-		at Oblig1.ombyttinger(Oblig1.java:49)
-		at Oblig1Test.ombyttinger(Oblig1Test.java:52)
+		at Oblig1OLD.sjekkArray(Oblig1OLD.java:66)
+		at Oblig1OLD.ombyttinger(Oblig1OLD.java:49)
+		at Oblig1OLDTest.ombyttinger(Oblig1OLDTest.java:52)
 		[...]
 
 Array: [1, 2, 3, 4]
@@ -274,8 +274,8 @@ Array: [22, 49, 5, 115, -2]
 Expected: java.lang.IllegalStateException: Arrayet er ikke sortert i stigende rekkefoelge!
 Result: java.lang.IllegalStateException: Arrayet er ikke sortert i stigende rekkefoelge!
 
-		at Oblig1.antallUlikeSortert(Oblig1.java:83)
-		at Oblig1Test.antallUlikeSortert(Oblig1Test.java:87)
+		at Oblig1OLD.antallUlikeSortert(Oblig1OLD.java:83)
+		at Oblig1OLDTest.antallUlikeSortert(Oblig1OLDTest.java:87)
 		[...]
 
 Array: []
@@ -580,16 +580,16 @@ Array: []
 Expected: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
 Result: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
 
-		at Oblig1.tredjeMin(Oblig1.java:257)
-		at Oblig1Test.tredjeMin(Oblig1Test.java:246)
+		at Oblig1OLD.tredjeMin(Oblig1OLD.java:257)
+		at Oblig1OLDTest.tredjeMin(Oblig1OLDTest.java:246)
 		[...]
 
 Array: [1]
 Expected: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
 Result: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
 
-		at Oblig1.tredjeMin(Oblig1.java:257)
-		at Oblig1Test.tredjeMin(Oblig1Test.java:248)
+		at Oblig1OLD.tredjeMin(Oblig1OLD.java:257)
+		at Oblig1OLDTest.tredjeMin(Oblig1OLDTest.java:248)
 		[...]
 
 Array: [1, 2, 3, 4]

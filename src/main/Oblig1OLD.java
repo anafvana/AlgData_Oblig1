@@ -1,15 +1,22 @@
-import java.lang.UnsupportedOperationException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+/*import java.util.*;
 
-public class Oblig1 {
-    private Oblig1() {}
+public class Oblig1OLD {
+    // Øyvind Ødegård Stenberg - s188886
+    // Ana Flávia Vital - s344046
+    // Mark van der Baan - s344105
 
-    ///// Oppgave 1 //////////////////////////////////////
+
+    //Oppgave 1 - finne stoerste tall
+    // Spoersmaal etter oppgave 1:
+    // Spm: Naar blir det flest ombyttinger?
+    // Svar: Det blir flest ombyttinger naar det stoerste tallet er foerst.
+    // Spm: Naar blir det faerrest?
+    // Svar: Naar arrayet er sortert stigende.
+    // Spm: Hvor mange blir det i gjennomsnitt?
+    // Svar: Det blir i gjennomsnitt 1/2 + 1/3 + 1/4 + 1/5 + ... + 1/n (Hn - 1) antall ganger vi gaar inn i if setningen. Denne rekken er Hn som er nesten det samme som log(n) + 0.577.
+    //       Hvis n i vaart eksempel er 1 000 000 000 saa gaar vi inn i if setningen i gjennomsnitt log(1000000000) + 0.577 ganger, som er 9.577.
     public static int maks(int[] a) {
-        if (a.length == 0) throw new UnsupportedOperationException("Arrayet er tomt!");
-
+        sjekkArray(a);
         int storste;
         int neste;
         for (int i = 1; i < a.length; i++) {
@@ -25,8 +32,21 @@ public class Oblig1 {
         return a[a.length - 1];
     }
 
+    //Oppgave 1 - Telle antall ombyttinger
+
+    // Spoersmaal til ombyttingsoppgaven:
+    // Lag tilfeldige permutasjoner av tallene fra 1 til n og bruk saa metoden.
+    // Paa den maaten kan du faa en indikasjon paa hvor mange det blir i gjennomsnitt (det finnes en formel for gjennomsnittet).
+    // Kan du paa grunnlag av dette si om metoden maks er bedre (eller daarligere) enn de maks-metodene vi har sett paa tidligere?
+
+    // Svar: Denne maks-metoden vil vaere daarligere. Vi looper gjennom for-loekken 2n ganger, men for if testen vil vi gaa inn her
+    // 4(n-1) ganger. Noe som gjoer hele metoden mye tregere enn de forrige maks metodene. Med tilfeldige permutasjoner
+    // av tall fra f.eks 1-100 ble resultatet nesten alltid 90+ ombyttinger. Dette viser ogsaa at metoden er mye tregere.
+    // Vi la til maks-metoden i Program klassen fra pensum (tabellstoerrelse: 100000, gjentakelser: 2000), og det tok rundt 350 millisek aa utfoere den.
+    // De tre andre maks-metodene vi har sett paa i pensum tok fra ca. 85 til ca. 250 millisek (Intel i3 prosessor, Java 14). Saa denne metoden er definitivt betydelig tregere.
+
     public static int ombyttinger(int[] a) {
-        if (a.length == 0) throw new UnsupportedOperationException("Arrayet er tomt!");
+        sjekkArray(a);
 
         int antall = 0;
 
@@ -42,8 +62,12 @@ public class Oblig1 {
         return antall;
     }
 
-    ///// Oppgave 2 //////////////////////////////////////
-    public static int antallUlikeSortert(int[] a) {
+    public static void sjekkArray(int[] a) {
+        if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
+    }
+
+    //Oppgave 2 - antall ulike (sortert)
+    public static int antallUlikeSortert(int[] a) throws IllegalStateException {
         int antall = 0;
 
         if (a.length > 0) {
@@ -56,7 +80,7 @@ public class Oblig1 {
 
         for (int i = 1; i < a.length; i++) {
             if (a[i - 1] > a[i]) {
-                throw new UnsupportedOperationException("Arrayet er ikke sortert i stigende rekkefoelge!");
+                throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefoelge!");
             }
             if (a[i - 1] < a[i]) {
                 antall++;
@@ -66,10 +90,8 @@ public class Oblig1 {
         return antall;
     }
 
-    ///// Oppgave 3 //////////////////////////////////////
+    //Oppgave 3 - antall ulike (usortert)
     public static int antallUlikeUsortert(int[] a) {
-        //TODO Ask about this exception in lab
-        //throw new UnsupportedOperationException();
         int antall = 0;
         for (int i = 0; i < a.length; i++) {
             boolean matches = false;
@@ -84,11 +106,7 @@ public class Oblig1 {
         return antall;
     }
 
-    //TODO Fix
-    ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
         int j = a.length - 1;
 
         if (j > 0) {
@@ -137,11 +155,8 @@ public class Oblig1 {
         a[posB] = temp;
     }
 
-    ///// Oppgave 5 //////////////////////////////////////
+    //Oppgave 5 - Rotasjon
     public static void rotasjon(char[] a) {
-        //TODO Ask in lab
-        //throw new UnsupportedOperationException();
-
         int maxLen = a.length - 1;
 
         if (maxLen > 0) {
@@ -154,10 +169,8 @@ public class Oblig1 {
         }
     }
 
-    //TODO: FIX
-    ///// Oppgave 6 //////////////////////////////////////
-    public static void rotasjon(char[] a, int k) {
-        //throw new UnsupportedOperationException();
+    //Oppgave 6 - Rotere flere plasser
+    public static void rotasjonFlerePlasser(char[] a, int k) {
         if (k < 0) {
             // Omgjoer tallet fra positivt til negativt og tar modulo paa arrayet sitt lengde.
             // Dette for aa finne forskjellen paa lengden til arrayet og tallet. Saa vi vet hvor langt arrayet skal roteres til venstre.
@@ -175,11 +188,8 @@ public class Oblig1 {
         }
     }
 
-    ///// Oppgave 7 //////////////////////////////////////
-    /// 7a)
+    //Oppgave 7a - Fletting
     public static String flett(String s, String t) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length() || i < t.length(); i++) {
             if (i < s.length()) {
@@ -192,11 +202,8 @@ public class Oblig1 {
         return sb.toString();
     }
 
-    /// 7b)
-    public static String flett(String... s) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
-
+    //Oppgave 7b - Fletting
+    public static String flettArray(String... s) {
         int longest = 0;
         for (String str : s) {
             if (str.length() > longest) {
@@ -217,11 +224,8 @@ public class Oblig1 {
         return out.toString();
     }
 
-    //TODO FIX
-    ///// Oppgave 8 //////////////////////////////////////
+    //Oppgave 8 - Indeks-sortering
     public static int[] indekssortering(int[] a) {
-        //TODO ASK
-        //throw new UnsupportedOperationException();
         int[] temp = new int[a.length];
 
         //Hjelpetabell
@@ -248,11 +252,9 @@ public class Oblig1 {
         return indeks;
     }
 
-    //TODO Fix
-    ///// Oppgave 9 //////////////////////////////////////
+    //Oppgave 9 - Tredje minste tall
     public static int[] tredjeMin(int[] a) {
-
-        if (a.length < 3) throw new UnsupportedOperationException("Tabellen har mindre enn 3 verdier");
+        if (a.length < 3) throw new NoSuchElementException("Tabellen har mindre enn 3 verdier");
 
         int forstMin = a[0];
         int andreMin = a[1];
@@ -292,21 +294,12 @@ public class Oblig1 {
                 }
             }
         }
+
         return new int[]{forstMin, andreMin, tredjeMin};
     }
 
-    //TODO Fix
-    ///// Oppgave 10 //////////////////////////////////////
-
-    //TODO Add?
-    public static int bokstavNr(char bokstav) {
-        throw new UnsupportedOperationException();
-    }
-
+    //Oppgave 10 - Inneholdt
     public static boolean inneholdt(String a, String b) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
-
         boolean inneholdt = false;
         HashMap<Character, Integer> aMap = new HashMap<>();
         HashMap<Character, Integer> bMap = new HashMap<>();
@@ -349,4 +342,4 @@ public class Oblig1 {
 
         return inneholdt;
     }
-}  // Oblig1
+}*/
