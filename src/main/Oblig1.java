@@ -1,8 +1,5 @@
 import java.lang.UnsupportedOperationException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public class Oblig1 {
     private Oblig1() {}
@@ -85,6 +82,10 @@ public class Oblig1 {
         return antall;
     }
 
+    public static void main(String[] args) {
+        int i = Integer.MAX_VALUE;
+    }
+
     //TODO Fix
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
@@ -109,13 +110,19 @@ public class Oblig1 {
                     lastOdd = i;
                 }
             }
-            innsettningsortering(a, 0, lastOdd + 1);
-            innsettningsortering(a, lastOdd + 1, a.length);
+            if (lastOdd == 0 || lastOdd == a.length - 1){
+                quicksort(a);
+            } else {
+                quicksort(a, 0, lastOdd);
+                quicksort(a, lastOdd + 1, a.length-1);
+            }
         }
     }
 
-    //Inspirert av pensum, Programkode 1.3.8 e) og Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (04:43)
-    public static void innsettningsortering(int[] a, int fra, int til) {
+    //Inspirert av pensum, Programkode 1.3.9 a)
+    //Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (05:53)
+    //og HackerRank https://www.youtube.com/watch?v=SLauY6PpjW4
+    /*public static void innsettningsortering(int[] a, int fra, int til) {
         for (int i = fra + 1; i < til; i++) {
             int j = i - 1;
             try {
@@ -127,6 +134,33 @@ public class Oblig1 {
             } catch (IndexOutOfBoundsException e) {
             }
         }
+    }*/
+
+    public static void quicksort(int[] a){
+        quicksort(a, 0, a.length-1);
+    }
+
+    private static void quicksort(int[] a, int v, int h){
+        if (v >= h) return;
+
+        int pivot = a[v + (h - v)/2]; //sets pivot to half the current array, considering possibility of overflow (Inspired on Emily Björk's comment on HackerRank's video)
+        int m = partition(a, v, h, pivot);
+        quicksort(a, v, m-1);
+        quicksort(a, m, h);
+    }
+
+    private static int partition(int[] a, int v, int h, int pivot){
+        while(v <= h){
+            while (a[v]<pivot) v++;
+            while (a[h]>pivot) h--;
+
+            if(v<=h){
+                bytt(a, v, h);
+                v++;
+                h--;
+            }
+        }
+        return v;
     }
 
     //Fra pensum, Programkode 1.1.8 d)
