@@ -2,13 +2,14 @@ import java.lang.UnsupportedOperationException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 public class Oblig1 {
     private Oblig1() {}
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        if (a.length == 0) throw new UnsupportedOperationException("Arrayet er tomt!");
+        if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
 
         int storste;
         int neste;
@@ -26,7 +27,7 @@ public class Oblig1 {
     }
 
     public static int ombyttinger(int[] a) {
-        if (a.length == 0) throw new UnsupportedOperationException("Arrayet er tomt!");
+        if (a.length == 0) throw new NoSuchElementException("Arrayet er tomt!");
 
         int antall = 0;
 
@@ -56,7 +57,7 @@ public class Oblig1 {
 
         for (int i = 1; i < a.length; i++) {
             if (a[i - 1] > a[i]) {
-                throw new UnsupportedOperationException("Arrayet er ikke sortert i stigende rekkefoelge!");
+                throw new IllegalStateException("Arrayet er ikke sortert i stigende rekkefoelge!");
             }
             if (a[i - 1] < a[i]) {
                 antall++;
@@ -87,8 +88,6 @@ public class Oblig1 {
     //TODO Fix
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
         int j = a.length - 1;
 
         if (j > 0) {
@@ -139,9 +138,6 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        //TODO Ask in lab
-        //throw new UnsupportedOperationException();
-
         int maxLen = a.length - 1;
 
         if (maxLen > 0) {
@@ -157,7 +153,6 @@ public class Oblig1 {
     //TODO: FIX
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        //throw new UnsupportedOperationException();
         if (k < 0) {
             // Omgjoer tallet fra positivt til negativt og tar modulo paa arrayet sitt lengde.
             // Dette for aa finne forskjellen paa lengden til arrayet og tallet. Saa vi vet hvor langt arrayet skal roteres til venstre.
@@ -178,8 +173,6 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length() || i < t.length(); i++) {
             if (i < s.length()) {
@@ -194,9 +187,6 @@ public class Oblig1 {
 
     /// 7b)
     public static String flett(String... s) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
-
         int longest = 0;
         for (String str : s) {
             if (str.length() > longest) {
@@ -220,8 +210,6 @@ public class Oblig1 {
     //TODO FIX
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        //TODO ASK
-        //throw new UnsupportedOperationException();
         int[] temp = new int[a.length];
 
         //Hjelpetabell
@@ -252,7 +240,7 @@ public class Oblig1 {
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
 
-        if (a.length < 3) throw new UnsupportedOperationException("Tabellen har mindre enn 3 verdier");
+        if (a.length < 3) throw new NoSuchElementException("Tabellen har mindre enn 3 verdier");
 
         int forstMin = a[0];
         int andreMin = a[1];
@@ -304,9 +292,6 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
-        //TODO Ask
-        //throw new UnsupportedOperationException();
-
         boolean inneholdt = false;
         HashMap<Character, Integer> aMap = new HashMap<>();
         HashMap<Character, Integer> bMap = new HashMap<>();
