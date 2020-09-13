@@ -1,4 +1,5 @@
 import java.lang.UnsupportedOperationException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Oblig1 {
@@ -82,11 +83,6 @@ public class Oblig1 {
         return antall;
     }
 
-    public static void main(String[] args) {
-        int i = Integer.MAX_VALUE;
-    }
-
-    //TODO Fix
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
         int j = a.length - 1;
@@ -122,20 +118,6 @@ public class Oblig1 {
     //Inspirert av pensum, Programkode 1.3.9 a)
     //Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (05:53)
     //og HackerRank https://www.youtube.com/watch?v=SLauY6PpjW4
-    /*public static void innsettningsortering(int[] a, int fra, int til) {
-        for (int i = fra + 1; i < til; i++) {
-            int j = i - 1;
-            try {
-                while (a[i] < a[j] && j >= fra) {
-                    bytt(a, i, j);
-                    i--;
-                    j--;
-                }
-            } catch (IndexOutOfBoundsException e) {
-            }
-        }
-    }*/
-
     public static void quicksort(int[] a){
         quicksort(a, 0, a.length-1);
     }
@@ -143,7 +125,7 @@ public class Oblig1 {
     private static void quicksort(int[] a, int v, int h){
         if (v >= h) return;
 
-        int pivot = a[v + (h - v)/2]; //sets pivot to half the current array, considering possibility of overflow (Inspired on Emily Björk's comment on HackerRank's video)
+        int pivot = a[v + (h - v)/2]; //pivot blir midten av delarrayet, med haandtering av overflow muligheten (Inspirert av Emily Björk's kommentar på HackerRanks video)
         int m = partition(a, v, h, pivot);
         quicksort(a, v, m-1);
         quicksort(a, m, h);
@@ -246,7 +228,6 @@ public class Oblig1 {
         return out.toString();
     }
 
-    //TODO FIX
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
         int[] temp = new int[a.length];
@@ -255,43 +236,43 @@ public class Oblig1 {
         System.arraycopy(a, 0, temp, 0, a.length);
 
         int[] indeks = new int[a.length];
-        int lavesteverdi = a[0];
-        int indeksLavesteVerdi = 0;
+        if (a.length > 0) {
+            int lavesteverdi = a[0];
+            int indeksLavesteVerdi = 0;
 
-        for (int i = 0; i < indeks.length; i++) {
-            for (int j = 0; j < temp.length; j++) {
-                if (lavesteverdi > temp[j]) {
-                    lavesteverdi = temp[j];
-                    indeksLavesteVerdi = j;
+            for (int i = 0; i < indeks.length; i++) {
+                for (int j = 0; j < temp.length; j++) {
+                    if (lavesteverdi > temp[j]) {
+                        lavesteverdi = temp[j];
+                        indeksLavesteVerdi = j;
+                    }
                 }
+                indeks[i] = indeksLavesteVerdi;
+
+                //Verdiene som er tatt vil bli satt til maks
+                temp[indeksLavesteVerdi] = 0x7fffffff;
+                lavesteverdi = 0x7fffffff;
             }
-            indeks[i] = indeksLavesteVerdi;
-
-            //Verdiene som er tatt vil bli satt til maks
-            temp[indeksLavesteVerdi] = 0x7fffffff;
-            lavesteverdi = 0x7fffffff;
         }
-
         return indeks;
     }
 
-    //TODO Fix
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
 
         if (a.length < 3) throw new NoSuchElementException("Tabellen har mindre enn 3 verdier");
 
-        int forstMin = a[0];
-        int andreMin = a[1];
-        int tredjeMin = a[2];
+        int forstMin = 0;
+        int andreMin = 1;
+        int tredjeMin = 2;
 
-        if (forstMin > andreMin) {
+        if (a[forstMin] > a[andreMin]) {
             int temp = andreMin;
             andreMin = forstMin;
             forstMin = temp;
         }
-        if (andreMin > tredjeMin) {
-            if (forstMin > tredjeMin) {
+        if (a[andreMin] > a[tredjeMin]) {
+            if (a[forstMin] > a[tredjeMin]) {
                 int temp1 = tredjeMin;
                 tredjeMin = andreMin;
                 andreMin = forstMin;
@@ -305,21 +286,25 @@ public class Oblig1 {
 
         for (int i = 3; i < a.length; i++) {
             int tempLoop = a[i];
-            if (tempLoop < tredjeMin) {
-                if (tempLoop < andreMin) {
+            if (tempLoop < a[tredjeMin]) {
+                if (tempLoop < a[andreMin]) {
                     tredjeMin = andreMin;
-                    if (tempLoop < forstMin) {
+                    if (tempLoop < a[forstMin]) {
                         andreMin = forstMin;
-                        forstMin = tempLoop;
+                        forstMin = i;
                     } else {
-                        andreMin = tempLoop;
+                        andreMin = i;
                     }
                 } else {
-                    tredjeMin = tempLoop;
+                    tredjeMin = i;
                 }
             }
         }
         return new int[]{forstMin, andreMin, tredjeMin};
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(tredjeMin(new int[] {1, 2, 3})));
     }
 
     //TODO Fix
