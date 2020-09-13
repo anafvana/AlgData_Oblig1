@@ -150,23 +150,28 @@ public class Oblig1 {
         }
     }
 
-    //TODO: FIX
     ///// Oppgave 6 //////////////////////////////////////
-    public static void rotasjon(char[] a, int k) {
-        if (k < 0) {
-            // Omgjoer tallet fra positivt til negativt og tar modulo paa arrayet sitt lengde.
-            // Dette for aa finne forskjellen paa lengden til arrayet og tallet. Saa vi vet hvor langt arrayet skal roteres til venstre.
-            // Vi gjoer da saa lengden paa den foerste for-loekken blir saa lang som vi vil rotere arrayet. Hvis lengden paa arrayet er f.eks 10
-            // vil en k verdi med -4 bli til 6, saa i stedet for aa rotere 4 ganger til venstre roterer vi heller 6 ganger til hoeyre.
-            k = -k % a.length;
-            k = a.length - k;
+    public static void reverser(char[] chars, int start, int slutt) {
+        while (start < slutt) {
+            char temp = chars[start];
+            chars[start] = chars[slutt];
+            chars[slutt] = temp;
+            start++;
+            slutt--;
         }
-        for (int i = 0; i < k; i++) {
-            char siste = a[a.length - 1];
-            for (int j = a.length - 1; j > 0; j--) {
-                a[j] = a[j - 1];
+    }
+
+    public static void rotasjon(char[] a, int k) {
+        int slutt = a.length-1;
+        if(a.length != 0) {							// hvis arrayet er tomt - ikke gjør noe
+            if(k < 0) {								// hvis k er et negativt tall, roter mot (reverser mot/fra) høyre med a.length - k
+                k = -k % a.length;
+                k = a.length - k;
             }
-            a[0] = siste;
+            k = k % a.length;
+            reverser(a, 0, slutt);				// reverserer hele arrayet
+            reverser(a, 0, k-1);			// reverserer første delen av arrayet frem til k
+            reverser(a, k, slutt);					// reverserer andre delen av arrayet fra og med k til slutten
         }
     }
 
