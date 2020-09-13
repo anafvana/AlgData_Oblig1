@@ -151,11 +151,11 @@ public class Oblig1 {
     }
 
     ///// Oppgave 6 //////////////////////////////////////
-    public static void reverser(char[] chars, int start, int slutt) {
+    public static void reverser(char[] a, int start, int slutt) {
         while (start < slutt) {
-            char temp = chars[start];
-            chars[start] = chars[slutt];
-            chars[slutt] = temp;
+            char temp = a[start];
+            a[start] = a[slutt];
+            a[slutt] = temp;
             start++;
             slutt--;
         }
