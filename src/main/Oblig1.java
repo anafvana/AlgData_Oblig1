@@ -1,5 +1,4 @@
 import java.lang.UnsupportedOperationException;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Oblig1 {
@@ -222,6 +221,7 @@ public class Oblig1 {
                 try {
                     out.append(str.charAt(i));
                 } catch (IndexOutOfBoundsException e) {
+                    //do nothing
                 }
             }
         }
@@ -303,11 +303,7 @@ public class Oblig1 {
         return new int[]{forstMin, andreMin, tredjeMin};
     }
 
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(tredjeMin(new int[] {1, 2, 3})));
-    }
-
-    //TODO Fix
+    //TODO Change algorithm?
     ///// Oppgave 10 //////////////////////////////////////
 
     //TODO Add?
@@ -317,45 +313,49 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
         boolean inneholdt = false;
-        HashMap<Character, Integer> aMap = new HashMap<>();
-        HashMap<Character, Integer> bMap = new HashMap<>();
 
-        for (int i = 0; i < b.length(); i++) {
-            if (bMap.containsKey(b.charAt(i))) {
-                int count = bMap.get(b.charAt(i));
-                bMap.put(b.charAt(i), count + 1);
-            } else {
-                bMap.put(b.charAt(i), 1);
-            }
-        }
+        if (a.isEmpty()){
+            inneholdt = true;
+        } else {
+            HashMap<Character, Integer> aMap = new HashMap<>();
+            HashMap<Character, Integer> bMap = new HashMap<>();
 
-        for (int i = 0; i < a.length(); i++) {
-            if (bMap.containsKey(a.charAt(i))) {
-                if (aMap.containsKey(a.charAt(i))) {
-                    int count = aMap.get(a.charAt(i));
-                    aMap.put(a.charAt(i), count + 1);
+            for (int i = 0; i < b.length(); i++) {
+                if (bMap.containsKey(b.charAt(i))) {
+                    int count = bMap.get(b.charAt(i));
+                    bMap.put(b.charAt(i), count + 1);
                 } else {
-                    aMap.put(a.charAt(i), 1);
+                    bMap.put(b.charAt(i), 1);
                 }
-            } else {
-                return inneholdt;
+            }
+
+            for (int i = 0; i < a.length(); i++) {
+                if (bMap.containsKey(a.charAt(i))) {
+                    if (aMap.containsKey(a.charAt(i))) {
+                        int count = aMap.get(a.charAt(i));
+                        aMap.put(a.charAt(i), count + 1);
+                    } else {
+                        aMap.put(a.charAt(i), 1);
+                    }
+                } else {
+                    return inneholdt;
+                }
+            }
+
+            Iterator aMapIterator = aMap.entrySet().iterator();
+
+            while (aMapIterator.hasNext()) {
+                Map.Entry mapElement = (Map.Entry) aMapIterator.next();
+                Character sjekkCharacter = (Character) mapElement.getKey();
+                int AmapVerdie = aMap.get(sjekkCharacter);
+                int BmapVerdie = bMap.get(sjekkCharacter);
+                if (AmapVerdie <= BmapVerdie) {
+                    inneholdt = true;
+                } else {
+                    return false;
+                }
             }
         }
-
-        Iterator aMapIterator = aMap.entrySet().iterator();
-
-        while (aMapIterator.hasNext()) {
-            Map.Entry mapElement = (Map.Entry) aMapIterator.next();
-            Character sjekkCharacter = (Character) mapElement.getKey();
-            int AmapVerdie = aMap.get(sjekkCharacter);
-            int BmapVerdie = bMap.get(sjekkCharacter);
-            if (AmapVerdie <= BmapVerdie) {
-                inneholdt = true;
-            } else {
-                return false;
-            }
-        }
-
         return inneholdt;
     }
 }  // Oblig1
