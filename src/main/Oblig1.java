@@ -368,6 +368,50 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
+        int[] stringA = new int[39];
+        int[] stringB = new int[39];
+
+        char string36 = 'Å';
+        int verdiString36 = 36;
+
+        char string37 = 'Æ';
+        int verdiString37 = 37;
+
+        char string38 = 'Ø';
+        int verdiString38 = 38;
+
+
+        for(int i =0; i < a.length(); i++){
+            if(a.charAt(i) == string36){
+                stringA[verdiString36] ++;
+            } else if(a.charAt(i) == string37){
+                stringA[verdiString37] ++;
+            } else if(a.charAt(i) == string38){
+                stringA[verdiString38] ++;
+            } else {
+                stringA[Character.getNumericValue(a.charAt(i))]++;
+            }
+        }
+        for(int i =0; i < b.length(); i++){
+            if(b.charAt(i) == string36){
+                stringB[verdiString36] ++;
+            } else if(b.charAt(i) == string37){
+                stringB[verdiString37] ++;
+            } else if(b.charAt(i) == string38){
+                stringB[verdiString38] ++;
+            } else {
+                stringB[Character.getNumericValue(b.charAt(i))]++;
+            }
+        }
+
+        for(int i=0; i < stringA.length; i++){
+            if(stringA[i] > stringB[i]){
+                return false;
+            }
+        }
+        return true;
+
+        /*
         boolean inneholdt = false;
 
         if (a.isEmpty()){
@@ -413,5 +457,6 @@ public class Oblig1 {
             }
         }
         return inneholdt;
+         */
     }
 }

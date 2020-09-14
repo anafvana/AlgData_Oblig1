@@ -19,8 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="Rettet 10, MEN den tar ca 100ms. Noe ganger går det greit, noe ganger ikke. Bytter vi algoritmen?">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_09_2020_17_50__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_09_2020_17_50__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Oblig1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Oblig1.java" afterDir="false" />
@@ -132,9 +131,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Oblig1Test" />
+        <item itemvalue="JUnit.Oblig1Test.oppgave10" />
         <item itemvalue="JUnit.Oblig1Test.oppgave4" />
         <item itemvalue="Application.Oblig1" />
-        <item itemvalue="JUnit.Oblig1Test.oppgave10" />
         <item itemvalue="JUnit.Oblig1Test.oppgave9" />
       </list>
     </recent_temporary>
@@ -150,7 +149,7 @@
       <workItem from="1599991281350" duration="3847000" />
       <workItem from="1599999390179" duration="84000" />
       <workItem from="1599999495902" duration="11279000" />
-      <workItem from="1600066995848" duration="2286000" />
+      <workItem from="1600066995848" duration="4682000" />
     </task>
     <task id="LOCAL-00001" summary="Tilbake til helt prosjekt. Ny klasser med strukturen vi fikk.">
       <created>1599998819117</created>
@@ -194,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600019369991</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="annen måte å gjøre oppgave 4 på?">
+      <created>1600069722288</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1600069722288</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,7 +224,8 @@
     <MESSAGE value="Fungerende oppgave 4." />
     <MESSAGE value="Alle rettet utenom nr 10" />
     <MESSAGE value="Rettet 10, MEN den tar ca 100ms. Noe ganger går det greit, noe ganger ikke. Bytter vi algoritmen?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rettet 10, MEN den tar ca 100ms. Noe ganger går det greit, noe ganger ikke. Bytter vi algoritmen?" />
+    <MESSAGE value="annen måte å gjøre oppgave 4 på?" />
+    <option name="LAST_COMMIT_MESSAGE" value="annen måte å gjøre oppgave 4 på?" />
   </component>
   <component name="WindowStateProjectService">
     <state x="520" y="236" key="#Notifications" timestamp="1599999191429">
@@ -233,22 +240,26 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="551" y="277" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1599998470683" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1600069394278">
+    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1600069720837">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600069394278" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1600069394277">
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600069720837" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1600071725320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600069394277" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1600069394277">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600071725320" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1600071725319">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600069394277" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1600069394277">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600071725319" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1600071725319">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600069394277" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600071725319" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1600071725319">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600071725319" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1600019390544">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -265,10 +276,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600019373248">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600069725578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600019373248" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600069725578" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599999690719">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
