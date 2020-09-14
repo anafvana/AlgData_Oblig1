@@ -19,7 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="Rettet 10, MEN den tar ca 100ms. Noe ganger går det greit, noe ganger ikke. Bytter vi algoritmen?" />
+    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="Rettet 10, MEN den tar ca 100ms. Noe ganger går det greit, noe ganger ikke. Bytter vi algoritmen?">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_09_2020_17_50__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_09_2020_17_50__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Oblig1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Oblig1.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +54,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -68,15 +79,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -100,11 +109,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Oblig1Test.oppgave8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Oblig1Test.oppgave4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Oblig1" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Oblig1Test" />
-      <option name="METHOD_NAME" value="oppgave8" />
+      <option name="METHOD_NAME" value="oppgave4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -123,10 +132,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Oblig1Test" />
+        <item itemvalue="JUnit.Oblig1Test.oppgave4" />
         <item itemvalue="Application.Oblig1" />
         <item itemvalue="JUnit.Oblig1Test.oppgave10" />
         <item itemvalue="JUnit.Oblig1Test.oppgave9" />
-        <item itemvalue="JUnit.Oblig1Test.oppgave8" />
       </list>
     </recent_temporary>
   </component>
@@ -141,6 +150,7 @@
       <workItem from="1599991281350" duration="3847000" />
       <workItem from="1599999390179" duration="84000" />
       <workItem from="1599999495902" duration="11279000" />
+      <workItem from="1600066995848" duration="2286000" />
     </task>
     <task id="LOCAL-00001" summary="Tilbake til helt prosjekt. Ny klasser med strukturen vi fikk.">
       <created>1599998819117</created>
@@ -223,22 +233,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="551" y="277" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1599998470683" />
-    <state width="1493" height="260" key="GridCell.Tab.0.bottom" timestamp="1600019390544">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1600069394278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state width="1493" height="260" key="GridCell.Tab.0.center" timestamp="1600019390544">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600069394278" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1600069394277">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state width="1493" height="260" key="GridCell.Tab.0.left" timestamp="1600019390544">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600069394277" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1600069394277">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state width="1493" height="260" key="GridCell.Tab.0.right" timestamp="1600019390544">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600069394277" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1600069394277">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600069394277" />
     <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1600019390544">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -109,6 +109,36 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
+        int oddetall = 0;
+        int partall = a.length-1;
+
+        while(oddetall < partall){
+            if(a[oddetall] % 2 == 0){
+                if(a[partall] % 2 != 0){
+                    int temp = a[partall];
+                    a[partall] = a[oddetall];
+                    a[oddetall] = temp;
+                } else {
+                    partall --;
+                }
+            } else {
+                oddetall++;
+            }
+        }
+
+        if (oddetall > 0){
+            if(oddetall + 1 == a.length){
+                quicksort(a);
+            } else {
+                quicksort(a, 0, oddetall -1);
+            }
+        }
+
+        if(partall < a.length-1){
+            quicksort(a, partall, a.length-1);
+        }
+
+        /*
         int j = a.length - 1;
 
         if (j > 0) {
@@ -137,6 +167,7 @@ public class Oblig1 {
                 quicksort(a, lastOdd + 1, a.length-1);
             }
         }
+        */
     }
 
     //Inspirert av pensum, Programkode 1.3.9 a)
