@@ -13,6 +13,6 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Ana har hatt hovedansvar for oppgave 3, 5, 9
 * Øyvind har hatt hovedansvar for oppgave 2, 6
 * Mark har hatt hovedansvar for oppgave 4,8
-* Vi har i fellesskap løst oppgave 1, 7, 10
+* Vi har i fellesskap løst oppgave 1, 7, 10, og implementert endringer for resubmission
 
 Hele gruppa har også sjekket hverandres oppgaver og eventuelt anbefalt (via GitHub eller chat) endringer.
