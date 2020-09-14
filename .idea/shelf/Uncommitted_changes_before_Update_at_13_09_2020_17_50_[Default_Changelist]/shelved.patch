@@ -1,0 +1,70 @@
+Index: src/main/Oblig1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import java.lang.UnsupportedOperationException;\r\nimport java.util.HashMap;\r\nimport java.util.Iterator;\r\nimport java.util.Map;\r\nimport java.util.NoSuchElementException;\r\n\r\npublic class Oblig1 {\r\n    private Oblig1() {}\r\n\r\n    ///// Oppgave 1 //////////////////////////////////////\r\n    public static int maks(int[] a) {\r\n        if (a.length == 0) throw new NoSuchElementException(\"Arrayet er tomt!\");\r\n\r\n        int storste;\r\n        int neste;\r\n        for (int i = 1; i < a.length; i++) {\r\n            storste = a[i - 1];\r\n            neste = a[i];\r\n            if (storste > neste) {\r\n                // Dersom stoerste er stoerre enn det neste tallet bytter de plass\r\n                // Slik at det stoerste tallet kommer paa siste plass\r\n                a[i] = storste;\r\n                a[i - 1] = neste;\r\n            }\r\n        }\r\n        return a[a.length - 1];\r\n    }\r\n\r\n    public static int ombyttinger(int[] a) {\r\n        if (a.length == 0) throw new NoSuchElementException(\"Arrayet er tomt!\");\r\n\r\n        int antall = 0;\r\n\r\n        for (int i = 1; i < a.length; i++) {\r\n            int v1 = a[i - 1];\r\n            int v2 = a[i];\r\n            if (a[i - 1] > a[i]) {\r\n                a[i - 1] = v2;\r\n                a[i] = v1;\r\n                antall++;\r\n            }\r\n        }\r\n        return antall;\r\n    }\r\n\r\n    ///// Oppgave 2 //////////////////////////////////////\r\n    public static int antallUlikeSortert(int[] a) {\r\n        int antall = 0;\r\n\r\n        if (a.length > 0) {\r\n            //Dersom arrayet ikke er tomt starter antall med 1 pga det foerste tallet\r\n            antall++;\r\n        } else {\r\n            //Arrayet er tomt og vi returnerer 0\r\n            return antall;\r\n        }\r\n\r\n        for (int i = 1; i < a.length; i++) {\r\n            if (a[i - 1] > a[i]) {\r\n                throw new IllegalStateException(\"Arrayet er ikke sortert i stigende rekkefoelge!\");\r\n            }\r\n            if (a[i - 1] < a[i]) {\r\n                antall++;\r\n            }\r\n        }\r\n\r\n        return antall;\r\n    }\r\n\r\n    ///// Oppgave 3 //////////////////////////////////////\r\n    public static int antallUlikeUsortert(int[] a) {\r\n        //TODO Ask about this exception in lab\r\n        //throw new UnsupportedOperationException();\r\n        int antall = 0;\r\n        for (int i = 0; i < a.length; i++) {\r\n            boolean matches = false;\r\n            for (int j = 0; j < i; j++) {\r\n                if (a[i] == a[j]) {\r\n                    matches = true;\r\n                    break;\r\n                }\r\n            }\r\n            if (!matches) antall++;\r\n        }\r\n        return antall;\r\n    }\r\n\r\n    //TODO Fix\r\n    ///// Oppgave 4 //////////////////////////////////////\r\n    public static void delsortering(int[] a) {\r\n        int j = a.length - 1;\r\n\r\n        if (j > 0) {\r\n            int lastOdd = 0;\r\n            for (int i = 0; i < a.length; i++) {\r\n                int iFokus = a[i];\r\n\r\n                if (iFokus % 2 == 0) {\r\n                    if (j == i) {\r\n                        break;\r\n                    }\r\n                    while (a[j] % 2 == 0 && j > i) {\r\n                        j--;\r\n                    }\r\n                    a[i] = a[j];\r\n                    a[j] = iFokus;\r\n                    i--;\r\n                } else {\r\n                    lastOdd = i;\r\n                }\r\n            }\r\n            innsettningsortering(a, 0, lastOdd + 1);\r\n            innsettningsortering(a, lastOdd + 1, a.length);\r\n        }\r\n    }\r\n\r\n    //Inspirert av pensum, Programkode 1.3.8 e) og Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (04:43)\r\n    public static void innsettningsortering(int[] a, int fra, int til) {\r\n        for (int i = fra + 1; i < til; i++) {\r\n            int j = i - 1;\r\n            try {\r\n                while (a[i] < a[j] && j >= fra) {\r\n                    bytt(a, i, j);\r\n                    i--;\r\n                    j--;\r\n                }\r\n            } catch (IndexOutOfBoundsException e) {\r\n            }\r\n        }\r\n    }\r\n\r\n    //Fra pensum, Programkode 1.1.8 d)\r\n    public static void bytt(int[] a, int posA, int posB) {\r\n        int temp = a[posA];\r\n        a[posA] = a[posB];\r\n        a[posB] = temp;\r\n    }\r\n\r\n    ///// Oppgave 5 //////////////////////////////////////\r\n    public static void rotasjon(char[] a) {\r\n        int maxLen = a.length - 1;\r\n\r\n        if (maxLen > 0) {\r\n            char temp = a[maxLen];\r\n\r\n            for (int i = a.length - 1; i > 0; i--) {\r\n                a[i] = a[i - 1];\r\n            }\r\n            a[0] = temp;\r\n        }\r\n    }\r\n\r\n    //TODO: FIX\r\n    ///// Oppgave 6 //////////////////////////////////////\r\n    public static void rotasjon(char[] a, int k) {\r\n        if (k < 0) {\r\n            // Omgjoer tallet fra positivt til negativt og tar modulo paa arrayet sitt lengde.\r\n            // Dette for aa finne forskjellen paa lengden til arrayet og tallet. Saa vi vet hvor langt arrayet skal roteres til venstre.\r\n            // Vi gjoer da saa lengden paa den foerste for-loekken blir saa lang som vi vil rotere arrayet. Hvis lengden paa arrayet er f.eks 10\r\n            // vil en k verdi med -4 bli til 6, saa i stedet for aa rotere 4 ganger til venstre roterer vi heller 6 ganger til hoeyre.\r\n            k = -k % a.length;\r\n            k = a.length - k;\r\n        }\r\n        for (int i = 0; i < k; i++) {\r\n            char siste = a[a.length - 1];\r\n            for (int j = a.length - 1; j > 0; j--) {\r\n                a[j] = a[j - 1];\r\n            }\r\n            a[0] = siste;\r\n        }\r\n    }\r\n\r\n    ///// Oppgave 7 //////////////////////////////////////\r\n    /// 7a)\r\n    public static String flett(String s, String t) {\r\n        StringBuilder sb = new StringBuilder();\r\n        for (int i = 0; i < s.length() || i < t.length(); i++) {\r\n            if (i < s.length()) {\r\n                sb.append(s.charAt(i));\r\n            }\r\n            if (i < t.length()) {\r\n                sb.append(t.charAt(i));\r\n            }\r\n        }\r\n        return sb.toString();\r\n    }\r\n\r\n    /// 7b)\r\n    public static String flett(String... s) {\r\n        int longest = 0;\r\n        for (String str : s) {\r\n            if (str.length() > longest) {\r\n                longest = str.length();\r\n            }\r\n        }\r\n\r\n        StringBuilder out = new StringBuilder();\r\n\r\n        for (int i = 0; i < longest; i++) {\r\n            for (String str : s) {\r\n                try {\r\n                    out.append(str.charAt(i));\r\n                } catch (IndexOutOfBoundsException e) {\r\n                }\r\n            }\r\n        }\r\n        return out.toString();\r\n    }\r\n\r\n    //TODO FIX\r\n    ///// Oppgave 8 //////////////////////////////////////\r\n    public static int[] indekssortering(int[] a) {\r\n        int[] temp = new int[a.length];\r\n\r\n        //Hjelpetabell\r\n        System.arraycopy(a, 0, temp, 0, a.length);\r\n\r\n        int[] indeks = new int[a.length];\r\n        int lavesteverdi = a[0];\r\n        int indeksLavesteVerdi = 0;\r\n\r\n        for (int i = 0; i < indeks.length; i++) {\r\n            for (int j = 0; j < temp.length; j++) {\r\n                if (lavesteverdi > temp[j]) {\r\n                    lavesteverdi = temp[j];\r\n                    indeksLavesteVerdi = j;\r\n                }\r\n            }\r\n            indeks[i] = indeksLavesteVerdi;\r\n\r\n            //Verdiene som er tatt vil bli satt til maks\r\n            temp[indeksLavesteVerdi] = 0x7fffffff;\r\n            lavesteverdi = 0x7fffffff;\r\n        }\r\n\r\n        return indeks;\r\n    }\r\n\r\n    //TODO Fix\r\n    ///// Oppgave 9 //////////////////////////////////////\r\n    public static int[] tredjeMin(int[] a) {\r\n\r\n        if (a.length < 3) throw new NoSuchElementException(\"Tabellen har mindre enn 3 verdier\");\r\n\r\n        int forstMin = a[0];\r\n        int andreMin = a[1];\r\n        int tredjeMin = a[2];\r\n\r\n        if (forstMin > andreMin) {\r\n            int temp = andreMin;\r\n            andreMin = forstMin;\r\n            forstMin = temp;\r\n        }\r\n        if (andreMin > tredjeMin) {\r\n            if (forstMin > tredjeMin) {\r\n                int temp1 = tredjeMin;\r\n                tredjeMin = andreMin;\r\n                andreMin = forstMin;\r\n                forstMin = temp1;\r\n            } else {\r\n                int temp2 = tredjeMin;\r\n                tredjeMin = andreMin;\r\n                andreMin = temp2;\r\n            }\r\n        }\r\n\r\n        for (int i = 3; i < a.length; i++) {\r\n            int tempLoop = a[i];\r\n            if (tempLoop < tredjeMin) {\r\n                if (tempLoop < andreMin) {\r\n                    tredjeMin = andreMin;\r\n                    if (tempLoop < forstMin) {\r\n                        andreMin = forstMin;\r\n                        forstMin = tempLoop;\r\n                    } else {\r\n                        andreMin = tempLoop;\r\n                    }\r\n                } else {\r\n                    tredjeMin = tempLoop;\r\n                }\r\n            }\r\n        }\r\n        return new int[]{forstMin, andreMin, tredjeMin};\r\n    }\r\n\r\n    //TODO Fix\r\n    ///// Oppgave 10 //////////////////////////////////////\r\n\r\n    //TODO Add?\r\n    public static int bokstavNr(char bokstav) {\r\n        throw new UnsupportedOperationException();\r\n    }\r\n\r\n    public static boolean inneholdt(String a, String b) {\r\n        boolean inneholdt = false;\r\n        HashMap<Character, Integer> aMap = new HashMap<>();\r\n        HashMap<Character, Integer> bMap = new HashMap<>();\r\n\r\n        for (int i = 0; i < b.length(); i++) {\r\n            if (bMap.containsKey(b.charAt(i))) {\r\n                int count = bMap.get(b.charAt(i));\r\n                bMap.put(b.charAt(i), count + 1);\r\n            } else {\r\n                bMap.put(b.charAt(i), 1);\r\n            }\r\n        }\r\n\r\n        for (int i = 0; i < a.length(); i++) {\r\n            if (bMap.containsKey(a.charAt(i))) {\r\n                if (aMap.containsKey(a.charAt(i))) {\r\n                    int count = aMap.get(a.charAt(i));\r\n                    aMap.put(a.charAt(i), count + 1);\r\n                } else {\r\n                    aMap.put(a.charAt(i), 1);\r\n                }\r\n            } else {\r\n                return inneholdt;\r\n            }\r\n        }\r\n\r\n        Iterator aMapIterator = aMap.entrySet().iterator();\r\n\r\n        while (aMapIterator.hasNext()) {\r\n            Map.Entry mapElement = (Map.Entry) aMapIterator.next();\r\n            Character sjekkCharacter = (Character) mapElement.getKey();\r\n            int AmapVerdie = aMap.get(sjekkCharacter);\r\n            int BmapVerdie = bMap.get(sjekkCharacter);\r\n            if (AmapVerdie <= BmapVerdie) {\r\n                inneholdt = true;\r\n            } else {\r\n                return false;\r\n            }\r\n        }\r\n\r\n        return inneholdt;\r\n    }\r\n}  // Oblig1
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/Oblig1.java	(revision 2cbef69eb6d9b8ddbbe621fad6d1a86a4c71859f)
++++ src/main/Oblig1.java	(date 1600005756081)
+@@ -1,8 +1,5 @@
+ import java.lang.UnsupportedOperationException;
+-import java.util.HashMap;
+-import java.util.Iterator;
+-import java.util.Map;
+-import java.util.NoSuchElementException;
++import java.util.*;
+ 
+ public class Oblig1 {
+     private Oblig1() {}
+@@ -85,6 +82,12 @@
+         return antall;
+     }
+ 
++    public static void main(String[] args) {
++        int[] a = {4, 2, 6, 10, 8};
++        delsortering(a);
++        System.out.println(Arrays.toString(a));
++    }
++
+     //TODO Fix
+     ///// Oppgave 4 //////////////////////////////////////
+     public static void delsortering(int[] a) {
+@@ -109,13 +112,17 @@
+                     lastOdd = i;
+                 }
+             }
+-            innsettningsortering(a, 0, lastOdd + 1);
+-            innsettningsortering(a, lastOdd + 1, a.length);
++            if (lastOdd == 0 || lastOdd == a.length - 1){
++                innsettningsortering(a, 0, a.length);
++            } else {
++                innsettningsortering(a, 0, lastOdd + 1);
++                innsettningsortering(a, lastOdd + 1, a.length);
++            }
+         }
+     }
+ 
+     //Inspirert av pensum, Programkode 1.3.8 e) og Tom Scott https://www.youtube.com/watch?v=RGuJga2Gl_k (04:43)
+-    public static void innsettningsortering(int[] a, int fra, int til) {
++    /*public static void innsettningsortering(int[] a, int fra, int til) {
+         for (int i = fra + 1; i < til; i++) {
+             int j = i - 1;
+             try {
+@@ -127,6 +134,16 @@
+             } catch (IndexOutOfBoundsException e) {
+             }
+         }
++    }*/
++
++    private static int pivot0(int[] a, int left, int right, int pivot){
++        while(true){
++            while (left <= right && a[left] < pivot) left++;
++            while (left <= right && a[right] >= pivot) right--;
++
++            if (left < right) bytt(a, left++, right--);
++            else return left;
++        }
+     }
+ 
+     //Fra pensum, Programkode 1.1.8 d)
