@@ -135,37 +135,6 @@ public class Oblig1 {
         if(partall < a.length-1){
             quicksort(a, partall, a.length-1);
         }
-
-        /*
-        int j = a.length - 1;
-
-        if (j > 0) {
-            int lastOdd = 0;
-            for (int i = 0; i < a.length; i++) {
-                int iFokus = a[i];
-
-                if (iFokus % 2 == 0) {
-                    if (j == i) {
-                        break;
-                    }
-                    while (a[j] % 2 == 0 && j > i) {
-                        j--;
-                    }
-                    a[i] = a[j];
-                    a[j] = iFokus;
-                    i--;
-                } else {
-                    lastOdd = i;
-                }
-            }
-            if (lastOdd == 0 || lastOdd == a.length - 1){
-                quicksort(a);
-            } else {
-                quicksort(a, 0, lastOdd);
-                quicksort(a, lastOdd + 1, a.length-1);
-            }
-        }
-        */
     }
 
     //Inspirert av pensum, Programkode 1.3.9 a)

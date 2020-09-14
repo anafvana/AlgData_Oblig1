@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="Cleared .gitignore">
-      <change afterPath="$PROJECT_DIR$/Resultater Oblig1OLDTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resultater Oblig1Test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater Oblig1Test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Oblig1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Oblig1.java" afterDir="false" />
-    </list>
+    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="Clean-up, lagt til nye resultater og lagt gjebrukbar metode for oppgave 10." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -204,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600069722288</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Clean-up, lagt til nye resultater og lagt gjebrukbar metode for oppgave 10.">
+      <created>1600077887265</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1600077887265</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +230,8 @@
     <MESSAGE value="Alle rettet utenom nr 10" />
     <MESSAGE value="Rettet 10, MEN den tar ca 100ms. Noe ganger går det greit, noe ganger ikke. Bytter vi algoritmen?" />
     <MESSAGE value="annen måte å gjøre oppgave 4 på?" />
-    <option name="LAST_COMMIT_MESSAGE" value="annen måte å gjøre oppgave 4 på?" />
+    <MESSAGE value="Clean-up, lagt til nye resultater og lagt gjebrukbar metode for oppgave 10." />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean-up, lagt til nye resultater og lagt gjebrukbar metode for oppgave 10." />
   </component>
   <component name="WindowStateProjectService">
     <state x="520" y="236" key="#Notifications" timestamp="1599999191429">
@@ -280,18 +282,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600077039117" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600069725578">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600077891211">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600069725578" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600077891211" />
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1599999690719">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1599999690719" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600012806855">
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600078236557">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1600012806855" />
+    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1600078236557" />
     <state x="499" y="173" key="extract.method.dialog" timestamp="1600074605038">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
