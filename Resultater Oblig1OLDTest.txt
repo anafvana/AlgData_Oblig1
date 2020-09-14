@@ -1,0 +1,727 @@
+Tests passed: 12 of 12 tests - 48ms
+
+	Oblig1OLDTest				    48ms
+		flettArray()			12ms
+		antallUlikeUsortert()
+		antallUlikeSortert()	1ms
+		inneholdt()			    8ms
+		rotasjon()			    2ms
+		maks()
+		tredjeMin()
+		flett()
+		indekssortering()		25ms
+		ombyttinger()
+		delsortring()
+		rotasjonFlerePlasser()
+
+
+OPPGAVE 1 - MAKS
+Array: []
+Expected: java.util.NoSuchElementException: Arrayet er tomt!
+Result: java.util.NoSuchElementException: Arrayet er tomt!
+
+		at Oblig1OLD.sjekkArray(Oblig1OLD.java:66)
+		at Oblig1OLD.maks(Oblig1OLD.java:19)
+		at Oblig1OLDTest.maks(Oblig1OLDTest.java:33)
+		[...]
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 3, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 3, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 1, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 1, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 3, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 1, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [3, 1, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [3, 2, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 3, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 1, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [3, 1, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [3, 2, 1, 4]
+Expected: 4
+Result: 4
+
+Array: []
+Expected: 115
+Result: 115
+
+Array: [115, 22, 49, 5, -2]
+Expected: 115
+Result: 115
+
+Array: [22, 49, 5, -2, 115]
+Expected: 115
+Result: 115
+
+Array: [1]
+Expected: 1
+Result: 1
+
+
+OPPGAVE 1 - OMBYTTINGER
+Array: []
+Expected: java.util.NoSuchElementException: Arrayet er tomt!
+Result: java.util.NoSuchElementException: Arrayet er tomt!
+
+		at Oblig1OLD.sjekkArray(Oblig1OLD.java:66)
+		at Oblig1OLD.ombyttinger(Oblig1OLD.java:49)
+		at Oblig1OLDTest.ombyttinger(Oblig1OLDTest.java:52)
+		[...]
+
+Array: [1, 2, 3, 4]
+Expected: 0
+Result: 0
+
+Array: [1, 2, 4, 3]
+Expected: 1
+Result: 1
+
+Array: [1, 3, 2, 4]
+Expected: 1
+Result: 1
+
+Array: [1, 3, 4, 2]
+Expected: 1
+Result: 1
+
+Array: [1, 4, 2, 3]
+Expected: 2
+Result: 2
+
+Array: [1, 4, 3, 2]
+Expected: 2
+Result: 2
+
+Array: [2, 1, 3, 4]
+Expected: 1
+Result: 1
+
+Array: [2, 1, 4, 3]
+Expected: 2
+Result: 2
+
+Array: [2, 3, 1, 4]
+Expected: 1
+Result: 1
+
+Array: [2, 3, 4, 1]
+Expected: 1
+Result: 1
+
+Array: [2, 4, 1, 3]
+Expected: 2
+Result: 2
+
+Array: [2, 3, 4, 1]
+Expected: 1
+Result: 1
+
+Array: [3, 1, 2, 4]
+Expected: 2
+Result: 2
+
+Array: [3, 1, 4, 2]
+Expected: 2
+Result: 2
+
+Array: [3, 2, 1, 4]
+Expected: 2
+Result: 2
+
+Array: [3, 2, 4, 1]
+Expected: 2
+Result: 2
+
+Array: [3, 4, 1, 2]
+Expected: 2
+Result: 2
+
+Array: [3, 4, 2, 1]
+Expected: 2
+Result: 2
+
+Array: [4, 1, 2, 3]
+Expected: 3
+Result: 3
+
+Array: [4, 1, 3, 2]
+Expected: 3
+Result: 3
+
+Array: [4, 2, 1, 3]
+Expected: 3
+Result: 3
+
+Array: [4, 2, 3, 1]
+Expected: 3
+Result: 3
+
+Array: [4, 3, 1, 2]
+Expected: 3
+Result: 3
+
+Array: [4, 3, 2, 1]
+Expected: 3
+Result: 3
+
+Array: [22, 49, 5, 115, -2]
+Expected: 2
+Result: 2
+
+Array: [115, 22, 49, 5, -2]
+Expected: 4
+Result: 4
+
+Array: [22, 49, 5, -2, 115]
+Expected: 2
+Result: 2
+
+Array: [115, 49, 5, -2, 22]
+Expected: 4
+Result: 4
+
+Array: [-2, 5, 22, 49, 115]
+Expected: 0
+Result: 0
+
+Array: [1]
+Expected: 0
+Result: 0
+
+
+OPPGAVE 2 - ANTALL ULIKE (SORTERT)
+Array: [22, 49, 5, 115, -2]
+Expected: java.lang.IllegalStateException: Arrayet er ikke sortert i stigende rekkefoelge!
+Result: java.lang.IllegalStateException: Arrayet er ikke sortert i stigende rekkefoelge!
+
+		at Oblig1OLD.antallUlikeSortert(Oblig1OLD.java:83)
+		at Oblig1OLDTest.antallUlikeSortert(Oblig1OLDTest.java:87)
+		[...]
+
+Array: []
+Expected: 0
+Result: 0
+
+Array: [-2, 5, 22, 49, 115]
+Expected: 5
+Result: 5
+
+Array: [1]
+Expected: 1
+Result: 1
+
+Array: [3, 3, 4, 5, 5, 6, 7, 7, 7, 8]
+Expected: 6
+Result: 6
+
+
+OPPGAVE 3 - ANTALL ULIKE (USORTERT)
+Array: []
+Expected: 0
+Result: 0
+
+Array: [1, 2, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 2, 4, 3]
+Expected: 4
+Result: 4
+
+Array: [1, 3, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [1, 3, 4, 2]
+Expected: 4
+Result: 4
+
+Array: [1, 4, 2, 3]
+Expected: 4
+Result: 4
+
+Array: [1, 4, 3, 2]
+Expected: 4
+Result: 4
+
+Array: [2, 1, 3, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 1, 4, 3]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 4, 1]
+Expected: 4
+Result: 4
+
+Array: [2, 4, 1, 3]
+Expected: 4
+Result: 4
+
+Array: [2, 3, 4, 1]
+Expected: 4
+Result: 4
+
+Array: [3, 1, 2, 4]
+Expected: 4
+Result: 4
+
+Array: [3, 1, 4, 2]
+Expected: 4
+Result: 4
+
+Array: [3, 2, 1, 4]
+Expected: 4
+Result: 4
+
+Array: [3, 2, 4, 1]
+Expected: 4
+Result: 4
+
+Array: [3, 4, 1, 2]
+Expected: 4
+Result: 4
+
+Array: [3, 4, 2, 1]
+Expected: 4
+Result: 4
+
+Array: [4, 1, 2, 3]
+Expected: 4
+Result: 4
+
+Array: [4, 1, 3, 2]
+Expected: 4
+Result: 4
+
+Array: [4, 2, 1, 3]
+Expected: 4
+Result: 4
+
+Array: [4, 2, 3, 1]
+Expected: 4
+Result: 4
+
+Array: [4, 3, 1, 2]
+Expected: 4
+Result: 4
+
+Array: [4, 3, 2, 1]
+Expected: 4
+Result: 4
+
+Array: [22, 49, 5, 115, -2]
+Expected: 5
+Result: 5
+
+Array: [115, 22, 49, 5, -2]
+Expected: 5
+Result: 5
+
+Array: [22, 49, 5, -2, 115]
+Expected: 5
+Result: 5
+
+Array: [115, 49, 5, -2, 22]
+Expected: 5
+Result: 5
+
+Array: [-2, 5, 22, 49, 115]
+Expected: 5
+Result: 5
+
+Array: [1]
+Expected: 1
+Result: 1
+
+Array: [3, 3, 4, 5, 5, 6, 7, 7, 7, 8]
+Expected: 6
+Result: 6
+
+Array: [5, 3, 7, 4, 3, 5, 7, 8, 6, 7]
+Expected: 6
+Result: 6
+
+OPPGAVE 4 - DELSORTERING
+[22, 49, 5, 115, -2]
+[5, 49, 115, -2, 22]
+
+[3, 3, 4, 5, 5, 6, 7, 7, 7, 8]
+[3, 3, 5, 5, 7, 7, 7, 4, 6, 8]
+
+[1, 2, 3, 4]
+[1, 3, 2, 4]
+
+[1, 2, 4, 3]
+[1, 3, 2, 4]
+
+[1, 3, 2, 4]
+[1, 3, 2, 4]
+
+[1, 3, 4, 2]
+[1, 3, 2, 4]
+
+[1, 4, 2, 3]
+[1, 3, 2, 4]
+
+[1, 4, 3, 2]
+[1, 3, 2, 4]
+
+[2, 1, 3, 4]
+[1, 3, 2, 4]
+
+[2, 1, 4, 3]
+[1, 3, 2, 4]
+
+[2, 3, 1, 4]
+[1, 3, 2, 4]
+
+[2, 3, 4, 1]
+[1, 3, 2, 4]
+
+[2, 4, 1, 3]
+[1, 3, 2, 4]
+
+[2, 3, 4, 1]
+[1, 3, 2, 4]
+
+[3, 1, 2, 4]
+[1, 3, 2, 4]
+
+[3, 1, 4, 2]
+[1, 3, 2, 4]
+
+[3, 2, 1, 4]
+[1, 3, 2, 4]
+
+[3, 2, 4, 1]
+[1, 3, 2, 4]
+
+[3, 4, 1, 2]
+[1, 3, 2, 4]
+
+[3, 4, 2, 1]
+[1, 3, 2, 4]
+
+[4, 1, 2, 3]
+[1, 3, 2, 4]
+
+[4, 1, 3, 2]
+[1, 3, 2, 4]
+
+[4, 2, 1, 3]
+[1, 3, 2, 4]
+
+[4, 2, 3, 1]
+[1, 3, 2, 4]
+
+[4, 3, 1, 2]
+[1, 3, 2, 4]
+
+[4, 3, 2, 1]
+[1, 3, 2, 4]
+
+[]
+[]
+
+[1]
+[1]
+
+[2, 3]
+[3, 2]
+
+[5, 1, 5, 3]
+[1, 3, 5, 5]
+
+[2, 6, 4, 2]
+[2, 2, 4, 6]
+
+
+OPPGAVE 5 - ROTASJON
+[A, B, C, D, E, F, G, H, I, J]
+[J, A, B, C, D, E, F, G, H, I]
+
+[]
+[]
+
+[A]
+[A]
+
+
+OPPGAVE 6 - ROTASJON (FLERE PLASSER)
+k = 0:  [A, B, C, D, E, F, G, H, I, J]
+k = -2: [C, D, E, F, G, H, I, J, A, B]
+k = 4:  [I, J, A, B, C, D, E, F, G, H]
+k = 3:  [F, G, H, I, J, A, B, C, D, E]
+k = 1:  [E, F, G, H, I, J, A, B, C, D]
+
+
+OPPGAVE 7A - FLETTING
+Arrays: "ABC", "DEFGH" 
+Expected: ADBECFGH 
+Result: ADBECFGH
+
+Arrays: "IJKLMN", "OPQ" 
+Expected: IOJPKQLMN 
+Result: IOJPKQLMN
+
+Arrays: "", "AB" 
+Expected: AB 
+Result: AB
+
+
+OPPGAVE 7B - FLETT ARRAY
+Arrays: "AM ", "L", "GEDS", "ORATKRR", "", "R TRTE", "IO", "TGAUU" 
+Expected: ALGORITMER OG DATASTRUKTURER 
+Result: ALGORITMER OG DATASTRUKTURER
+
+Arrays: "", "", "", "" 
+Expected:  
+Result: 
+
+Arrays: "", "AB", "C", "DEF", " ", "" 
+Expected: ACD BEF 
+Result: ACD BEF
+
+
+OPPGAVE 8 - INDEKSSORTERING
+[6, 10, 16, 11, 7, 12, 3, 9, 8, 5]
+[6, 9, 0, 4, 8, 7, 1, 3, 5, 2]
+3 5 6 7 8 9 10 11 12 16 
+
+OPPGAVE 9 - TREDJE MINSTE
+Array: []
+Expected: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
+Result: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
+
+		at Oblig1OLD.tredjeMin(Oblig1OLD.java:257)
+		at Oblig1OLDTest.tredjeMin(Oblig1OLDTest.java:246)
+		[...]
+
+Array: [1]
+Expected: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
+Result: java.util.NoSuchElementException: Tabellen har mindre enn 3 verdier
+
+		at Oblig1OLD.tredjeMin(Oblig1OLD.java:257)
+		at Oblig1OLDTest.tredjeMin(Oblig1OLDTest.java:248)
+		[...]
+
+Array: [1, 2, 3, 4]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [1, 2, 4, 3]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [1, 3, 2, 4]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [1, 3, 4, 2]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [1, 4, 2, 3]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [1, 4, 3, 2]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [2, 1, 3, 4]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [2, 1, 4, 3]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [2, 3, 1, 4]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [2, 3, 4, 1]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [2, 4, 1, 3]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [2, 3, 4, 1]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [3, 1, 2, 4]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [3, 1, 4, 2]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [3, 2, 1, 4]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [3, 2, 4, 1]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [3, 4, 1, 2]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [3, 4, 2, 1]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [4, 1, 2, 3]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [4, 1, 3, 2]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [4, 2, 1, 3]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [4, 2, 3, 1]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [4, 3, 1, 2]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [4, 3, 2, 1]
+Expected: [1, 2, 3]
+Result:[1, 2, 3]
+
+Array: [22, 49, 5, 115, -2]
+Expected: [-2, 5, 22]
+Result:[-2, 5, 22]
+
+Array: [115, 22, 49, 5, -2]
+Expected: [-2, 5, 22]
+Result:[-2, 5, 22]
+
+Array: [22, 49, 5, -2, 115]
+Expected: [-2, 5, 22]
+Result:[-2, 5, 22]
+
+Array: [115, 49, 5, -2, 22]
+Expected: [-2, 5, 22]
+Result:[-2, 5, 22]
+
+Array: [-2, 5, 22, 49, 115]
+Expected: [-2, 5, 22]
+Result:[-2, 5, 22]
+
+Array: [3, 3, 4, 5, 5, 6, 7, 7, 7, 8]
+Expected: [3, 3, 4]
+Result:[3, 3, 4]
+
+Array: [5, 3, 7, 4, 3, 5, 7, 8, 6, 7]
+Expected: [3, 3, 4]
+Result:[3, 3, 4]
+
+
+OPPGAVE 10 - INNEHOLDT
+ABBABBA inneholder ABBA = true
+ABBABBA inneholder ABBAB = true
+ABBABBA inneholder ABBAA = true
+ABBABBA inneholder ABBAAA = false
+ABBABBA inneholder ABBdA = false
+ABDEFSEFDSEBABBA inneholder ABBA = true
+ABDEFSEFDSEBABBA inneholder ABBAZ = false

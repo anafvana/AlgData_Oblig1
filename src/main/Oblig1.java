@@ -91,8 +91,6 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        //TODO Ask about this exception in lab
-        //throw new UnsupportedOperationException();
         int antall = 0;
         for (int i = 0; i < a.length; i++) {
             boolean matches = false;
@@ -180,7 +178,7 @@ public class Oblig1 {
     private static void quicksort(int[] a, int v, int h){
         if (v >= h) return;
 
-        int pivot = a[v + (h - v)/2]; //pivot blir midten av delarrayet, med haandtering av overflow muligheten (Inspirert av Emily Björk's kommentar på HackerRanks video)
+        int pivot = a[v + (h - v)/2]; //pivot blir midten av delarrayet, med haandtering av overflow risiko (Inspirert av Emily Björk's kommentar på HackerRanks video)
         int m = partition(a, v, h, pivot);
         quicksort(a, v, m-1);
         quicksort(a, m, h);
@@ -359,17 +357,9 @@ public class Oblig1 {
         return new int[]{forstMin, andreMin, tredjeMin};
     }
 
-    //TODO Change algorithm?
     ///// Oppgave 10 //////////////////////////////////////
-
-    //TODO Add?
-    public static int bokstavNr(char bokstav) {
-        throw new UnsupportedOperationException();
-    }
-
-    public static boolean inneholdt(String a, String b) {
-        int[] stringA = new int[39];
-        int[] stringB = new int[39];
+    public static int[] bokstavTeller(String str) {
+        int[] allChars = new int[39];
 
         char string36 = 'Å';
         int verdiString36 = 36;
@@ -380,29 +370,23 @@ public class Oblig1 {
         char string38 = 'Ø';
         int verdiString38 = 38;
 
+        for(int i =0; i < str.length(); i++){
+            if(str.charAt(i) == string36){
+                allChars[verdiString36] ++;
+            } else if(str.charAt(i) == string37){
+                allChars[verdiString37] ++;
+            } else if(str.charAt(i) == string38){
+                allChars[verdiString38] ++;
+            } else {
+                allChars[Character.getNumericValue(str.charAt(i))]++;
+            }
+        }
+        return allChars;
+    }
 
-        for(int i =0; i < a.length(); i++){
-            if(a.charAt(i) == string36){
-                stringA[verdiString36] ++;
-            } else if(a.charAt(i) == string37){
-                stringA[verdiString37] ++;
-            } else if(a.charAt(i) == string38){
-                stringA[verdiString38] ++;
-            } else {
-                stringA[Character.getNumericValue(a.charAt(i))]++;
-            }
-        }
-        for(int i =0; i < b.length(); i++){
-            if(b.charAt(i) == string36){
-                stringB[verdiString36] ++;
-            } else if(b.charAt(i) == string37){
-                stringB[verdiString37] ++;
-            } else if(b.charAt(i) == string38){
-                stringB[verdiString38] ++;
-            } else {
-                stringB[Character.getNumericValue(b.charAt(i))]++;
-            }
-        }
+    public static boolean inneholdt(String a, String b) {
+        int[] stringA = bokstavTeller(a);
+        int[] stringB = bokstavTeller(b);
 
         for(int i=0; i < stringA.length; i++){
             if(stringA[i] > stringB[i]){
@@ -410,53 +394,5 @@ public class Oblig1 {
             }
         }
         return true;
-
-        /*
-        boolean inneholdt = false;
-
-        if (a.isEmpty()){
-            inneholdt = true;
-        } else {
-            HashMap<Character, Integer> aMap = new HashMap<>();
-            HashMap<Character, Integer> bMap = new HashMap<>();
-
-            for (int i = 0; i < b.length(); i++) {
-                if (bMap.containsKey(b.charAt(i))) {
-                    int count = bMap.get(b.charAt(i));
-                    bMap.put(b.charAt(i), count + 1);
-                } else {
-                    bMap.put(b.charAt(i), 1);
-                }
-            }
-
-            for (int i = 0; i < a.length(); i++) {
-                if (bMap.containsKey(a.charAt(i))) {
-                    if (aMap.containsKey(a.charAt(i))) {
-                        int count = aMap.get(a.charAt(i));
-                        aMap.put(a.charAt(i), count + 1);
-                    } else {
-                        aMap.put(a.charAt(i), 1);
-                    }
-                } else {
-                    return inneholdt;
-                }
-            }
-
-            Iterator aMapIterator = aMap.entrySet().iterator();
-
-            while (aMapIterator.hasNext()) {
-                Map.Entry mapElement = (Map.Entry) aMapIterator.next();
-                Character sjekkCharacter = (Character) mapElement.getKey();
-                int AmapVerdie = aMap.get(sjekkCharacter);
-                int BmapVerdie = bMap.get(sjekkCharacter);
-                if (AmapVerdie <= BmapVerdie) {
-                    inneholdt = true;
-                } else {
-                    return false;
-                }
-            }
-        }
-        return inneholdt;
-         */
     }
 }

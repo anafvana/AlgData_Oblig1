@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="">
+    <list default="true" id="c20d6d0a-6e1c-4867-8db2-8313e40de668" name="Default Changelist" comment="Cleared .gitignore">
+      <change afterPath="$PROJECT_DIR$/Resultater Oblig1OLDTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resultater Oblig1Test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resultater Oblig1Test.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Oblig1/Oblig1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Oblig1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Oblig1.java" afterDir="false" />
     </list>
@@ -78,13 +80,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,9 +135,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Oblig1Test" />
+        <item itemvalue="Application.Oblig1" />
         <item itemvalue="JUnit.Oblig1Test.oppgave10" />
         <item itemvalue="JUnit.Oblig1Test.oppgave4" />
-        <item itemvalue="Application.Oblig1" />
         <item itemvalue="JUnit.Oblig1Test.oppgave9" />
       </list>
     </recent_temporary>
@@ -244,38 +248,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600069720837" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1600071725320">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1600077116528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600071725320" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1600071725319">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600077116528" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1600077116528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600071725319" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1600071725319">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1600077116528" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1600077116528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600071725319" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1600071725319">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1600077116528" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1600077116528">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600071725319" />
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1600019390544">
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600077116528" />
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom" timestamp="1600077039117">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1600019390544">
+    <state width="1493" height="260" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1600077039117" />
+    <state width="1493" height="260" key="GridCell.Tab.1.center" timestamp="1600077039117">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1600019390544">
+    <state width="1493" height="260" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1600077039117" />
+    <state width="1493" height="260" key="GridCell.Tab.1.left" timestamp="1600077039117">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
-    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1600019390544">
+    <state width="1493" height="260" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1600077039117" />
+    <state width="1493" height="260" key="GridCell.Tab.1.right" timestamp="1600077039117">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600019390544" />
+    <state width="1493" height="260" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1600077039117" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600069725578">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -288,10 +292,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1600012806855" />
-    <state x="499" y="173" key="extract.method.dialog" timestamp="1599991897021">
+    <state x="499" y="173" key="extract.method.dialog" timestamp="1600074605038">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="173" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1599991897021" />
+    <state x="499" y="173" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1600074605038" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1600001352308">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
