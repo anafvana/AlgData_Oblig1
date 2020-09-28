@@ -193,6 +193,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
 
             T denneVerdi = denne.verdi;
+            denne = denne.neste;
 
             return denneVerdi;
         }
