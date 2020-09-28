@@ -159,7 +159,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Iterator<T> iterator(int indeks) {
-        throw new UnsupportedOperationException();
+        return new DobbeltLenketListeIterator(indeks);
     }
 
     private class DobbeltLenketListeIterator implements Iterator<T>
