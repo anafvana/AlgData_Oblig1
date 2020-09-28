@@ -54,6 +54,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         throw new UnsupportedOperationException();
     }
 
+    private Node<T> finnNode(int indeks) {
+        return null;
+    }
+
     @Override
     public int antall() {
         throw new UnsupportedOperationException();
@@ -175,7 +179,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         private DobbeltLenketListeIterator(int indeks){
-            //denne = finnNode(indeks);
+            denne = finnNode(indeks);
             fjernOK = false;
             iteratorendringer = endringer;
         }
