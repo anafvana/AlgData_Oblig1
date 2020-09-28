@@ -84,7 +84,25 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(verdi, "Det er ikke tillatt med null-verdier!");
+
+        indeksKontroll(indeks, true);
+
+        if(indeks == 0) {       //hvis den skal legges inn først
+            if(antall == 0) {   //hvis det er en tom tabell
+                hode = new Node<>(verdi, null, hode);
+                hale = hode;
+            } else {            //ikke en tom tabell for indeks = 0
+
+            }
+        } else if(indeks == antall) { //hvis den skal settes bakerst
+
+        } else {                //hvis den skal settes andre steder i tabellen
+
+        }
+        //hvis verdien ikke er null og indeksen går gjennom kontrollen
+        antall++;
+        endringer++;
     }
 
     @Override
