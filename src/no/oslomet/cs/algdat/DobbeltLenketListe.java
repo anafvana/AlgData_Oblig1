@@ -198,6 +198,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 throw new NoSuchElementException("Ingen verdier i listen!");
             }
 
+            fjernOK = true;
             T denneVerdi = denne.verdi;
             denne = denne.neste;
 
