@@ -152,12 +152,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 hode = new Node<>(verdi, null, hode);
                 hale = hode;
             } else {            //ikke en tom tabell for indeks = 0
-
+                hode = new Node<>(verdi, null, hode);
+                Node<T> q = hode.neste;
+                q.forrige = hode;
             }
         } else if(indeks == antall) { //hvis den skal settes bakerst
-
+            hale = hale.neste = new Node<>(verdi, hale, null);
         } else {                //hvis den skal settes andre steder i tabellen
-
+            Node<T> p = hode;
+            for(int i = 1; i < indeks; i++) {
+                p = p.neste;
+            }
+            Node<T> r = p.neste;
+            r.forrige = p.neste = new Node<>(verdi, p, p.neste);
         }
         //hvis verdien ikke er null og indeksen går gjennom kontrollen
         antall++;
