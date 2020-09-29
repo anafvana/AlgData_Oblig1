@@ -55,35 +55,38 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     private Node<T> finnNode(int indeks) {
+        indeksKontroll(indeks, false); //sjekk om indeksen er gyldig
+        // TO DO: ANTALL() MÅ FJERNES DETTE ER BARE FOR Å TESTE NÅ
         antall();
-        int hjelpevariabel = 0;
+        int hjelpevariabel = 0; //angir indeksen
         Node<T> node;
 
-        if(indeks < antall/2){
+        if(indeks < antall/2) //Sjekk om det skal starte fra hode eller hale
+        {
             node = hode.neste;
             while (indeks != hjelpevariabel){
-                hjelpevariabel ++;
+                hjelpevariabel ++; // hjelpevariebel øker helt til indeksen er lik hjelpvariabel
                 node = node.neste;
             }
-        } else {
+        } else { // sjekker fra hale
             node = hale.forrige;
-            hjelpevariabel = antall-1;
+            hjelpevariabel = antall-1; // hjelpevariabel er lik antall elementer -1
 
-            if (indeks == hjelpevariabel){
+            if (indeks == hjelpevariabel){ //sjekk om det er siste element
                 return node;
             } else if(indeks > hjelpevariabel){
-
+                //  TO DO MÅ TESTES OM DENNE ER NØDVENDIG
                 return null;
             } else {
-                while (indeks != hjelpevariabel) {
+                while (indeks != hjelpevariabel) { //looper gjennom nodene
                     hjelpevariabel--;
                     node = node.forrige;
                 }
             }
-
         }
 
-        return node;    }
+        return node;
+    }
 
     @Override
     public int antall() {
@@ -139,7 +142,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false);
+        return finnNode(indeks).verdi;
     }
 
     @Override
@@ -149,7 +153,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks, false); // sjekker indeksen
+        Node<T> node = finnNode(indeks);
+        T oldVerdi = node.verdi; // lagre old verdien
+        node.verdi = nyverdi;
+        endringer++;
+        return oldVerdi;
     }
 
     @Override
