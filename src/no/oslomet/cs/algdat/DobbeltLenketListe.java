@@ -68,8 +68,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public void fratilKontroll(int fra, int til){
-        //TO DO ANTALL() MÅ FJERNES ER BARE FOR Å TESTE
-        antall();
         //eksemplet kommer fra pensum
         if (fra < 0){
             // fra er negativ
@@ -87,8 +85,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     private Node<T> finnNode(int indeks) {
         indeksKontroll(indeks, false); //sjekk om indeksen er gyldig
-        // TO DO: ANTALL() MÅ FJERNES DETTE ER BARE FOR Å TESTE NÅ
-        antall();
+
         int hjelpevariabel = 0; //angir indeksen
         Node<T> node;
 
@@ -123,6 +120,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public int antall() {
         throw new UnsupportedOperationException();
     }
+
 
     @Override
     public boolean tom() {
@@ -185,11 +183,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public T oppdater(int indeks, T nyverdi) {
         indeksKontroll(indeks, false); // sjekker indeksen
-        Node<T> node = finnNode(indeks);
-        T oldVerdi = node.verdi; // lagre old verdien
-        node.verdi = nyverdi;
-        endringer++;
-        return oldVerdi;
+        if(nyverdi == null) {
+            //må endres litt 3j: får fortsatt feilmelding
+            return null;
+        } else {
+            Node<T> node = finnNode(indeks);
+            T oldVerdi = node.verdi; // lagre old verdien
+            node.verdi = nyverdi;
+            endringer++;
+            return oldVerdi;
+        }
     }
 
     @Override
