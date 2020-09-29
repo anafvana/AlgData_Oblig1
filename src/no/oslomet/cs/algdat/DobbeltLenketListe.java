@@ -53,13 +53,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public Liste<T> subliste(int fra, int til){
         fratilKontroll(fra, til);
         DobbeltLenketListe<T> nyListe = new DobbeltLenketListe<>();
-        if(fra == til){ //sjekk om liste må være tom
+        if(fra == til){
             return nyListe;
         } else {
-            Node<T> node;
+            Node<T> node = finnNode(fra);
 
-            //looper gjennom alle elementer og legge de til i den nye listen
-            for (int i = fra; i < til; i++) {
+            nyListe.leggInn(node.verdi);
+
+            for (int i = fra + 1; i < til; i++) {
                 node = finnNode(i);
                 nyListe.leggInn(node.verdi);
             }
@@ -75,41 +76,30 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         if (til > antall) {
             // til er utenfor tabellen
-            throw new IndexOutOfBoundsException ("til(" + til + ") > tablengde(" + antall + ")");
+            throw new IndexOutOfBoundsException ("til(" + til + ") > antall (" + antall + ")");
         }
         if (fra > til) {
             // fra er større enn til
-            throw new IndexOutOfBoundsException ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+            throw new IllegalArgumentException ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
         }
     }
 
     private Node<T> finnNode(int indeks) {
-        indeksKontroll(indeks, false); //sjekk om indeksen er gyldig
-
-        int hjelpevariabel = 0; //angir indeksen
+        int hjelpevariabel;
         Node<T> node;
-
-        if(indeks < antall/2) //Sjekk om det skal starte fra hode eller hale
-        {
+        if(indeks < antall/2) { // fra hode
+            hjelpevariabel = 0;
             node = hode.neste;
             while (indeks != hjelpevariabel){
-                hjelpevariabel ++; // hjelpevariebel øker helt til indeksen er lik hjelpvariabel
+                hjelpevariabel ++;
                 node = node.neste;
             }
-        } else { // sjekker fra hale
+        } else { // fra hale
+            hjelpevariabel = antall-1;
             node = hale.forrige;
-            hjelpevariabel = antall-1; // hjelpevariabel er lik antall elementer -1
-
-            if (indeks == hjelpevariabel){ //sjekk om det er siste element
-                return node;
-            } else if(indeks > hjelpevariabel){
-                //  TO DO MÅ TESTES OM DENNE ER NØDVENDIG
-                return null;
-            } else {
-                while (indeks != hjelpevariabel) { //looper gjennom nodene
-                    hjelpevariabel--;
-                    node = node.forrige;
-                }
+            while (indeks != hjelpevariabel) {
+                hjelpevariabel--;
+                node = node.forrige;
             }
         }
 
@@ -191,8 +181,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        indeksKontroll(indeks, false);
-        return finnNode(indeks).verdi;
+        T verdi = null;
+        try {
+            verdi = finnNode(indeks).verdi;
+            // kun feilmelding dersom det ikke funker pga indeksKontroll tar lang tid.
+        } catch (Exception e){
+            indeksKontroll(indeks, false);
+        }
+        return verdi;
     }
 
     @Override
@@ -202,17 +198,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
-        indeksKontroll(indeks, false); // sjekker indeksen
+        if(indeks >= antall || indeks < 0){
+            throw new IndexOutOfBoundsException();
+        }
+
+        T oldVerdi = null;
         if(nyverdi == null) {
-            //må endres litt 3j: får fortsatt feilmelding
-            return null;
+            throw new NullPointerException();
         } else {
             Node<T> node = finnNode(indeks);
-            T oldVerdi = node.verdi; // lagre old verdien
+            oldVerdi = node.verdi;
             node.verdi = nyverdi;
             endringer++;
-            return oldVerdi;
         }
+        return oldVerdi;
     }
 
     @Override
