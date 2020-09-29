@@ -29,10 +29,14 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 # Beskrivelse av oppgaveløsning (maks 5 linjer per oppgave)
 
 * Oppgave 1: Løste ved å implementere..
-* Oppgave 2: ...
+* Oppgave 2: Løste oppgave 2a ved å bruke en StringBuilder. Valgte å appende en "[" før if-setningen og en "]" etter if-setningen. 
+             Inni if-setningen går man gjennom node for node med neste pekere og legger til verdiene med komma og mellomrom mellom dem. 
+             Akkurat samme metode for omvendtString() bare at vi bruker hale som første verdi og forrige pekere. For 2b gjorde jeg klart 
+             for to muligheter, at verdien legges inn foran hvis antall er 0 eller bak. Hvis den legges inn foran lages det en ny node der hode = hale.
+             Hvis den legges inn bak blir hale lik hale.neste med den forrige halen som forrige peker og null som neste peker.
 * Oppgave 3: 
 * Oppgave 4: 
-* Oppgave 5:
+* Oppgave 5: 
 * Oppgave 6:
 * Oppgave 7:
 * Oppgave 8:

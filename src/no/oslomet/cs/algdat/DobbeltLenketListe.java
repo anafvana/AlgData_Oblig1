@@ -129,12 +129,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean leggInn(T verdi) {
-        Objects.requireNonNull(verdi, "Det er ikke tillatt med null-verdier!");
+        Objects.requireNonNull(verdi, "Ikke tillatt med null verdier!");
+        Node<T> p;
 
         if(antall == 0) {
-            hode = hale = new Node<>(verdi, null, null);
+            p = new Node<>(verdi, null, null);
+            hode = new Node<>(null, null, p);
+            hale = new Node<>(null, p, null);
         } else {
-            hale = hale.neste = new Node<>(verdi, hale, null);
+            Node<T> q = hale.forrige;
+            p = new Node<>(verdi, q, null);
+            q.neste = p;
+            hale.forrige = p;
         }
         antall++;
         endringer++;
@@ -143,30 +149,37 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        Objects.requireNonNull(verdi, "Det er ikke tillatt med null-verdier!");
+        Objects.requireNonNull(verdi, "Ikke tillatt med null verdier!");
 
         indeksKontroll(indeks, true);
+        Node<T> p;
 
-        if(indeks == 0) {       //hvis den skal legges inn først
-            if(antall == 0) {   //hvis det er en tom tabell
-                hode = new Node<>(verdi, null, hode);
-                hale = hode;
-            } else {            //ikke en tom tabell for indeks = 0
-                hode = new Node<>(verdi, null, hode);
+        if(indeks == 0) {
+            if(antall == 0) {
+                p = new Node<>(verdi, null, null);
+                hode = new Node<>(null, null, p);
+                hale = new Node<>(null, p, null);
+            } else {
                 Node<T> q = hode.neste;
-                q.forrige = hode;
+                p = new Node<>(verdi, null, q);
+                q.forrige = p;
+                hode.neste = p;
             }
-        } else if(indeks == antall) { //hvis den skal settes bakerst
-            hale = hale.neste = new Node<>(verdi, hale, null);
-        } else {                //hvis den skal settes andre steder i tabellen
-            Node<T> p = hode;
+        } else if(indeks == antall) {
+            Node<T> r = hale.forrige;
+            p = new Node<>(verdi, r, null);
+            r.neste = p;
+            hale.forrige = p;
+        } else {
+            Node<T> q = hode.neste;
             for(int i = 1; i < indeks; i++) {
-                p = p.neste;
+                q = q.neste;
             }
-            Node<T> r = p.neste;
-            r.forrige = p.neste = new Node<>(verdi, p, p.neste);
+            Node<T> s = q.neste;
+            p = new Node<>(verdi, q, s);
+            s.forrige = p;
+            q.neste = p;
         }
-        //hvis verdien ikke er null og indeksen går gjennom kontrollen
         antall++;
         endringer++;
     }
@@ -222,7 +235,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         if(!tom()) {
-            Node<T> p = hode;
+            Node<T> p = hode.forrige;
             sb.append(p.verdi);
             p = p.neste;
 
@@ -239,7 +252,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         if(!tom()) {
-            Node<T> p = hale;
+            Node<T> p = hale.neste;
             sb.append(p.verdi);
             p = p.forrige;
 
@@ -294,10 +307,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
 
             fjernOK = true;
-            T denneVerdi = denne.verdi;
             denne = denne.neste;
 
-            return denneVerdi;
+            return denne.verdi;
         }
 
         @Override
