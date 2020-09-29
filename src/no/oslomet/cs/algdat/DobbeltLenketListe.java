@@ -300,7 +300,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         private int iteratorendringer;
 
         private DobbeltLenketListeIterator(){
-            denne = hode;     // p starter på den første i listen
+            denne = hode.neste;     // p starter på den første i listen
             fjernOK = false;  // blir sann når next() kalles
             iteratorendringer = endringer;  // teller endringer
         }
@@ -324,7 +324,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             if(!hasNext()) {
                 throw new NoSuchElementException("Ingen verdier i listen!");
             }
-
             fjernOK = true;
             T denneVerdi = denne.verdi;
             denne = denne.neste;
