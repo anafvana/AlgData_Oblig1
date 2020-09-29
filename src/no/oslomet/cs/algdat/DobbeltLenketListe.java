@@ -55,8 +55,35 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     private Node<T> finnNode(int indeks) {
-        return null;
-    }
+        antall();
+        int hjelpevariabel = 0;
+        Node<T> node;
+
+        if(indeks < antall/2){
+            node = hode.neste;
+            while (indeks != hjelpevariabel){
+                hjelpevariabel ++;
+                node = node.neste;
+            }
+        } else {
+            node = hale.forrige;
+            hjelpevariabel = antall-1;
+
+            if (indeks == hjelpevariabel){
+                return node;
+            } else if(indeks > hjelpevariabel){
+
+                return null;
+            } else {
+                while (indeks != hjelpevariabel) {
+                    hjelpevariabel--;
+                    node = node.forrige;
+                }
+            }
+
+        }
+
+        return node;    }
 
     @Override
     public int antall() {
