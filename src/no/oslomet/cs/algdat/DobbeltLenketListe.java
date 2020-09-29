@@ -51,7 +51,38 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til){
-        throw new UnsupportedOperationException();
+        fratilKontroll(fra, til);
+        DobbeltLenketListe<T> nyListe = new DobbeltLenketListe<>();
+        if(fra == til){ //sjekk om liste må være tom
+            return nyListe;
+        } else {
+            Node<T> node;
+
+            //looper gjennom alle elementer og legge de til i den nye listen
+            for (int i = fra; i < til; i++) {
+                node = finnNode(i);
+                nyListe.leggInn(node.verdi);
+            }
+            return nyListe;
+        }
+    }
+
+    public void fratilKontroll(int fra, int til){
+        //TO DO ANTALL() MÅ FJERNES ER BARE FOR Å TESTE
+        antall();
+        //eksemplet kommer fra pensum
+        if (fra < 0){
+            // fra er negativ
+            throw new IndexOutOfBoundsException ("fra(" + fra + ") er negativ!");
+        }
+        if (til > antall) {
+            // til er utenfor tabellen
+            throw new IndexOutOfBoundsException ("til(" + til + ") > tablengde(" + antall + ")");
+        }
+        if (fra > til) {
+            // fra er større enn til
+            throw new IndexOutOfBoundsException ("fra(" + fra + ") > til(" + til + ") - illegalt intervall!");
+        }
     }
 
     private Node<T> finnNode(int indeks) {
