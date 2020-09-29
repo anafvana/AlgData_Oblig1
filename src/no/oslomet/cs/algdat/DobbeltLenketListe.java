@@ -234,7 +234,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         if(!tom()) {
-            Node<T> p = hode.forrige;
+            Node<T> p = hode.neste;
             sb.append(p.verdi);
             p = p.neste;
 
@@ -251,7 +251,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
         if(!tom()) {
-            Node<T> p = hale.neste;
+            Node<T> p = hale.forrige;
             sb.append(p.verdi);
             p = p.forrige;
 
