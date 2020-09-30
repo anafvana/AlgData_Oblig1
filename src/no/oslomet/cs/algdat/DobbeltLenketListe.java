@@ -283,14 +283,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         private int iteratorendringer;
 
         private DobbeltLenketListeIterator(){
-            denne = hode.neste;     // p starter på den første i listen
+            denne = hode;     // p starter på den første i listen
             fjernOK = false;  // blir sann når next() kalles
             iteratorendringer = endringer;  // teller endringer
         }
 
         private DobbeltLenketListeIterator(int indeks){
             indeksKontroll(indeks, false);
-            denne = finnNode(indeks);
+            if(indeks == 0) {
+                denne = hode;
+            } else {
+                denne = finnNode(indeks-1);
+            }
             fjernOK = false;
             iteratorendringer = endringer;
         }
@@ -303,15 +307,24 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         @Override
         public T next(){
             if(iteratorendringer != endringer) {
-                throw new ConcurrentModificationException("Listen har blitt endret!");
+                throw  new ConcurrentModificationException("Listen er endret!");
             }
-            if(!hasNext()) {
-                throw new NoSuchElementException("Ingen verdier i listen!");
+            if(!hasNext() || (denne.equals(hale.forrige) && denne.equals(hode.neste))) {
+                throw new NoSuchElementException("Ingen verdier!");
             }
             fjernOK = true;
-            T denneVerdi = denne.verdi;
-            denne = denne.neste;
-
+            T denneVerdi;
+            Node<T> p = hale.forrige;
+            if(denne.equals(p.forrige)) {
+                denneVerdi = denne.neste.verdi;
+                denne = denne.neste.neste;
+            } else if(denne.equals(p) && antall == 1){
+                denneVerdi = denne.verdi;
+                denne = denne.neste;
+            } else {
+                denneVerdi = denne.neste.verdi;
+                denne = denne.neste;
+            }
             return denneVerdi;
         }
 
