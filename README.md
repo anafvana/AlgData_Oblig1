@@ -50,11 +50,15 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 * Oppgave 7:
 
-* Oppgave 8: Løste oppgave 8a på en måte som kanskje ikke er lov i forhold til oppgaveteksten. Jeg endret verdien i konstruktøren til å være denne = hode.neste ettersom denne=hode fungerte med min gamle 
-             kode men ikke den nye der hode og hale ikke har egne verdier. Deretter gjorde jeg akkurat som oppgaven sa, kastet exception hvis iteratorendringer ikke er lik endringer og en annen exception 
-             hvis hasNext ikke er sann. Deretter omgjøres fjernOK til true, sånn at remove() metoden kan fjerne noe. Så lagret jeg denne.verdi i en tempVerdi og flyttet denne til neste element via 
-             denne = denne.neste og returnerte tempVerdi. 8b var enkel, det var bare å instansiere en ny DobbeltLenkeltListeIterator. 8c løste jeg ved å ta indeksKontroll først, for så å bruke metoden 
-             finnNode(indeks) som vi tidligere har laget. Så koden ble da denne = finnNode(indeks). De andre variablene fjernOK og iteratorendringer ble instansiert på vanlig måte.
+* Oppgave 8a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann men det kastes også hvis denne er lik 
+             både hode.nese og hale.forrige. Dette for at den skal kastes en exception når listen starter med bare en verdi og vi kaller next en gang (ingen exception) og så en gang til (exception). 
+             Deretter omgjøres fjernOK til true, sånn at remove() metoden kan fjerne noe. Jeg lager en variabel som er lik hale.forrige for å kunne sjekke om variabelen denne er lik hale.forrige.forrige eller 
+             hale.forrige. Hvis denne er lik hale.forrige.forrige så er den returnerte verdien lik denne.neste.verdi og denne = denne.neste.neste, hvis denne er lik hale.forrige og antall = 1 så returnerer 
+             vi denne.verdi og denne = denne.neste. Ellers returnerer vi denne.neste.verdi og denne = denne.neste. Dette for at denne = hode skal fungere med vårt oppsett.
+
+* Oppgave 8b,c,d: 8b er enkel, det er bare å instansiere en ny type av klassen DobbeltLenketListeIterator. 8c gjorde jeg ved å starte med en indeksKontroll, så måtte jeg skrive en if/else setning, og 
+            hvis indeks == 0 skal denne = hode for at next() skal fungere riktig. Ellers så bruker jeg metoden finnNode med indeks-1 som parameter. Jeg bruker spesifikt indeks-1 også for at next() skal fungere riktig.
+            Hvis ikke returneres feil verdi i next() metoden. Etter det så instansieres enkelt og greit fjernOK og iteratorendringer.
              
 * Oppgave 9:
 
