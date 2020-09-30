@@ -43,31 +43,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public DobbeltLenketListe() {
-        hode = null;
-        hale = null;
-        antall = 0;
-        endringer = 0;
+
     }
 
     public DobbeltLenketListe(T[] a) {
-        this();
-        Objects.requireNonNull(a, "Tabellen a er null!");
-        int i = 0; for(; i < a.length && a[i] == null; i++);
-        Node<T> p;
-
-        if(i < a.length) {
-            p = new Node<>(a[i], null, null);
-            hode = new Node<>(null, null, p);
-            antall = 1;
-
-            for(i++; i < a.length; i++) {
-                if(a[i] != null) {
-                    p = p.neste = new Node<>(a[i], p, null);
-                    antall++;
-                }
-            }
-            hale = new Node<>(null, p, null);
-        }
+        throw new UnsupportedOperationException();
     }
 
     public Liste<T> subliste(int fra, int til){
@@ -128,13 +108,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        return antall;
+        throw new UnsupportedOperationException();
     }
 
 
     @Override
     public boolean tom() {
-        return antall() == 0;
+        throw new UnsupportedOperationException();
     }
 
     @Override
