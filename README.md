@@ -18,7 +18,7 @@ Oppgaven er levert av følgende studenter:
 * Mark van der Baan - s344105@oslomet.no
 * Øyvind Ødegård Stenberg - s188886@oslomet.no
 
-Vi har brukt git til å dokumentere arbeidet vårt. Vi har 16 commits totalt, og hver logg-melding beskriver det vi har gjort av endringer.
+Vi har brukt git til å dokumentere arbeidet vårt. Vi har XXX commits totalt, og hver logg-melding beskriver det vi har gjort av endringer.
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Ana har hatt hovedansvar for oppgave 1, 4, og 7. 
@@ -51,7 +51,7 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Oppgave 7:
 
 * Oppgave 8: Løste oppgave 8a på en måte som kanskje ikke er lov i forhold til oppgaveteksten. Jeg endret verdien i konstruktøren til å være denne = hode.neste ettersom denne=hode fungerte med min gamle 
-             kode men ikke den nye der hode og hale ikke har egne verdier. Der etter gjorde jeg akkurat som oppgaven sa, kaste exception hvis iteratorendringer ikke er lik endringer og en annen exception 
+             kode men ikke den nye der hode og hale ikke har egne verdier. Deretter gjorde jeg akkurat som oppgaven sa, kastet exception hvis iteratorendringer ikke er lik endringer og en annen exception 
              hvis hasNext ikke er sann. Deretter omgjøres fjernOK til true, sånn at remove() metoden kan fjerne noe. Så lagret jeg denne.verdi i en tempVerdi og flyttet denne til neste element via 
              denne = denne.neste og returnerte tempVerdi. 8b var enkel, det var bare å instansiere en ny DobbeltLenkeltListeIterator. 8c løste jeg ved å ta indeksKontroll først, for så å bruke metoden 
              finnNode(indeks) som vi tidligere har laget. Så koden ble da denne = finnNode(indeks). De andre variablene fjernOK og iteratorendringer ble instansiert på vanlig måte.
