@@ -36,7 +36,10 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              ikke er det. Hvis den legges inn foran er listen tom og det lages en ny node uten forrige og neste pekere. Hvis den legges inn bak vil den nye noden ha den tidligere 
              siste verdien som sin forrige verdi, og hale vil få en ny forrige verdi. Den tidligere forrige verdien må også få den nye verdien som sin neste verdi.
              
-* Oppgave 3: 
+* Oppgave 3: Løste finnNode(indeks) med hensyn til performance. Så lagt inn enn en sjekk om systemet måtte sjekke fra hode eller fra hale. 
+             Med hent hadde jeg mer problemer siden indeksKontroll() tok så lang tid. Fant en grei løsning på det etterhvert som sørget for at hastigheten var innefor.
+             Oppdater() var ganske rett fram.
+             subliste() var mye trail and erorr. Til slutt valgte jeg å bruke en Node liste samt med en for loop og bruk av finnNode og leggInn metodene. Som gjorde funksjonen till grei og lesbart.
 
 * Oppgave 4: 
 
@@ -46,7 +49,8 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              så jeg måtte endre hele oppgaven for å fikse det, men det gikk til slutt. Brukte forrsten Objects.requireNonNull (som jeg lærte fra kompendiet) for å stoppe innlegging av null-verdier, 
              det samme gjorde jeg ovenfor.
              
-* Oppgave 6:
+* Oppgave 6: Denne oppgaven var ganske ok men hadde noe problemer med pekere. Måtte til slutt skrive ned hva som skjedde i funksjonen som hjalp mye.
+             Etter at jeg har gått gjennom alt med pen og papir ble testen også godkjennt med det samme :).
 
 * Oppgave 7:
 
