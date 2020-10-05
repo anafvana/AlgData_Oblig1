@@ -251,7 +251,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T fjern(int indeks) {
-        if (indeks < 0 || (indeks > antall)) {
+        if (indeks < 0 || (indeks > antall-1)) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -268,16 +268,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     hode.neste = null;
                     hale.forrige = null;
                 }
-            } else if(indeks == antall){
+            } else if(indeks == antall-1){
                 hale.forrige = node.forrige;
                 node.forrige.neste = null;
-                hale.forrige = null;
+                node.forrige = null;
             } else {
                 node.forrige.neste = node.neste;
                 node.neste.forrige = node.forrige;
                 node.forrige = null;
                 node.neste = null;
             }
+            antall--;
+            endringer++;
+
         } catch (Exception e){
             indeksKontroll(indeks, false);
         }
