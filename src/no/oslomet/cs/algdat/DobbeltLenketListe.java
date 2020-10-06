@@ -377,7 +377,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         private DobbeltLenketListeIterator(int indeks){
             indeksKontroll(indeks, false);
-            denne = finnNode(indeks);
+            denne = finnNode(indeks-1);
             fjernOK = false;
             iteratorendringer = endringer;
         }
