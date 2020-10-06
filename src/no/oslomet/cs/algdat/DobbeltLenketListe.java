@@ -43,13 +43,55 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public DobbeltLenketListe() {
+        Node hode = new Node(null);
+        Node hale = new Node(null);
+        this.hode = hode;
+        this.hale = hale;
+        /*
         hode = null;
         hale = null;
         antall = 0;
         endringer = 0;
+         */
     }
 
     public DobbeltLenketListe(T[] a) {
+        if(a != null){
+            Node[] nodeList = new Node[a.length];
+            this.hode = new Node(null);
+            this.hale = new Node(null);
+            //this.hode = hode;
+            //this.hale = hale;
+            antall = 0;
+
+            for (int i = 0; i < a.length; i++) {
+                if (a[i] != null){
+                    nodeList[antall] = new Node(a[i]);
+                    antall++;
+                }
+            }
+
+            if(antall == 0){
+                //alle elementer er null
+            } else if (antall == 1){
+                hode.neste = nodeList[0];
+                hale.forrige = nodeList[0];
+            } else {
+                hode.neste = nodeList[0];
+                nodeList[0].neste = nodeList[1];
+
+                for (int i = 1; i < antall-1; i++) {
+                    nodeList[i].neste = nodeList[i + 1];
+                    nodeList[i].forrige = nodeList[i - 1];
+                }
+                nodeList[antall-1].forrige = nodeList[antall-2];
+                hale.forrige = nodeList[antall-1];
+            }
+        } else {
+            throw new NullPointerException("Tabellen a er null!");
+        }
+
+        /*
         //Arrayet kan ikke være null
         Objects.requireNonNull(a, "Tabellen a er null!");
 
@@ -84,6 +126,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         //venter til alle noder er satt inn og knytter hale til siste gyldig node
         hale.forrige = prev;
+
+         */
 
         //TODO check if effective enough
     }
