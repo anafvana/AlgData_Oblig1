@@ -39,7 +39,7 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Oppgave 3: Løste finnNode(indeks) med hensyn til performance. Så lagt inn enn en sjekk om systemet måtte sjekke fra hode eller fra hale. 
              Med hent hadde jeg mer problemer siden indeksKontroll() tok så lang tid. Fant en grei løsning på det etterhvert som sørget for at hastigheten var innefor.
              Oppdater() var ganske rett fram.
-             subliste() var mye trail and erorr. Til slutt valgte jeg å bruke en Node liste samt med en for loop og bruk av finnNode og leggInn metodene. Som gjorde funksjonen till grei og lesbart.
+             subliste() var mye trial and erorr. Til slutt valgte jeg å bruke en Node liste samt med en for loop og bruk av finnNode og leggInn metodene. Som gjorde funksjonen till grei og lesbart.
 
 * Oppgave 4: 
 
@@ -47,7 +47,7 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              inn til slutt eller mellom to noder. Så brukte jeg lang tid på å tenke ut akkurat hva som må gjøres for å sette riktige forrige og neste verdier i alle situasjonene. 
              Hjelpeverdier for de forskjellige nodene hjalp mye. Hadde skrevet denne koden tidligere der hode og hale hadde egne verdier (det samme gjorde jeg i de andre oppgavene) 
              så jeg måtte endre hele oppgaven for å fikse det, men det gikk til slutt. Brukte forrsten Objects.requireNonNull (som jeg lærte fra kompendiet) for å stoppe innlegging av null-verdier, 
-             det samme gjorde jeg ovenfor.
+             det samme gjorde jeg ovenfor i oppgave 2.
              
 * Oppgave 6: Denne oppgaven var ganske ok men hadde noe problemer med pekere. Måtte til slutt skrive ned hva som skjedde i funksjonen som hjalp mye.
              Etter at jeg har gått gjennom alt med pen og papir ble testen også godkjennt med det samme :).
@@ -56,8 +56,8 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 * Oppgave 8: Oppgave a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann. Deretter blir denne omgjort til 
              denne.neste (fordi første verdi = hode og hode.verdi = null). Så omgjøres fjernOK til true, sånn at remove() metoden kan fjerne noe. Deretter lagres verdien til denne i en ny variabel, som så blir returnert.
-             8b er enkel, det er bare å instansiere en ny type av klassen DobbeltLenketListeIterator. 8c gjorde jeg ved å starte med en indeksKontroll, så bruker jeg metoden finnNode med indeks som parameter for å gi denne
-             verdien til noden vi finner. Etter det så instansieres enkelt og greit fjernOK og iteratorendringer. Og i metoden iterator(int indeks) trenger jeg bare å returnere en ny
+             8b er enkel, det er bare å instansiere en ny type av klassen DobbeltLenketListeIterator. 8c gjorde jeg ved å starte med en indeksKontroll, så bruker jeg metoden finnNode med indeks-1 som parameter for at 
+             denne skal peke på riktig indeks. Etter det så instansieres enkelt og greit fjernOK og iteratorendringer. Og i metoden iterator(int indeks) trenger jeg bare å returnere en ny
              DobbeltLenketListeIterator(indeks).
              
 * Oppgave 9:
