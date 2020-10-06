@@ -388,11 +388,28 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public boolean hasNext(){
-            return denne != null;
+            return denne.neste != null;
+            //return denne != null;
         }
 
         @Override
         public T next(){
+            if(endringer != iteratorendringer) {
+                throw new ConcurrentModificationException();
+            }
+
+            if(!hasNext()) {
+                throw new NoSuchElementException();
+            }
+
+            denne = denne.neste;
+
+
+            fjernOK = true;
+            T denneVerdi = denne.verdi;;
+            return denneVerdi;
+
+            /*
             if(iteratorendringer != endringer) {
                 throw  new ConcurrentModificationException("Listen er endret!");
             }
@@ -413,6 +430,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 denne = denne.neste;
             }
             return denneVerdi;
+
+             */
         }
 
         @Override
