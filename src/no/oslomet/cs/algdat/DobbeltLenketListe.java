@@ -63,8 +63,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         //Looper gjennom a og setter hver non-null verdi i en node
         for (T x : a){
             if (x != null){
-                Node<T> p = new Node<T>(x);
-                p.forrige = prev;
+                Node<T> p = new Node<T>(x, prev, null);
 
                 //setter head når den ikke er satt
                 if (!headIsSet){
