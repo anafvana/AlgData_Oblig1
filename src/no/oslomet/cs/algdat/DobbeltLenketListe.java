@@ -449,7 +449,48 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public void remove(){
-            throw new UnsupportedOperationException();
+            if(endringer != iteratorendringer){
+                throw new ConcurrentModificationException();
+            }
+            if(antall == 0){
+                throw new IllegalStateException();
+            }
+
+            fjernOK = false;
+
+            if(antall == 1){
+                hode.neste = null;
+                hale.forrige = null;
+            } else if(denne.equals(hale.forrige)){
+                //siste elementet må fjernes
+                Node<T> node = hale.forrige.forrige;
+                hale.forrige.forrige = null;
+                hale.forrige = node;
+                node.neste = null;
+            } else if (hode.neste == denne){
+                //føste elementet fjernes
+                Node<T> node = denne.neste;
+                node.forrige = null;
+                hode.neste.neste = null;
+                hode.neste = node;
+            } else if(denne.forrige == hode.neste) {
+                Node<T> node = denne.neste;
+                hode.neste.neste = node;
+                node.forrige = hode.neste;
+                denne.neste = null;
+                denne.forrige = null;
+            } else {
+                Node<T> node = denne.neste;
+                Node<T> nodeForrige = denne.forrige;
+                nodeForrige.neste = node;
+                node.forrige = nodeForrige;
+                denne.neste = null;
+                denne.forrige = null;
+            }
+
+            antall --;
+            endringer++;
+            iteratorendringer++;
         }
 
     } // class DobbeltLenketListeIterator
