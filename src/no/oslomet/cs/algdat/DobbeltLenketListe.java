@@ -50,24 +50,42 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        //sjekk om a er null
-            //kast NullPointerException
+        //Arrayet kan ikke være null
+        Objects.requireNonNull(a, "Tabellen a er null!");
 
-        //if a.length >= 0, new dll
+        //Lage nytt DobbeltLenketListe (slik at vi har en liste selv om a.length = 0)
+        DobbeltLenketListe<T> dll = new DobbeltLenketListe<>();
 
+        //Hjelpevariabler
+        boolean headIsSet = false;
+        Node<T> prev = null;
 
-        //boolean headIsSet = false;
-        //for each : a
-            //if not null
-                //new Node
-                //if !headIsSet   //Maybe find an alternative, bc this check will be performed way too many times
-                    //set head
-                    //head is set = true
-                //set hale     //Also maybe find alternative
+        //Looper gjennom a og setter hver non-null verdi i en node
+        for (T x : a){
+            if (x != null){
+                Node<T> p = new Node<T>(x);
+                p.forrige = prev;
 
+                //setter head når den ikke er satt
+                if (!headIsSet){
+                    dll.hode = p;
+                    headIsSet = true;
+                }
+
+                //setter denne node som forrige nodens neste (om det er en forrige node)
+                if (p.forrige != null){
+                    p.forrige.neste = p;
+                }
+
+                //setter p som prev for neste node å hente
+                prev = p;
+            }
+        }
+
+        //venter til alle noder er satt inn og setter hale siste gyldig node
+        dll.hale = prev;
 
         //TODO check if effective enough
-        throw new UnsupportedOperationException();
     }
 
     public Liste<T> subliste(int fra, int til){
@@ -128,32 +146,29 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        //Handle null liste
+        //TODO Handle null liste?
 
-        //Hjelpevariabel antall
+        int antall = 0;
+        Node<T> currNode = this.hode;
 
-        //Start from hode
-            //If null
-                //return 0
-            //Else
-                //antall + 1
-                //node.next
+        while (currNode != null){
+            antall++;
+            currNode=currNode.neste;
+        }
 
-        //return antall
-        throw new UnsupportedOperationException();
+        return antall;
     }
 
 
     @Override
     public boolean tom() {
-        //Handle null liste
+        //TODO Handle null liste?
 
-        //Start from hode
-        //If null
-            //return true
-        //Else
-            //return false
-        throw new UnsupportedOperationException();
+        if (this.hode == null){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
