@@ -54,7 +54,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Objects.requireNonNull(a, "Tabellen a er null!");
 
         //Lage nytt DobbeltLenketListe (slik at vi har en liste selv om a.length = 0)
-        DobbeltLenketListe<T> dll = new DobbeltLenketListe<>();
+        hode = new Node(null);
+        hale = new Node(null);
+        antall = 0;
+
 
         //Hjelpevariabler
         boolean headIsSet = false;
@@ -63,11 +66,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         //Looper gjennom a og setter hver non-null verdi i en node
         for (T x : a){
             if (x != null){
-                Node<T> p = new Node<T>(x, prev, null);
+                Node<T> p = new Node(x, prev, null);
 
-                //setter head når den ikke er satt
+                //knytter head til kun først node som er laget
                 if (!headIsSet){
-                    dll.hode = p;
+                    hode.neste = p;
                     headIsSet = true;
                 }
 
@@ -81,8 +84,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
         }
 
-        //venter til alle noder er satt inn og setter hale siste gyldig node
-        dll.hale = prev;
+        //venter til alle noder er satt inn og knytter hale til siste gyldig node
+        hale.forrige = prev;
 
         //TODO check if effective enough
     }
@@ -147,7 +150,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public int antall() {
         //TODO Handle null liste?
 
-        int antall = 0;
+        antall = 0;
         Node<T> currNode = this.hode;
 
         while (currNode != null){
