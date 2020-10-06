@@ -44,10 +44,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public DobbeltLenketListe() {
         /*
-        Node hode = new Node(null);
-        Node hale = new Node(null);
-        this.hode = hode;
-        this.hale = hale;
+        hode = new Node(null);
+        hale = new Node(null);
        */
         hode = null;
         hale = null;
@@ -57,75 +55,23 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        /*if(a != null){
-            Node[] nodeList = new Node[a.length];
-            this.hode = new Node(null);
-            this.hale = new Node(null);
-            //this.hode = hode;
-            //this.hale = hale;
-            antall = 0;
+        int i = 0;
+        for(; i < a.length && a[i] == null; i++);
+        Node<T> p;
 
-            for (int i = 0; i < a.length; i++) {
-                if (a[i] != null){
-                    nodeList[antall] = new Node(a[i]);
+        if(i < a.length) {
+            p = new Node<>(a[i], null, null);
+            hode = new Node<>(null, null, p);
+            antall = 1;
+
+            for(i++; i < a.length; i++) {
+                if(a[i] != null) {
+                    p = p.neste = new Node<>(a[i], p, null);
                     antall++;
                 }
             }
-
-            if(antall == 0){
-                //alle elementer er null
-            } else if (antall == 1){
-                hode.neste = nodeList[0];
-                hale.forrige = nodeList[0];
-            } else {
-                hode.neste = nodeList[0];
-                nodeList[0].neste = nodeList[1];
-
-                for (int i = 1; i < antall-1; i++) {
-                    nodeList[i].neste = nodeList[i + 1];
-                    nodeList[i].forrige = nodeList[i - 1];
-                }
-                nodeList[antall-1].forrige = nodeList[antall-2];
-                hale.forrige = nodeList[antall-1];
-            }
-        } else {
-            throw new NullPointerException("Tabellen a er null!");
+            hale = new Node<>(null, p, null);
         }
-*/
-        this();
-        //Arrayet kan ikke være null
-        Objects.requireNonNull(a, "Tabellen a er null!");
-
-        //Hjelpevariabler
-        boolean headIsSet = false;
-        Node<T> prev = hode;
-
-        //Looper gjennom a og setter hver non-null verdi i en node
-        for (T x : a){
-            if (x != null){
-                Node<T> p = new Node<T>(x, prev, null);
-
-                //knytter head til kun først node som er laget
-                if (!headIsSet){
-                    hode.neste = p;
-                    headIsSet = true;
-                }
-
-                //setter denne node som forrige nodens neste (om det er en forrige node)
-                if (p.forrige != null){
-                    p.forrige.neste = p;
-                }
-
-                //setter p som prev for neste node å hente
-                prev = p;
-                antall++;
-            }
-        }
-        //venter til alle noder er satt inn og knytter hale til siste gyldig node
-        hale.forrige = prev;
-
-        //TODO check if effective enough
-
     }
 
     public Liste<T> subliste(int fra, int til){
