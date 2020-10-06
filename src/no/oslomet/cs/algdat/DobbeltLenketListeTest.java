@@ -272,7 +272,6 @@ class DobbeltLenketListeTest {
         Liste<Integer> testliste = new DobbeltLenketListe<>();
         for (int i = 0; i < 100000; i++) testliste.leggInn(i);
         long tid = System.currentTimeMillis();
-        System.out.println(testliste.antall());
         for (int i = 0; i < 10000; i++) testliste.hent(99999);
         tid = System.currentTimeMillis() - tid;
 
