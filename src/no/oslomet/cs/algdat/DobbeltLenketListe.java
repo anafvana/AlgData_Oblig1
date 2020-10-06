@@ -496,7 +496,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             if(endringer != iteratorendringer){
                 throw new ConcurrentModificationException();
             }
-            if(antall == 0){
+            if(antall == 0 || denne == hode){
                 throw new IllegalStateException();
             }
 
@@ -511,18 +511,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 hale.forrige.forrige = null;
                 hale.forrige = node;
                 node.neste = null;
+                denne = hale;
             } else if (hode.neste == denne){
                 //føste elementet fjernes
                 Node<T> node = denne.neste;
                 node.forrige = null;
                 hode.neste.neste = null;
                 hode.neste = node;
+                denne = hode;
             } else if(denne.forrige == hode.neste) {
                 Node<T> node = denne.neste;
                 hode.neste.neste = node;
                 node.forrige = hode.neste;
                 denne.neste = null;
                 denne.forrige = null;
+                denne = node;
             } else {
                 Node<T> node = denne.neste;
                 Node<T> nodeForrige = denne.forrige;
@@ -530,6 +533,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 node.forrige = nodeForrige;
                 denne.neste = null;
                 denne.forrige = null;
+                denne = node;
             }
 
             antall --;
