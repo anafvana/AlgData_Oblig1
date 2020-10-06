@@ -43,20 +43,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public DobbeltLenketListe() {
+        /*
         Node hode = new Node(null);
         Node hale = new Node(null);
         this.hode = hode;
         this.hale = hale;
-        /*
+       */
         hode = null;
         hale = null;
         antall = 0;
         endringer = 0;
-         */
+
     }
 
     public DobbeltLenketListe(T[] a) {
-        if(a != null){
+        /*if(a != null){
             Node[] nodeList = new Node[a.length];
             this.hode = new Node(null);
             this.hale = new Node(null);
@@ -90,19 +91,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         } else {
             throw new NullPointerException("Tabellen a er null!");
         }
-
-        /*
+*/
+        this();
         //Arrayet kan ikke være null
         Objects.requireNonNull(a, "Tabellen a er null!");
 
-        //Lage nytt DobbeltLenketListe (slik at vi har en liste selv om a.length = 0)
-        hode = new Node<T>(null);
-        hale = new Node<T>(null);
-        antall = 0;
-
         //Hjelpevariabler
         boolean headIsSet = false;
-        Node<T> prev = null;
+        Node<T> prev = hode;
 
         //Looper gjennom a og setter hver non-null verdi i en node
         for (T x : a){
@@ -122,14 +118,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
                 //setter p som prev for neste node å hente
                 prev = p;
+                antall++;
             }
         }
         //venter til alle noder er satt inn og knytter hale til siste gyldig node
         hale.forrige = prev;
 
-         */
-
         //TODO check if effective enough
+
     }
 
     public Liste<T> subliste(int fra, int til){
@@ -190,19 +186,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        //TODO Handle null liste?
-        antall = 0;
-
-        if (tom()) {
-        } else {
-            Node<T> currNode = hode.neste;
-
-            while (currNode != null) {
-                antall++;
-                currNode = currNode.neste;
-            }
-        }
-
         return antall;
     }
 
@@ -210,12 +193,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public boolean tom() {
         //TODO Handle null liste?
-
-        if (hode.neste == null){
-            return true;
-        } else {
-            return false;
-        }
+        return antall() == 0;
     }
 
     @Override
