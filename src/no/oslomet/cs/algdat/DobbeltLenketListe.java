@@ -377,11 +377,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         private DobbeltLenketListeIterator(int indeks){
             indeksKontroll(indeks, false);
-            if(indeks == 0) {
-                denne = hode;
-            } else {
-                denne = finnNode(indeks-1);
-            }
+            denne = finnNode(indeks);
             fjernOK = false;
             iteratorendringer = endringer;
         }
@@ -397,41 +393,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             if(endringer != iteratorendringer) {
                 throw new ConcurrentModificationException();
             }
-
             if(!hasNext()) {
                 throw new NoSuchElementException();
             }
-
             denne = denne.neste;
-
-
             fjernOK = true;
             T denneVerdi = denne.verdi;;
             return denneVerdi;
-
-            /*
-            if(iteratorendringer != endringer) {
-                throw  new ConcurrentModificationException("Listen er endret!");
-            }
-            if(!hasNext() || (denne.equals(hale.forrige) && denne.equals(hode.neste))) {
-                throw new NoSuchElementException("Ingen verdier!");
-            }
-            fjernOK = true;
-            T denneVerdi;
-            Node<T> p = hale.forrige;
-            if(denne.equals(p.forrige)) {
-                denneVerdi = denne.neste.verdi;
-                denne = denne.neste.neste;
-            } else if(denne.equals(p) && antall == 1){
-                denneVerdi = denne.verdi;
-                denne = denne.neste;
-            } else {
-                denneVerdi = denne.neste.verdi;
-                denne = denne.neste;
-            }
-            return denneVerdi;
-
-             */
         }
 
         @Override
@@ -439,8 +407,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             if(endringer != iteratorendringer){
                 throw new ConcurrentModificationException();
             }
-            if(antall == 0 || denne == hode){
-                throw new IllegalStateException();
+            if(!fjernOK) {
+                throw new IllegalStateException("Ulovlig tilstand!");
             }
 
             fjernOK = false;
