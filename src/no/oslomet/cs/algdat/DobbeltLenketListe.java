@@ -50,6 +50,23 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
+        //sjekk om a er null
+            //kast NullPointerException
+
+        //if a.length >= 0, new dll
+
+
+        //boolean headIsSet = false;
+        //for each : a
+            //if not null
+                //new Node
+                //if !headIsSet   //Maybe find an alternative, bc this check will be performed way too many times
+                    //set head
+                    //head is set = true
+                //set hale     //Also maybe find alternative
+
+
+        //TODO check if effective enough
         throw new UnsupportedOperationException();
     }
 
@@ -111,12 +128,31 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
+        //Handle null liste
+
+        //Hjelpevariabel antall
+
+        //Start from hode
+            //If null
+                //return 0
+            //Else
+                //antall + 1
+                //node.next
+
+        //return antall
         throw new UnsupportedOperationException();
     }
 
 
     @Override
     public boolean tom() {
+        //Handle null liste
+
+        //Start from hode
+        //If null
+            //return true
+        //Else
+            //return false
         throw new UnsupportedOperationException();
     }
 
