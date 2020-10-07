@@ -201,17 +201,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean inneholder(T verdi) {
-        boolean inneholder = false;
+        //Ignorerer testen om listen er tom eller verdien er null
         if (antall > 0 && verdi!=null) {
             Node<T> p = hode.neste;
             while (p != null) {
+                //fant verdien
                 if (verdi.equals(p.verdi)) {
-                    inneholder = true;
+                    return true;
                 }
+                //else... prøv å finne den på neste
                 p = p.neste;
             }
         }
-        return inneholder;
+        //ikke fant
+        return false;
     }
 
     @Override
@@ -228,13 +231,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int indeksTil(T verdi) {
+        //"hjelpevariabel" som skal faktisk returneres
         int index = 0;
+
+        //Ignorerer sjekk om listen er tom eller verdien er tom
         if (antall > 0 && verdi!=null) {
+            //lager node som brukes for testing
             Node<T> p = hode.neste;
             while (p != null) {
                 if (verdi.equals(p.verdi)) {
                     return index;
                 }
+                //prøv igjen med neste node
                 p = p.neste;
                 index++;
             }
