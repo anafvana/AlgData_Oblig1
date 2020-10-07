@@ -346,9 +346,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     @Override
     public void nullstill() {
         if (antall>0) {
+            //FØRSTE MÅTE
             //Hjelpevariabelen for noden vi er på nå
             Node<T> curP = hode.neste;
 
+            //Sletter alle noder unntatt siste
             while (curP.neste != null){
                 curP = curP.neste;
                 curP.forrige.forrige = null;
@@ -357,13 +359,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 antall--;
                 endringer++;
             }
-
-            //While loop som stopper når hv1.neste==null
-            //Fjern hv1.verdi
-            //Oppdater hv2 til hv1.forrige
-            //Fjern hv2.neste
-            //Fjern hv1.forrige
-            //hv1 = hv1.neste
+            //Sletter siste node
+            curP.forrige = null;
+            curP.verdi = null;
+            curP.neste = null;
+            antall--;
+            endringer++;
         }
         //Will deal with second version later
     }
