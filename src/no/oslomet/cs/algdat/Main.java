@@ -22,7 +22,7 @@ public class Main {
             intList.leggInn(i + 2);
         }
         System.out.println(intList);
-        DobbeltLenketListe.bubbleSort(intList, Comparator.naturalOrder());
+        DobbeltLenketListe.sorter(intList, Comparator.naturalOrder());
         System.out.println(intList);
 
         Liste<String> strListe = new DobbeltLenketListe<>();
@@ -33,7 +33,7 @@ public class Main {
         strListe.leggInn("Bjarne");
         strListe.leggInn("Kalle");
         System.out.println(strListe);
-        DobbeltLenketListe.bubbleSort(strListe, Comparator.naturalOrder());
+        DobbeltLenketListe.sorter(strListe, Comparator.naturalOrder());
         System.out.println(strListe);
 
 
