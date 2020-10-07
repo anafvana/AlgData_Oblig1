@@ -201,7 +201,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean inneholder(T verdi) {
-        throw new UnsupportedOperationException();
+        boolean inneholder = false;
+        if (antall > 0 && verdi!=null) {
+            Node<T> p = hode.neste;
+            while (p != null) {
+                if (verdi.equals(p.verdi)) {
+                    inneholder = true;
+                }
+                p = p.neste;
+            }
+        }
+        return inneholder;
     }
 
     @Override
