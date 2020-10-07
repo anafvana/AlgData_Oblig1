@@ -470,12 +470,29 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         return indeks;
     }
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
+        if(liste.antall() == 0 || liste.antall() == 1) {
+            return;
+        }
         for(int i = 0; i < liste.antall(); i++) {
             int minste_indeks = min(liste, i, liste.antall(), c);
             T temp = liste.hent(i);
             T temp2 = liste.hent(minste_indeks);
             liste.oppdater(i, temp2);
             liste.oppdater(minste_indeks, temp);
+        }
+    }
+
+    public static <T> void bubbleSort(Liste<T> liste, Comparator<? super T> c) {
+        if(liste.antall() == 0 || liste.antall() == 1) {
+            return;
+        }
+        for(int i = 0; i < liste.antall(); i++) {
+            T p = liste.hent(i);
+            T q = liste.hent(i + 1);
+            if(c.compare(p, q) > 0) {
+                liste.oppdater(i, q);
+                liste.oppdater(i + 1, p);
+            }
         }
     }
 
