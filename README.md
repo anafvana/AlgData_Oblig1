@@ -62,5 +62,6 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              
 * Oppgave 9:
 
-* Oppgave 10:
+* Oppgave 10: Startet med å lage en selection sort metode, for den laget vi en ekstra metode som finner minste verdi sin indeks og bruker den indeksen 
+              i for-løkken for å sette minste verdi først. Bruker metodene hent() og oppdater() ettersom vi ikke kan gjøre ting som a[i] osv.
 
