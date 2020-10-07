@@ -348,7 +348,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void nullstill() {
-        /*
         //FØRSTE MÅTE
         if (antall>0) {
             //Hjelpevariabelen for noden vi er på nå
@@ -369,17 +368,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             curP.neste = null;
             antall--;
             endringer++;
-        }*/
-
-
-        //ANDRE MÅTE
-        if (antall>0) {
-            for (int i=0; i<=antall; i++){
-                fjern(i);
-                antall--;
-                endringer++;
-            }
         }
+
+        /*
+        //ANDRE MÅTE
+        //Hjelpevariabel slik at antall ikke endrer seg
+        int toDelete = antall;
+        if (antall>0) {
+            for (int i=0; i<toDelete; i++){
+                fjern(0);
+            }
+        }*/
     }
 
     @Override

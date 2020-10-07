@@ -63,7 +63,11 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Oppgave 6: Denne oppgaven var ganske ok men hadde noe problemer med pekere. Måtte til slutt skrive ned hva som skjedde i funksjonen som hjalp mye.
              Etter at jeg har gått gjennom alt med pen og papir ble testen også godkjennt med det samme :).
 
-* Oppgave 7:
+* Oppgave 7: Første måte ble laget ved å lage et hjelpevariabel (Node p) som tok inn den første noden i listen.
+             Om denne noden ikke var null, da gikk variabelen inn i en for loop hvor p ble oppdatert til den neste noden, og gammel p (nå p.forrige) verdiene ble satt til null.
+             Endelig, ble den siste p slettet.
+             Den andre måte ble løst ved å lage en hjelpevariabel som holdt verdien til antall (slik at den ikke ble endret i for-loopen når en node ble slettet).
+             Inn i en for-loop, ble hver node slettet ved å kalle slett(0). 
 
 * Oppgave 8: Oppgave a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann. Deretter blir denne omgjort til 
              denne.neste (fordi første verdi = hode og hode.verdi = null). Så omgjøres fjernOK til true, sånn at remove() metoden kan fjerne noe. Deretter lagres verdien til denne i en ny variabel, som så blir returnert.
