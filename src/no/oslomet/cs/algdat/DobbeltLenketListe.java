@@ -435,7 +435,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         @Override
         public boolean hasNext(){
             return denne.neste != null;
-            //return denne != null;
         }
 
         @Override
@@ -504,41 +503,15 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     } // class DobbeltLenketListeIterator
 
-    //Prøver selection-sort først
-    //Trenger en min-metode
 
-    public static <T> int min(Liste<T> liste, int fra, int til, Comparator<? super T> c) {
-        T minsteVerdi = liste.hent(fra);
-        int indeks = fra;
-        for(int i = fra + 1; i < til; i++) {
-            T t = liste.hent(i);
-            if(c.compare(t, minsteVerdi) < 0) {
-                minsteVerdi = t;
-                indeks = i;
-            }
-        }
-        return indeks;
-    }
+    //Gikk for bubblesort metoden
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        if(liste.antall() == 0 || liste.antall() == 1) {
-            return;
-        }
-        for(int i = 0; i < liste.antall(); i++) {
-            int minste_indeks = min(liste, i, liste.antall(), c);
-            T temp = liste.hent(i);
-            T temp2 = liste.hent(minste_indeks);
-            liste.oppdater(i, temp2);
-            liste.oppdater(minste_indeks, temp);
-        }
-    }
-
-    public static <T> void bubbleSort(Liste<T> liste, Comparator<? super T> c) {
-        //hvis det er en tom liste eller en liste med ett element, ikke gjør noe mer
+        //Hvis det er en tom liste eller en liste med ett element, ikke gjør noe mer
         if(liste.antall() == 0 || liste.antall() == 1) {
             return;
         }
         boolean byttet = true;
-        int antallFlyttet = 1;  //starter på 1 for at vi ikke skal få en out of bounds exception
+        int antallFlyttet = 1;  //Starter på 1 for at vi ikke skal få en out of bounds exception
         while (byttet) {
             byttet = false;
             for(int i = 0; i < liste.antall() - antallFlyttet; i++) {
