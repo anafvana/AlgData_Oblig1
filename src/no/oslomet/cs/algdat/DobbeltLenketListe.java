@@ -345,7 +345,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void nullstill() {
-        throw new UnsupportedOperationException();
+        //Hjelpevariabelen for noden vi er på nå
+        //Hjelpevariabelen for noden før slik at vi kan fjerne .neste pekeren etter at vi har fant den neste noden
+
+        //While loop som stopper når hv1.neste==null
+            //Fjern hv1.verdi
+            //Oppdater hv2 til hv1.forrige
+            //Fjern hv2.neste
+            //Fjern hv1.forrige
+            //hv1 = hv1.neste
+
+        //Will deal with second version later
     }
 
     @Override
