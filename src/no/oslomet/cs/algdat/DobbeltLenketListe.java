@@ -348,8 +348,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void nullstill() {
+        /*
+        //FØRSTE MÅTE
         if (antall>0) {
-            //FØRSTE MÅTE
             //Hjelpevariabelen for noden vi er på nå
             Node<T> curP = hode.neste;
 
@@ -368,8 +369,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             curP.neste = null;
             antall--;
             endringer++;
+        }*/
+
+
+        //ANDRE MÅTE
+        if (antall>0) {
+            for (int i=0; i<=antall; i++){
+                fjern(i);
+                antall--;
+                endringer++;
+            }
         }
-        //Will deal with second version later
     }
 
     @Override
