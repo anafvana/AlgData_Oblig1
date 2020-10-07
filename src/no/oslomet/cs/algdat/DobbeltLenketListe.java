@@ -56,14 +56,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public DobbeltLenketListe(T[] a) {
         int i = 0;
-        for(; i < a.length && a[i] == null; i++);
+        //Ser etter den først ikke-null verdi
+        while (i < a.length && a[i] == null) { i++; }
         Node<T> p;
 
         if(i < a.length) {
+            //Lager først node og hode
             p = new Node<>(a[i], null, null);
             hode = new Node<>(null, null, p);
             antall = 1;
 
+            //lager andre noder
             for(i++; i < a.length; i++) {
                 if(a[i] != null) {
                     p = p.neste = new Node<>(a[i], p, null);

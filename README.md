@@ -28,7 +28,12 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 # Beskrivelse av oppgaveløsning (maks 5 linjer per oppgave)
 
-* Oppgave 1: Løste ved å implementere..
+* Oppgave 1: Etter flere feilet forsøk, fant jeg denne versjon av konstruktoren som endelig fungerte. 
+             Oppgaven ble løst med å først finne den først non-null verdien og da begynne å lage den første noden.
+             Hoden ble lenket til denne første noden og deretter ble alle andre noder laget hvis verdien innehaldt i indeksen ikke var null.
+             Når alle noder ble laget, da ble hale knyttet til den siste noden.
+             Siden antall noder ble oppdatert inn i konstruktoren (eller leggTil() metoden), antall() metode var enkelt: bare returnere antall.
+             Metoden tom() bare sjekket om antall er lik 0 og returnerte true (hvis ja) og false (hvis ikke).
 
 * Oppgave 2: Løste oppgave 2a ved å bruke en StringBuilder. Valgte å appende en "[" før if-setningen og en "]" etter if-setningen. 
              Inni if-setningen går man gjennom node for node med neste pekere og legger til verdiene med komma og mellomrom mellom dem. Akkurat samme metode for omvendtString() 
@@ -41,7 +46,13 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              Oppdater() var ganske rett fram.
              subliste() var mye trial and erorr. Til slutt valgte jeg å bruke en Node liste samt med en for loop og bruk av finnNode og leggInn metodene. Som gjorde funksjonen till grei og lesbart.
 
-* Oppgave 4: 
+* Oppgave 4: Løste inneholder()  og indexTil() ved å, først sjekke om listen var tom eller verdien var null. Om ja, da returnerte den automatisk false eller -1. 
+             Ellers, var en hjelpevariabel (node p), som begynte som den første noden i listen, laget og verdien ble sjekket mot p.verdi.
+             I indexTil() er det også en andre hjelpevariabel (som skal fakstisk returneres i noe tilfeller), index. 
+             Den blir oppdatert (+1) hver gang verdien er ikke lik p.verdi, og returneres når de er like. Om det er ingen match, da returneres det -1.
+             Om verdien var den samme, returnerte metoden true. Ellers, ble p oppdatert til p.neste og while-loop'en fortsatte å kjøre til p ble null eller verdien ble fant.
+             For inneholder, likhet ble sjekket i en like måte. Om det ble funnet, da returnerte metoden true. Ellers, false.
+              
 
 * Oppgave 5: Løste oppgaven ved å først tenke ut alle alternativer vi har, at den skal legges inn først når antall = 0 og først når antall er hva som helst annet - at den skal legges 
              inn til slutt eller mellom to noder. Så brukte jeg lang tid på å tenke ut akkurat hva som må gjøres for å sette riktige forrige og neste verdier i alle situasjonene. 
