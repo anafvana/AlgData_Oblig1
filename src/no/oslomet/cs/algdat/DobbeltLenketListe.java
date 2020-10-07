@@ -486,12 +486,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(liste.antall() == 0 || liste.antall() == 1) {
             return;
         }
-        for(int i = 0; i < liste.antall(); i++) {
-            T p = liste.hent(i);
-            T q = liste.hent(i + 1);
-            if(c.compare(p, q) > 0) {
-                liste.oppdater(i, q);
-                liste.oppdater(i + 1, p);
+        boolean byttet = true;
+        int antallByttet = 0;
+        while (byttet) {
+            byttet = false;
+            antallByttet++;
+            for(int i = 0; i < liste.antall() - antallByttet; i++) {
+                T p = liste.hent(i);
+                T q = liste.hent(i + 1);
+                if(c.compare(p, q) > 0) {
+                    liste.oppdater(i, q);
+                    liste.oppdater(i + 1, p);
+                    byttet = true;
+                }
             }
         }
     }

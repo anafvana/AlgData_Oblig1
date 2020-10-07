@@ -1,5 +1,7 @@
 package no.oslomet.cs.algdat;
 
+import java.util.Comparator;
+
 public class Main {
     public static void main(String[] args) {
         Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
@@ -13,6 +15,25 @@ public class Main {
         Character[] d = {};
         DobbeltLenketListe<Character> liste2 = new DobbeltLenketListe<>(d);
         System.out.println(liste2.antall());
+        Liste<Integer> intList = new DobbeltLenketListe<>();
+        for(int i = 2; i < 1000; i++) {
+            intList.leggInn(i - 2);
+            intList.leggInn(i + 2);
+        }
+        System.out.println(intList);
+        DobbeltLenketListe.bubbleSort(intList, Comparator.naturalOrder());
+        System.out.println(intList);
+
+        Liste<String> strListe = new DobbeltLenketListe<>();
+        strListe.leggInn("Stein");
+        strListe.leggInn("Alf");
+        strListe.leggInn("Kjell");
+        strListe.leggInn("Preben");
+        strListe.leggInn("Bjarne");
+        strListe.leggInn("Kalle");
+        System.out.println(strListe);
+        DobbeltLenketListe.bubbleSort(strListe, Comparator.naturalOrder());
+        System.out.println(strListe);
 
 
 // System.out.println(liste.subliste(0,11)); // skal kaste unntak
