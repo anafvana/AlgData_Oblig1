@@ -454,8 +454,29 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     } // class DobbeltLenketListeIterator
 
+    //Prøver selection-sort først
+    //Trenger en min-metode
+
+    public static <T> int min(Liste<T> liste, int fra, int til, Comparator<? super T> c) {
+        T minsteVerdi = liste.hent(fra);
+        int indeks = fra;
+        for(int i = fra + 1; i < til; i++) {
+            T t = liste.hent(i);
+            if(c.compare(t, minsteVerdi) < 0) {
+                minsteVerdi = t;
+                indeks = i;
+            }
+        }
+        return indeks;
+    }
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
-        throw new UnsupportedOperationException();
+        for(int i = 0; i < liste.antall(); i++) {
+            int minste_indeks = min(liste, i, liste.antall(), c);
+            T temp = liste.hent(i);
+            T temp2 = liste.hent(minste_indeks);
+            liste.oppdater(i, temp2);
+            liste.oppdater(minste_indeks, temp);
+        }
     }
 
 } // class DobbeltLenketListe
