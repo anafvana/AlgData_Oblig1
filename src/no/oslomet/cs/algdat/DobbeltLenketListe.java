@@ -483,15 +483,15 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public static <T> void bubbleSort(Liste<T> liste, Comparator<? super T> c) {
+        //hvis det er en tom liste eller en liste med ett element, ikke gjør noe mer
         if(liste.antall() == 0 || liste.antall() == 1) {
             return;
         }
         boolean byttet = true;
-        int antallByttet = 0;
+        int antallFlyttet = 1;  //starter på 1 for at vi ikke skal få en out of bounds exception
         while (byttet) {
             byttet = false;
-            antallByttet++;
-            for(int i = 0; i < liste.antall() - antallByttet; i++) {
+            for(int i = 0; i < liste.antall() - antallFlyttet; i++) {
                 T p = liste.hent(i);
                 T q = liste.hent(i + 1);
                 if(c.compare(p, q) > 0) {
@@ -500,6 +500,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     byttet = true;
                 }
             }
+            antallFlyttet++;
         }
     }
 
