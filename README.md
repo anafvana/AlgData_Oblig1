@@ -66,5 +66,5 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
               i for-løkken for å sette minste verdi først. Bruker metodene hent() og oppdater() ettersom vi ikke kan gjøre ting som a[i] osv. Laget også en 
               bubble-sort metode der det største tallet blir lagt bakerst, først var den uoptimalisert og gikk gjennom hele listen hele tiden men når vi la til
               en variabel som reduserte listens lengde og ikke gikk gjennom de tallene som allerede er satt bakerst ble det mye kjappere.
-              Vi valgte å gå for XXX
+              Vi valgte å gå for bubble-sort av de vi lagde, den var mye mer effektiv.
 
