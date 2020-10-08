@@ -59,7 +59,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if(i < a.length) {
             //Lager først node og hode
-            p = new Node<>(a[i], null, null);
+            p = new Node<>(a[i]);
             hode = new Node<>(null, null, p);
             antall = 1;
 
@@ -148,7 +148,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Node<T> p;
 
         if(antall == 0) {
-            p = new Node<>(verdi, null, null);
+            p = new Node<>(verdi);
             hode = new Node<>(null, null, p);
             hale = new Node<>(null, p, null);
         } else {
@@ -171,7 +171,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if(indeks == 0) {
             if(antall == 0) {
-                p = new Node<>(verdi, null, null);
+                p = new Node<>(verdi);
                 hode = new Node<>(null, null, p);
                 hale = new Node<>(null, p, null);
             } else {
