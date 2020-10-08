@@ -18,9 +18,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
      * Node class
      * @param <T>
      */
-    private static final class Node<T> {
+    public static final class Node<T> {
         private T verdi;                   // nodens verdi
-        private Node<T> forrige, neste;    // pekere
+        private Node<T> forrige;
+        public Node<T> neste;    // pekere
 
         private Node(T verdi, Node<T> forrige, Node<T> neste) {
             this.verdi = verdi;
@@ -34,7 +35,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     // instansvariabler
-    private Node<T> hode;          // peker til den første i listen
+    public Node<T> hode;          // peker til den første i listen
     private Node<T> hale;          // peker til den siste i listen
     private int antall;            // antall noder i listen
     private int endringer;         // antall endringer i listen
@@ -77,9 +78,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public Liste<T> subliste(int fra, int til){
         fratilKontroll(fra, til);
         DobbeltLenketListe<T> nyListe = new DobbeltLenketListe<>();
-        if(fra == til){
-            return nyListe;
-        } else {
+        if (fra != til) {
             Node<T> node = finnNode(fra);
 
             nyListe.leggInn(node.verdi);
@@ -88,8 +87,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 node = finnNode(i);
                 nyListe.leggInn(node.verdi);
             }
-            return nyListe;
         }
+        return nyListe;
     }
 
     public void fratilKontroll(int fra, int til){
@@ -375,6 +374,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 fjern(0);
             }
         }*/
+    }
+
+    public void nullstill2(){
+        //ANDRE MÅTE
+        //Hjelpevariabel slik at antall ikke endrer seg
+        int toDelete = antall;
+        if (antall>0) {
+            for (int i=0; i<toDelete; i++){
+                fjern(0);
+            }
+        }
     }
 
     @Override
