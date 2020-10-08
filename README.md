@@ -69,13 +69,14 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              Den andre måte ble løst ved å lage en hjelpevariabel som holdt verdien til antall (slik at den ikke ble endret i for-loopen når en node ble slettet).
              Inn i en for-loop, ble hver node slettet ved å kalle slett(0). 
 
-* Oppgave 8: Oppgave a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann. Deretter blir denne omgjort til 
-             denne.neste (fordi første verdi = hode og hode.verdi = null). Så omgjøres fjernOK til true, sånn at remove() metoden kan fjerne noe. Deretter lagres verdien til denne i en ny variabel, som så blir returnert.
-             8b er enkel, det er bare å instansiere en ny type av klassen DobbeltLenketListeIterator. 8c gjorde jeg ved å starte med en indeksKontroll, så bruker jeg metoden finnNode med indeks-1 som parameter for at 
-             denne skal peke på riktig indeks. Etter det så instansieres enkelt og greit fjernOK og iteratorendringer. Og i metoden iterator(int indeks) trenger jeg bare å returnere en ny
-             DobbeltLenketListeIterator(indeks).
+* Oppgave 8: Oppgave a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann. Så omgjøres fjernOK til true, sånn at 
+             remove() metoden kan fjerne noe. Deretter blir denne omgjort til denne.neste (fordi første verdi = hode og hode.verdi = null) hvis ikke denne.neste.neste = null, da er denne = null for at next() ikke skal kalles igjen. 
+             Verdien til denne blir lagret i en ny variabel, som så blir returnert. 8b er enkel, det er bare å instansiere en ny type av klassen DobbeltLenketListeIterator. 8c gjorde jeg ved å starte 
+             med en indeksKontroll, så bruker jeg metoden finnNode med indeks-1 som parameter for at denne skal peke på riktig indeks. Etter det så instansieres enkelt og greit fjernOK og iteratorendringer. 
+             Og i metoden iterator(int indeks) trenger jeg bare å returnere en ny DobbeltLenketListeIterator(indeks).
              
-* Oppgave 9:
+* Oppgave 9: Startet med å kaste exceptions, deretter blir fjernOK false igjen. Så må jeg gjøre rede for alle mulige verdier som kan bli slettet, den første i listen (en if for antall = 1 og en else for alle andre verdier av antall), 
+             den siste og alle i mellom de to. Det vanskeligste var å linke den med next() metoden som var litt innviklet. Til slutt legger vi til en endring/iteratorendring og tar bort 1 fra antall.
 
 * Oppgave 10: Startet med å lage en selection sort metode, for den laget vi en ekstra metode som finner minste verdi sin indeks og bruker den indeksen 
               i for-løkken for å sette minste verdi først. Bruker metodene hent() og oppdater() ettersom vi ikke kan gjøre ting som a[i] osv. Laget også en 

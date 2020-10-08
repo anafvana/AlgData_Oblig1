@@ -7,11 +7,8 @@ package no.oslomet.cs.algdat;
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.NoSuchElementException;
-import java.util.StringJoiner;
-
 import java.util.Iterator;
 import java.util.Objects;
-import java.util.function.Predicate;
 
 
 
@@ -259,7 +256,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             throw new IndexOutOfBoundsException();
         }
 
-        T oldVerdi = null;
+        T oldVerdi;
         if(nyverdi == null) {
             throw new NullPointerException();
         } else {
@@ -294,8 +291,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hode.neste = hode.neste.neste;
             node.neste = null;
         } else if(node.equals(hale.forrige)){
-            Node<T> nodeForrige = node.forrige;
-            hale.forrige = nodeForrige;
+            hale.forrige = node.forrige;
             node.forrige.neste = null;
             node.forrige = null;
         } else {
@@ -481,7 +477,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
             fjernOK = false;
             Node<T> p = hode.neste;
-            Node<T> q = hale.forrige;
             if(hode.neste.equals(denne)) {
                 if(antall == 1) {
                     hode.neste = null;
@@ -498,7 +493,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 while (p.neste != denne) {
                     p = p.neste;
                 }
-                System.out.println(p.verdi);
                 if(denne == null) {
                     hale.forrige = p.forrige;
                     p.forrige.neste = null;
