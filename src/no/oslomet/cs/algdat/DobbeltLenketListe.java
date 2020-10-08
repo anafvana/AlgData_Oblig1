@@ -513,7 +513,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     //Gikk for bubblesort metoden
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
         //Hvis det er en tom liste eller en liste med ett element, ikke gjør noe mer
-        if(liste.antall() == 0 || liste.antall() == 1) {
+        if(liste.tom() || liste.antall() == 1) {
             return;
         }
         boolean byttet = true;
