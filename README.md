@@ -18,7 +18,7 @@ Oppgaven er levert av følgende studenter:
 * Mark van der Baan - s344105@oslomet.no
 * Øyvind Ødegård Stenberg - s188886@oslomet.no
 
-Vi har brukt git til å dokumentere arbeidet vårt. Vi har XXX commits totalt, og hver logg-melding beskriver det vi har gjort av endringer.
+Vi har brukt git til å dokumentere arbeidet vårt. Vi har omtrent 84 commits totalt, og hver logg-melding beskriver det vi har gjort av endringer.
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Ana har hatt hovedansvar for oppgave 1, 4, og 7. 
