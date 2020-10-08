@@ -354,26 +354,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                 curP.forrige.forrige = null;
                 curP.forrige.verdi = null;
                 curP.forrige.neste = null;
-                antall--;
-                endringer++;
             }
             //Sletter siste node
             curP.forrige = null;
             curP.verdi = null;
             curP.neste = null;
-            antall--;
+            antall = 0;
             endringer++;
         }
-
-        /*
-        //ANDRE MÅTE
-        //Hjelpevariabel slik at antall ikke endrer seg
-        int toDelete = antall;
-        if (antall>0) {
-            for (int i=0; i<toDelete; i++){
-                fjern(0);
-            }
-        }*/
     }
 
     public void nullstill2(){
@@ -384,7 +372,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             for (int i=0; i<toDelete; i++){
                 fjern(0);
             }
+            antall = 0;
+            endringer++;
         }
+
     }
 
     @Override

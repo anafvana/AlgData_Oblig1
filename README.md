@@ -28,11 +28,11 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 
 # Beskrivelse av oppgaveløsning (maks 5 linjer per oppgave)
 
-* Oppgave 1: Etter flere feilet forsøk, fant jeg denne versjon av konstruktoren som endelig fungerte. 
-             Oppgaven ble løst med å først finne den først non-null verdien og da begynne å lage den første noden.
-             Hoden ble lenket til denne første noden og deretter ble alle andre noder laget hvis verdien innehaldt i indeksen ikke var null.
+* Oppgave 1: Etter flere forsøk som ikke gikk veien, fant jeg denne versjon av konstruktoren som endelig fungerte. 
+             Oppgaven ble løst ved å først finne den første non-null verdien og da begynne å lage den første noden.
+             Hodet ble lenket til denne første noden og deretter ble alle andre noder laget hvis verdien til indeksen ikke var null.
              Når alle noder ble laget, da ble hale knyttet til den siste noden.
-             Siden antall noder ble oppdatert inn i konstruktoren (eller leggTil() metoden), antall() metode var enkelt: bare returnere antall.
+             Siden antall noder ble oppdatert inn i konstruktoren (eller leggTil() metoden), så var antall() metoden enkel: trengte bare å returnere antall.
              Metoden tom() bare sjekket om antall er lik 0 og returnerte true (hvis ja) og false (hvis ikke).
 
 * Oppgave 2: Løste oppgave 2a ved å bruke en StringBuilder. Valgte å appende en "[" før if-setningen og en "]" etter if-setningen. 
@@ -46,12 +46,12 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
              Oppdater() var ganske rett fram.
              subliste() var mye trial and erorr. Til slutt valgte jeg å bruke en Node liste samt med en for loop og bruk av finnNode og leggInn metodene. Som gjorde funksjonen till grei og lesbart.
 
-* Oppgave 4: Løste inneholder()  og indexTil() ved å, først sjekke om listen var tom eller verdien var null. Om ja, da returnerte den automatisk false eller -1. 
-             Ellers, var en hjelpevariabel (node p), som begynte som den første noden i listen, laget og verdien ble sjekket mot p.verdi.
-             I indexTil() er det også en andre hjelpevariabel (som skal fakstisk returneres i noe tilfeller), index. 
-             Den blir oppdatert (+1) hver gang verdien er ikke lik p.verdi, og returneres når de er like. Om det er ingen match, da returneres det -1.
-             Om verdien var den samme, returnerte metoden true. Ellers, ble p oppdatert til p.neste og while-loop'en fortsatte å kjøre til p ble null eller verdien ble fant.
-             For inneholder, likhet ble sjekket i en like måte. Om det ble funnet, da returnerte metoden true. Ellers, false.
+* Oppgave 4: Løste inneholder()  og indexTil() ved å først sjekke om listen var tom eller om verdien var null. Om ja, da returnerte den automatisk false eller -1. 
+             Ellers, lagde jeg en hjelpevariabel (node p) som begynte som den første noden i listen, og verdien ble sjekket mot p.verdi.
+             I indexTil() er det også en annen hjelpevariabel (som skal faktisk returneres i noe tilfeller), index. 
+             Den blir oppdatert (+1) hver gang verdien ikke er lik p.verdi, og returneres når de er like. Om det ikke er en match, da returneres det -1.
+             Om verdien var den samme, returnerte metoden true. Ellers, ble p oppdatert til p.neste og while-loop'en fortsatte å kjøre til p ble null eller verdien ble funnet.
+             For inneholder, ble likhet sjekket på en like måte. Om verdien ble funnet, da returnerte metoden true. Ellers, false.
               
 
 * Oppgave 5: Løste oppgaven ved å først tenke ut alle alternativer vi har, at den skal legges inn først når antall = 0 og først når antall er hva som helst annet - at den skal legges 
@@ -63,11 +63,11 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Oppgave 6: Denne oppgaven var ganske ok men hadde noe problemer med pekere. Måtte til slutt skrive ned hva som skjedde i funksjonen som hjalp mye.
              Etter at jeg har gått gjennom alt med pen og papir ble testen også godkjennt med det samme :).
 
-* Oppgave 7: Første måte ble laget ved å lage et hjelpevariabel (Node p) som tok inn den første noden i listen.
-             Om denne noden ikke var null, da gikk variabelen inn i en for loop hvor p ble oppdatert til den neste noden, og gammel p (nå p.forrige) verdiene ble satt til null.
-             Endelig, ble den siste p slettet.
-             Den andre måte ble løst ved å lage en hjelpevariabel som holdt verdien til antall (slik at den ikke ble endret i for-loopen når en node ble slettet).
-             Inn i en for-loop, ble hver node slettet ved å kalle slett(0). 
+* Oppgave 7: Første metode ble laget ved å lage en hjelpevariabel (Node p) som tok inn den første noden i listen.
+             Om denne noden ikke var null, da gikk variabelen inn i en for loop hvor p ble oppdatert til den neste noden, og den gamle p'en (nå p.forrige) sine verdier ble satt til null.
+             Til slutt, ble den siste p'en slettet.
+             Den andre metoden ble løst ved å lage en hjelpevariabel som inneholder verdien til antall (slik at den ikke ble endret i for-loopen når en node ble slettet).
+             Inni en for-loop, ble hver node slettet ved å kalle slett(0). 
 
 * Oppgave 8: Oppgave a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann. Så omgjøres fjernOK til true, sånn at 
              remove() metoden kan fjerne noe. Deretter blir denne omgjort til denne.neste (fordi første verdi = hode og hode.verdi = null) hvis ikke denne.neste.neste = null, da er denne = null for at next() ikke skal kalles igjen. 
