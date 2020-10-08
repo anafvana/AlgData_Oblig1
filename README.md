@@ -18,13 +18,14 @@ Oppgaven er levert av følgende studenter:
 * Mark van der Baan - s344105@oslomet.no
 * Øyvind Ødegård Stenberg - s188886@oslomet.no
 
-Vi har brukt git til å dokumentere arbeidet vårt. Vi har omtrent 84 commits totalt, og hver logg-melding beskriver det vi har gjort av endringer.
+Vi har brukt git til å dokumentere arbeidet vårt. Vi har omtrent 86 commits totalt, og hver logg-melding beskriver det vi har gjort av endringer.
 
 I oppgaven har vi hatt følgende arbeidsfordeling:
 * Ana har hatt hovedansvar for oppgave 1, 4, og 7. 
 * Øyvind har hatt hovedansvar for oppgave 2, 5, og 8. 
 * Mark har hatt hovedansvar for oppgave 3, 6 og 9. 
-* Vi har i fellesskap løst oppgave 10. 
+* Vi har i fellesskap løst oppgave 10.
+* Vi har også revidert hverendres kode, gitt insikt over GitHub, Skype og WhatsApp. 
 
 # Beskrivelse av oppgaveløsning (maks 5 linjer per oppgave)
 
@@ -63,11 +64,11 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Oppgave 6: Denne oppgaven var ganske ok men hadde noe problemer med pekere. Måtte til slutt skrive ned hva som skjedde i funksjonen som hjalp mye.
              Etter at jeg har gått gjennom alt med pen og papir ble testen også godkjennt med det samme :).
 
-* Oppgave 7: Første metode ble laget ved å lage en hjelpevariabel (Node p) som tok inn den første noden i listen.
+* Oppgave 7: Første versjon av metode ble laget ved å lage en hjelpevariabel (Node p) som tok inn den første noden i listen.
              Om denne noden ikke var null, da gikk variabelen inn i en for loop hvor p ble oppdatert til den neste noden, og den gamle p'en (nå p.forrige) sine verdier ble satt til null.
              Til slutt, ble den siste p'en slettet.
-             Den andre metoden ble løst ved å lage en hjelpevariabel som inneholder verdien til antall (slik at den ikke ble endret i for-loopen når en node ble slettet).
-             Inni en for-loop, ble hver node slettet ved å kalle slett(0). 
+             Den andre versjon av metoden ble løst ved å lage en hjelpevariabel som inneholder verdien til antall (slik at den ikke ble endret i for-loopen når en node ble slettet).
+             Inni en for-loop, ble hver node slettet ved å kalle slett(0). Begge to ble testet med en 40.000.000 tall liste og første versjon var raskere.
 
 * Oppgave 8: Oppgave a: Jeg gjorde akkurat som oppgaven sa, kastet en exception hvis iteratorendringer ikke er lik endringer og en annen exception hvis hasNext ikke er sann. Så omgjøres fjernOK til true, sånn at 
              remove() metoden kan fjerne noe. Deretter blir denne omgjort til denne.neste (fordi første verdi = hode og hode.verdi = null) hvis ikke denne.neste.neste = null, da er denne = null for at next() ikke skal kalles igjen. 

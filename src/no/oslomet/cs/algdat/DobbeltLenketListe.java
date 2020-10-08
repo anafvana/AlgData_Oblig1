@@ -341,6 +341,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         return node.verdi;
     }
 
+    //Første måte er mer effektiv (273.4ms vs. 422.1ms i gjennomsnitt - testet 10 ganger på en liste med 40_000_000 tall)
     @Override
     public void nullstill() {
         //FØRSTE MÅTE
@@ -364,7 +365,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
     }
 
-    public void nullstill2(){
+    /*public void nullstill(){
         //ANDRE MÅTE
         //Hjelpevariabel slik at antall ikke endrer seg
         int toDelete = antall;
@@ -375,8 +376,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             antall = 0;
             endringer++;
         }
-
-    }
+    }*/
 
     @Override
     public String toString() {
