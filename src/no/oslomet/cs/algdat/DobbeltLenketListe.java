@@ -446,7 +446,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public boolean hasNext(){
-            return denne.neste != null;
+            return denne != null;
         }
 
         @Override
@@ -457,10 +457,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             if(!hasNext()) {
                 throw new NoSuchElementException();
             }
-            denne = denne.neste;
+            T verdi;
             fjernOK = true;
-            T denneVerdi = denne.verdi;;
-            return denneVerdi;
+            if(denne.neste.neste == null) {
+                verdi = denne.neste.verdi;
+                denne = null;
+            } else {
+                verdi = denne.neste.verdi;
+                denne = denne.neste;
+            }
+
+            return verdi;
         }
 
         @Override
@@ -473,46 +480,39 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             }
 
             fjernOK = false;
-
-            if(antall == 1){
+            Node<T> p = hode.neste;
+            Node<T> q = hale.forrige;
+            if(hode.neste.equals(denne)) {
+                if(antall == 1) {
+                    hode.neste = null;
+                    hale.forrige = null;
+                } else {
+                    Node<T> t = p.neste;
+                    hode.neste = t;
+                    t.forrige = null;
+                }
+            } else if(antall == 1) {
                 hode.neste = null;
-                hale.forrige = null;
-            } else if(denne.equals(hale.forrige)){
-                //siste elementet må fjernes
-                Node<T> node = hale.forrige.forrige;
-                hale.forrige.forrige = null;
-                hale.forrige = node;
-                node.neste = null;
-                denne = hale;
-            } else if (hode.neste == denne){
-                //føste elementet fjernes
-                Node<T> node = denne.neste;
-                node.forrige = null;
-                hode.neste.neste = null;
-                hode.neste = node;
-                denne = hode;
-            } else if(denne.forrige == hode.neste) {
-                Node<T> node = denne.neste;
-                hode.neste.neste = node;
-                node.forrige = hode.neste;
-                denne.neste = null;
-                denne.forrige = null;
-                denne = node;
+                hale.neste = null;
             } else {
-                Node<T> node = denne.neste;
-                Node<T> nodeForrige = denne.forrige;
-                nodeForrige.neste = node;
-                node.forrige = nodeForrige;
-                denne.neste = null;
-                denne.forrige = null;
-                denne = node;
+                while (p.neste != denne) {
+                    p = p.neste;
+                }
+                System.out.println(p.verdi);
+                if(denne == null) {
+                    hale.forrige = p.forrige;
+                    p.forrige.neste = null;
+                } else {
+                    Node<T> s = denne.neste;
+                    p.neste = s;
+                    s.forrige = p;
+                }
             }
 
             antall --;
             endringer++;
             iteratorendringer++;
         }
-
     } // class DobbeltLenketListeIterator
 
 

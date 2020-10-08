@@ -1,6 +1,7 @@
 package no.oslomet.cs.algdat;
 
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,6 +36,36 @@ public class Main {
         System.out.println(strListe);
         DobbeltLenketListe.sorter(strListe, Comparator.naturalOrder());
         System.out.println(strListe);
+        DobbeltLenketListe<Integer> liste3 = new DobbeltLenketListe<>();
+        for(int i = 1; i <= 7; i++) {
+            liste3.leggInn(i);
+        }
+        System.out.println(liste3);
+        Iterator<Integer> it = liste3.iterator();
+
+        for(int i = 0; i < liste3.antall(); i++) {
+            System.out.print(it.next() + " ");
+        }
+
+        DobbeltLenketListe<Integer> liste4 = new DobbeltLenketListe<>();
+
+        for (int k = 1; k <= 13; k++) {
+            liste4.leggInn(k);
+        }
+        System.out.println();
+        for (Iterator<Integer> i = liste4.iterator(); i.hasNext(); ) {
+            int verdi = i.next();
+            if (verdi % 2 == 1) {
+                i.remove(); // fjerner oddetallene
+                System.out.println(liste4 + " - " + liste4.omvendtString());
+            }
+        }
+        Iterator<Integer> j = liste4.iterator();
+        for (; j.hasNext(); ) {
+            int verdi = j.next();
+            j.remove();
+            System.out.println(liste4 + " - " + liste4.omvendtString());
+        }
 
 
 // System.out.println(liste.subliste(0,11)); // skal kaste unntak
