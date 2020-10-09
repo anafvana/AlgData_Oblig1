@@ -41,10 +41,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public DobbeltLenketListe() {
-        /*
-        hode = new Node(null);
-        hale = new Node(null);
-       */
         hode = null;
         hale = null;
         antall = 0;
