@@ -10,14 +10,3 @@ DobbeltLenketListeTest           1s976ms
     oppgave8()  OK               2ms
     oppgave9()  OK               1ms
     oppgave10() OK               8ms
-
-
-WARNINGS:
-Method will throw an exception when parameter is null:144
-    public boolean leggInn(T verdi) har allerede "Objects.requireNonNull(verdi, "Ikke tillatt med null verdier!")" på linje 145.
-
-Method will throw an exception when parameter is null:164
-    public void leggInn(int indeks, T verdi) har allerede "Objects.requireNonNull(verdi, "Ikke tillatt med null verdier!")" på linje 145.
-
-Method will throw an exception when parameter is null: 252
-    public T oppdater(int indeks, T nyverdi) kaster allerede en unntak på linje 258-230 if(nyverdi == null) {throw new NullPointerException();}
